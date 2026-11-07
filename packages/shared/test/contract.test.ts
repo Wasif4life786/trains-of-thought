@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { CONTRACT_VERSION } from "../src/index";
+import { CONTRACT_VERSION, RecommendationResponseSchema } from "../src/index";
 import { FIXTURE_QUERY, createFixtureEngine, createFixtureRailProvider, createFixtureSignalProvider, loadFixtures } from "../src/fixtures";
 
 describe("the contract itself", () => {
@@ -50,6 +50,24 @@ describe("fake providers", () => {
     expect(options).toHaveLength(136);
     const curve = await rail.getFareCurve(options[0]!.id, "2026-11-07");
     expect(curve?.points.at(-1)?.daysBefore).toBe(0);
+  });
+
+  it("fake A2 and A3 also serve the way back (MAN → EUS), mirrored, with consistent ids", async () => {
+    const back = { ...FIXTURE_QUERY, origin: "MAN", destination: "EUS" };
+    const rail = createFixtureRailProvider();
+    const options = await rail.getJourneyOptions({ ...back, bookingDate: "2026-11-07" });
+    expect(options).toHaveLength(136);
+    expect(options.every((o) => o.origin === "MAN" && o.destination === "EUS" && o.id.startsWith("MAN-EUS-"))).toBe(true);
+    expect(options[0]!.callingPoints).toEqual(["SPT", "MAC", "SOT", "MKC"]);
+    expect(await rail.getFareCurve(options[0]!.id, "2026-11-07")).not.toBeNull();
+
+    const r = RecommendationResponseSchema.parse(await createFixtureEngine().recommend(back));
+    const ids = new Set(r.options.map((o) => o.journey.id));
+    expect(r.options.every((o) => o.journey.origin === "MAN" && o.journey.destination === "EUS")).toBe(true);
+    expect(r.best && ids.has(r.best.journey.id)).toBe(true);
+    expect(r.bookingAdvice?.journeyId).toBe(r.best?.journey.id);
+    for (const cell of r.heatmap) for (const id of cell.optionIds) expect(ids.has(id)).toBe(true);
+    expect(r.warnings.join(" ")).not.toMatch(/canned EUS → MAN example/);
   });
 
   it("fake A3 echoes the query and warns when it can't really answer it", async () => {

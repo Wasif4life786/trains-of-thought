@@ -1,6 +1,7 @@
-# Trains of Thought · team contract v1.0.0
+# Trains of Thought · team contract v1.2.0
 
-> The plan and the interfaces for the four-agent hivemind. This is the human-readable half of the contract; the
+> The plan and the interfaces for the four-agent hivemind (or one agent playing all four: see "Solo mode" in §3). This
+> is the human-readable half of the contract; the
 > machine-readable half is `packages/shared/src/` (zod schemas and types). They change together, only through §8,
 > and a test checks that the version above matches `CONTRACT_VERSION`.
 
@@ -18,6 +19,8 @@
 - **Contract first:** everyone codes against `@tot/shared` from minute one. Fixtures and fake providers mean nobody
   waits for anybody; real code replaces the fakes behind the same interfaces.
 - **Stay in your lane**, push small and often, and talk through `hivemind/` (see `hivemind/README.md`).
+- **Solo mode:** if teammates aren't contributing, one agent works every lane as `LEAD` (§3). The lanes stay as code
+  boundaries and the contract stays the contract; only the "who" changes.
 
 ## 1. Product
 
@@ -39,6 +42,13 @@ you there.
    fare curve.
 4. (P1) Opens **"What we cleaned"**: for each source, rows in → rows out and what we fixed and dropped. This is the
    messy-data story for the judges.
+5. Can sort every table by departure, price, reliability or score; apply a **railcard** to see discounted prices; and
+   follow a **Book** link to Trainline for the route and time. All of this lives in `packages/web`, on top of the API.
+6. Can choose **One way** or **Return**. A return is two API searches (the way there, then the same trip backwards for
+   the return dates); the website pairs a train each way (return trains must leave after the outbound one arrives) and
+   prices the trip as two single fares. Return *fares* aren't modelled yet (P2).
+7. If a route has no data, the website says so, never shows trains for a different route, and offers a Trainline
+   search instead.
 
 ### 1.3 Hero scenario (the demo script and the integration test)
 
@@ -47,20 +57,29 @@ Every lane makes this work first.
 
 | When | What the data says | What we should tell the user |
 |---|---|---|
-| Fri 16:00–23:00 | Peak fares (Anytime only), Friday getaway crowds, forecast gusts ~54 mph north of Stoke | Avoid: expensive, packed and exposed to wind |
+| Fri 16:00–19:00 | Peak fares (Advance or Anytime only), Friday getaway crowds | Avoid: expensive and packed |
 | Sat 09:00–20:00 | Manchester Christmas Markets | A little busier |
 | Sat 12:00–18:00 | Man City v Fulham at the Etihad (kick-off 15:00, provisional) | Don't arrive in this window |
 | Sat 16:30–23:30 | Sold-out concert at Co-op Live | Evening arrivals busy |
 | Sat 12:00–18:00 | Liverpool v Man Utd at Anfield | Must **not** affect this route (relevance check) |
 | Sun until 14:00 | Engineering works Milton Keynes–Rugby, diversions | Mornings risky |
-| Sun 14:00–19:00 | Heavy rain forecast, low confidence | Small risk |
+| Sun all day | Engineering works Preston–Wigan (affects Edinburgh ⇄ Manchester, not Euston) | Sunday risky on that route |
+| Whole weekend | The real forecast (checked 7 Nov) is calm everywhere on the routes | No weather reasons: the adapter only speaks up above its thresholds |
 | Booking today (7 Nov) | Advance fares step up at 14 and 7 days out | Book now |
 
-Expected answer: **a Saturday-morning train that arrives before the match crowds** (in the fixture: Sat 09:00,
-£38.40 Advance, 90% reliable) plus a book-now nudge. The fixture version is
-`packages/shared/fixtures/recommendation.json`; with real data the story must hold up the same way. The football
-fixtures are real (openfootball 2026/27); items marked "(sample)" are invented, so replace them with real ones where
-A1 finds them.
+The story the data should tell: Friday trains are dear and busy; Saturday trains arriving from about 11:30 to 18:30 run
+into the match (an early train arrives before the crowds and is unaffected); Sunday morning has engineering works; book
+Advance now because fares step up at 14 and 7 days out. Which single train is "best" depends on the slider and on
+the modelled fares and punctuality, so check the reasons rather than a fixed answer (in the old fixture it was Sat 09:00,
+£38.40 Advance; with the real lanes today it is a Sunday-evening train). The football fixtures, bank holidays and weather
+are real (openfootball 2026/27, GOV.UK, Open-Meteo); anything marked "(sample)" is invented and replaceable. The fixture
+version is `packages/shared/fixtures/recommendation.json`.
+
+**Second scenario: Edinburgh Waverley ⇄ Manchester Piccadilly** (TransPennine Express, about 3 h 15 min, nothing on
+the West Coast fast line to share crowds with). Same dates. It proves the system isn't a one-route demo: it must return
+scored trains, a heatmap and booking advice for this route in both directions, so a return trip works. The Man City
+home game on Saturday 21 Nov should show up as a reason for trains into Manchester, and Edinburgh should get its own
+weather.
 
 ### 1.4 Out of scope
 
@@ -117,6 +136,10 @@ There's no database: lanes read seeds from `data/raw/<lane>/`, cache live fetche
 Each agent also owns `hivemind/board/<id>.md`. The contract (`packages/shared/`, this file) changes only through §8.
 Everything else is team-wide and needs human approval. The machine-readable map is `hivemind/ownership.json`; the
 Claude guard hook and the git pre-commit hook enforce it.
+
+**Solo mode.** When the team isn't all contributing, one agent works every lane: the human runs
+`npm run hive:join -- LEAD` (no lane limits; contract and team files still need the human's approval). Keep the lane
+boundaries in the code anyway (§2.1) so teammates can pick a lane up later, and keep the per-lane boards current.
 
 ## 4. Conventions (MUST)
 
@@ -287,7 +310,7 @@ import { FIXTURE_QUERY, createFixtureSignalProvider, createFixtureRailProvider, 
 
 Every lane's stub starts out returning these, so `npm run dev` works end to end from minute one. Replace the fakes
 piece by piece. A4 can run the UI with no API at all: `VITE_USE_FIXTURES=1 npm run dev:web`. The fixture data covers
-EUS → MAN on 20–22 Nov 2026 only; files and sizes are listed in `packages/shared/fixtures/README.md`.
+EUS → MAN on 20–22 Nov 2026 only, plus the same trains mirrored as MAN → EUS so return trips can be built (the fake rail provider and fake engine both answer either direction); files and sizes are listed in `packages/shared/fixtures/README.md`.
 
 ### 5.5 Default scoring model (A3's starting point)
 
@@ -349,7 +372,8 @@ P0
 - **A1.7 `listSources()`:** one `SourceStatus` per adapter with an honest mode and quality counts.
 
 **Done at M1:** `getSignals({ from: "2026-11-20T00:00:00Z", to: "2026-11-22T23:59:59Z", stations: ["EUS", "MAN",
-"MKC", "SOT", "SPT"] })` returns ≥ 5 schema-valid signals, including ≥ 1 real weather and ≥ 1 real football signal,
+"MKC", "SOT", "SPT"] })` returns ≥ 5 schema-valid signals, including the real Man City v Fulham football signal (the real forecast is calm that
+weekend, so no weather signal is expected: the weather adapter is proven on the 17 Nov Bristol gale in the snapshot),
 offline too, in under 300 ms when warm.
 
 P1
@@ -373,8 +397,10 @@ P0
   ("Stoke-On-Trent" → "Stoke-on-Trent", "London Kings Cross" → "London King's Cross", aliases like "Euston" and
   "Piccadilly"); fuzzy search (§5.2); `getStation`.
 - **A2.2 Timetable model.** `data/raw/rail/routes.json` for the hero corridors in both directions: EUS–MAN, EUS–LIV,
-  EUS–BHM, KGX–LDS, KGX–EDB, PAD–BRI (operator, minutes past the hour, first/last departure per day type, duration,
-  calling points). Expand into `JourneyOption[]` for any London date range and time window, ids `ORIGIN-DEST-departAt`.
+  EUS–BHM, KGX–LDS, KGX–EDB, PAD–BRI, **EDB–MAN** (the second scenario, §1.3) and MAN–LDS (operator, minutes past the
+  hour, first/last departure per day type, duration, calling points). These are modelled patterns, not published
+  timetables: label them as such (`seed:`). Expand into `JourneyOption[]` for any London date range and time window,
+  ids `ORIGIN-DEST-departAt`.
 - **A2.3 Fares.** A walk-up table per route (anytime / off-peak / super off-peak, in pence); peak rules (weekday
   departures before 09:30 and 16:00–18:59 from London, and the mirror image for morning arrivals into London);
   Advance pricing by days before travel (on sale 12 weeks out, stepping up at 28/14/7/2 days, some trains sell out).
@@ -523,3 +549,5 @@ request per ❌ and don't fix other lanes' code.
 | Version | When | Who | Change |
 |---|---|---|---|
 | 1.0.0 | 2026-11-07 | setup | Initial contract: lanes, schemas, HTTP API, fixtures, tasks |
+| 1.1.0 | 2026-11-07 | setup | Fake providers also serve MAN → EUS (mirrored EUS → MAN fixtures) so return trips can be built; shapes unchanged |
+| 1.2.0 | 2026-11-07 | LEAD | Solo mode; return trips, railcards, sorting and Trainline links documented (website-only); Edinburgh ⇄ Manchester second scenario; EDB–MAN and MAN–LDS added to A2.2; shapes unchanged |

@@ -1,5 +1,5 @@
 /** Fixture-only model helpers. No JSON imports here, so scripts/generate-fixtures.ts can use them before the fixtures exist. */
-import type { FareCurve, FarePoint, JourneyOption, RecommendationQuery } from "./schemas";
+import type { FareCurve, FarePoint, JourneyOption, RecommendationQuery, RecommendationResponse, ScoredOption } from "./schemas";
 import { addDays, daysBetween, utcToLondon } from "./time";
 
 /** "Today" in the canned scenario: fixture fares are priced as if bought on this date. */
@@ -16,6 +16,31 @@ export const FIXTURE_QUERY: RecommendationQuery = {
   priority: 0.5,
   bookingDate: FIXTURE_BOOKING_DATE,
 };
+
+/** The same service running the other way (the fixtures only contain EUS → MAN; return trips need MAN → EUS). */
+export function mirrorJourney(j: JourneyOption): JourneyOption {
+  return { ...j, id: `${j.destination}-${j.origin}-${j.departAt}`, origin: j.destination, destination: j.origin, callingPoints: [...j.callingPoints].reverse() };
+}
+
+/** A canned recommendation turned around, with every journey id kept consistent (options, heatmap cells, booking advice). */
+export function mirrorRecommendation(r: RecommendationResponse): RecommendationResponse {
+  const newIds = new Map(r.options.map((o) => [o.journey.id, mirrorJourney(o.journey).id]));
+  const newId = (id: string) => newIds.get(id) ?? id;
+  const mirrorOption = (o: ScoredOption): ScoredOption => ({ ...o, journey: mirrorJourney(o.journey) });
+  return {
+    ...r,
+    query: { ...r.query, origin: r.query.destination, destination: r.query.origin },
+    best: r.best && mirrorOption(r.best),
+    options: r.options.map(mirrorOption),
+    heatmap: r.heatmap.map((cell) => ({ ...cell, optionIds: cell.optionIds.map(newId) })),
+    bookingAdvice: r.bookingAdvice && {
+      ...r.bookingAdvice,
+      journeyId: newId(r.bookingAdvice.journeyId),
+      curve: { ...r.bookingAdvice.curve, journeyId: newId(r.bookingAdvice.curve.journeyId) },
+    },
+    warnings: [...r.warnings, "Fixture data: the way back mirrors the way there (same trains, opposite direction)."],
+  };
+}
 
 /** Advance fares cost more as travel approaches: multiplier on the on-sale price; null = sold out. */
 export function advanceMultiplier(daysBefore: number): number | null {

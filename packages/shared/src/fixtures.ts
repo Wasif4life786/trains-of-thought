@@ -9,7 +9,7 @@ import recommendationJson from "../fixtures/recommendation.json";
 import signalsJson from "../fixtures/signals.json";
 import sourcesJson from "../fixtures/sources.json";
 import stationsJson from "../fixtures/stations.json";
-import { FIXTURE_QUERY, fixtureFareCurve } from "./fixture-model";
+import { FIXTURE_QUERY, fixtureFareCurve, mirrorJourney, mirrorRecommendation } from "./fixture-model";
 import type { Engine, RailProvider, SignalProvider } from "./providers";
 import {
   JourneyOptionSchema,
@@ -25,7 +25,7 @@ import {
 } from "./schemas";
 import { overlaps, utcToLondon } from "./time";
 
-export { FIXTURE_BOOKING_DATE, FIXTURE_QUERY, advanceMultiplier, fixtureFareCurve } from "./fixture-model";
+export { FIXTURE_BOOKING_DATE, FIXTURE_QUERY, advanceMultiplier, fixtureFareCurve, mirrorJourney, mirrorRecommendation } from "./fixture-model";
 
 export interface Fixtures {
   stations: Station[];
@@ -70,9 +70,10 @@ export function createFixtureSignalProvider(): SignalProvider {
   };
 }
 
-/** Fake A2: 31 stations, and EUS → MAN departures for Fri 20 – Sun 22 Nov 2026 only. */
+/** Fake A2: 31 stations, and EUS ⇄ MAN departures (the way back mirrors the way there) for Fri 20 – Sun 22 Nov 2026 only. */
 export function createFixtureRailProvider(): RailProvider {
-  const journeys = () => loadFixtures().journeyOptions;
+  let both: JourneyOption[] | undefined;
+  const journeys = () => (both ??= [...loadFixtures().journeyOptions, ...loadFixtures().journeyOptions.map(mirrorJourney)]);
   return {
     name: "fixture",
     async searchStations(query, limit = 8) {
@@ -103,19 +104,22 @@ export function createFixtureRailProvider(): RailProvider {
   };
 }
 
-/** Fake A3: the canned EUS → MAN answer whatever you ask (with a warning when you asked something else). */
+/** Fake A3: the canned EUS → MAN answer, or its mirror for MAN → EUS, whatever the dates (with a warning for any other route). */
 export function createFixtureEngine(): Engine {
   return {
     name: "fixture",
     async recommend(q) {
       const canned = loadFixtures().recommendation;
-      const sameRoute = q.origin === FIXTURE_QUERY.origin && q.destination === FIXTURE_QUERY.destination;
+      const there = q.origin === FIXTURE_QUERY.origin && q.destination === FIXTURE_QUERY.destination;
+      const back = q.origin === FIXTURE_QUERY.destination && q.destination === FIXTURE_QUERY.origin;
+      const base = back ? mirrorRecommendation(canned) : canned;
       return {
-        ...canned,
+        ...base,
         query: q,
-        warnings: sameRoute
-          ? canned.warnings
-          : [...canned.warnings, `Fixture engine: showing the canned ${FIXTURE_QUERY.origin} → ${FIXTURE_QUERY.destination} example, not ${q.origin} → ${q.destination}.`],
+        warnings:
+          there || back
+            ? base.warnings
+            : [...base.warnings, `Fixture engine: showing the canned ${FIXTURE_QUERY.origin} → ${FIXTURE_QUERY.destination} example, not ${q.origin} → ${q.destination}.`],
       };
     },
   };

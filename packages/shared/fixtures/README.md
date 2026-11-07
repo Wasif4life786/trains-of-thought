@@ -14,7 +14,7 @@ node -e 'const r = require("./packages/shared/fixtures/recommendation.json"); co
 |---|---|---|
 | `stations.json` | 31 stations on the hero corridors (CRS, name, lat/lon, aliases) | fake A2 `searchStations`; A1 for coordinates |
 | `signals.json` | 7 signals for Fri 20 – Sun 22 Nov 2026: wind, two football matches, Christmas markets, a concert, engineering works, rain | fake A1 |
-| `journey-options.json` | 136 Avanti West Coast EUS → MAN departures over those three days, priced as if bought on 2026-11-07 | fake A2 |
+| `journey-options.json` | 136 Avanti West Coast EUS → MAN departures over those three days, priced as if bought on 2026-11-07 (the fake provider also serves them mirrored as MAN → EUS) | fake A2 |
 | `sources.json` | 10 `SourceStatus` records with illustrative data-quality numbers | fake A1/A2 `listSources` |
 | `recommendation.json` | the full answer to `FIXTURE_QUERY`, made with the default model (contract.md §5.5) | fake A3 engine, A4 UI |
 | `recommendation.sample.json` | trimmed valid copy for reading: best pick, one option per verdict, 6 heatmap cells | humans and agents |
