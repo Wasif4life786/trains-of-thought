@@ -12,6 +12,7 @@ agent stays in its lane and codes against the contract.
 1. Read the hivemind briefing injected at session start (or run `npm run hive:status`): who you are, what you own,
    requests waiting for you, and the team board.
 2. No identity? Stop and ask your human which lane you are. They run `npm run hive:join -- A<n>`.
+   Working alone? Your human runs `npm run hive:join -- LEAD` and you may work in every lane (contract.md §3, solo mode).
 3. Run `npm run hive:sync` (pull --rebase, reinstall if needed, show status) before you start a task.
 4. Your tasks are in **contract.md §6** under your id. Interfaces: §5. Conventions: §4. Milestones: §7.
 
