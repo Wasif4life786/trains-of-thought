@@ -1,0 +1,45 @@
+route,fare,amount
+EUS-MAN,Anytime Single,£214.00
+EUS-MAN,Off-Peak Single,£108.50
+EUS-MAN,Super Off-Peak Single,£67.20
+EUS-MAN,Advance from,£24.00
+EUS-MAN,Advance to,£44.00
+EUS-MAN,Anytime Return,£390.00
+eus–liv,anytime,£199.00
+eus–liv,off peak,£ 99.00
+eus–liv,super off-peak,63
+eus–liv,advance from,22
+eus–liv,advance to,£42.00
+EUS-BHM,ANYTIME SINGLE,£127.00
+EUS-BHM,OFF-PEAK SINGLE,72.5
+EUS-BHM,SUPER OFF-PEAK SINGLE,£48.00
+EUS-BHM,ADVANCE FROM,£12.00
+EUS-BHM,ADVANCE TO,£30.00
+KGX-LDS,Anytime Single,"£210.00"
+KGX-LDS,Off-Peak Single,£114.00
+KGX-LDS,Super Off-Peak Single,£74.00
+KGX-LDS,Advance from,£20.00
+KGX-LDS,Advance to,£40.00
+KGX-LDS,Off-Peak Single,£114.00
+KGX-EDB,Anytime Single,£198.00
+KGX-EDB,Off-Peak Single,£116.00
+KGX-EDB,Super Off-Peak Single,£95.00
+KGX-EDB,Advance from,£27.00
+KGX-EDB,Advance to,£60.00
+PAD-BRI,Anytime Single,£110.00
+PAD-BRI,Off-Peak Single,£64.00
+PAD-BRI,Super Off-Peak Single,£52.00
+PAD-BRI,Advance from,£10.00
+PAD-BRI,Advance to,£28.00
+Season Ticket,,
+EDB-MAN,Anytime Single,£132.00
+EDB-MAN,Off-Peak Single,£94.00
+EDB-MAN,Super Off-Peak Single,£80.00
+EDB-MAN,Advance from,£12.00
+EDB-MAN,Advance to,£26.00
+MAN-LDS,Anytime Single,£34.50
+MAN-LDS,Off-Peak Single,£27.50
+MAN-LDS,Super Off-Peak Single,£23.00
+MAN-LDS,Advance from,£7.00
+MAN-LDS,Advance to,TBC
+MAN-LDS,Advance to,£15.00

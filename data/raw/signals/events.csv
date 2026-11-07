@@ -1,0 +1,20 @@
+event,type,venue,date,start,expected
+Sold-out arena concert,concert,Co-op Live,21/11/2026,19:30,23500
+Sold-out arena concert,concert,Co op Live,21/11/2026,19:30,23500
+Christmas Markets,event,Manchester city centre,2026-11-20,10:00,
+Christmas Markets,event,Manchester city centre,2026-11-21,10:00,
+Christmas Markets,event,Manchester city centre,Sun 22 Nov 2026,10:00,
+Arena show,concert,Utilita Arena Birmingham,20/11/2026,7.30pm,15800
+Arena show,concert,M&S Bank Arena Liverpool,2026-11-20,19:00,11000
+Arena show,concert,First Direct Arena,22/11/2026,18:30,13500
+Edinburgh's Christmas,event,Princes Street Gardens,2026-11-21,12:00,
+Edinburgh's Christmas,event,Princes Street Gardens,2026-11-22,12:00,
+Autumn rugby international,event,Murrayfield Stadium,21/11/2026,14:15,67144
+Arena show,concert,AO Arena,28/11/2026,19:00,21000
+Arena show,concert,OVO Hydro,27/11/2026,19:30,14300
+Stadium concert,concert,Wembley Stadium,05/12/2026,18:00,90000
+Arena show,concert,Co-op Live,29/11/2026,,23500
+Arena show,concert,Utilita Arena Newcastle,05/12/2026,19:00,
+Arena show,concert,Nowhere Arena,21/11/2026,19:30,5000
+Arena show,concert,Co-op Live,not a date,19:30,23500
+Old gig,concert,Co-op Live,01/03/2026,19:30,23500

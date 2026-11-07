@@ -14,4 +14,4 @@ owner (§7.2).
 
 ## Tuning log (weights you changed and why)
 
--
+- None yet: weights are the contract §5.5 defaults. Reason text says "historically", not "over the past year", because the engine can't know the history window.

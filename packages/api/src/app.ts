@@ -9,6 +9,7 @@ import {
   type Engine,
   type Health,
   type RailProvider,
+  type RecommendationResponse,
   type SignalProvider,
 } from "@tot/shared";
 
@@ -16,22 +17,40 @@ export interface AppDeps {
   signals: SignalProvider;
   rail: RailProvider;
   engine: Engine;
+  /** Used when a real lane throws, so the demo never shows a 500 (contract.md A3.4). Typically the fixture providers. */
+  fallback?: { signals: SignalProvider; rail: RailProvider; engine: Engine };
+  /** How long an identical search is served from memory. Default 5 minutes; 0 turns the cache off. */
+  cacheMs?: number;
 }
 
 const searchParams = (req: Request) => new URL(req.originalUrl, "http://localhost").searchParams;
 const isZodError = (err: unknown): err is ZodError => err instanceof ZodError || (err instanceof Error && err.name === "ZodError");
+const errorText = (err: unknown) => (err instanceof Error ? err.message : String(err));
 
 /**
- * The HTTP API (contract.md §5.3). A3 owns it; every response must validate against the shared schemas.
- * TODO(A3): when a provider throws, fall back to its fixture and add a warning instead of a 500 (contract.md A3.4).
+ * The HTTP API (contract.md §5.3). Every response validates against the shared schemas. If a lane throws we answer
+ * from its fallback with a warning instead of failing; only bad input gets an error (400).
  */
-export function createApp({ signals, rail, engine }: AppDeps) {
+export function createApp({ signals, rail, engine, fallback, cacheMs = 5 * 60_000 }: AppDeps) {
   const app = express();
   app.disable("x-powered-by");
   app.use((_req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     next();
   });
+
+  /** Runs `real`; if it throws and there's a fallback, logs and runs that instead. */
+  async function guarded<T>(what: string, real: () => Promise<T>, backup: (() => Promise<T>) | undefined): Promise<{ value: T; degraded: boolean }> {
+    try {
+      return { value: await real(), degraded: false };
+    } catch (err) {
+      if (!backup) throw err;
+      console.error(`${what} failed, using the fallback:`, errorText(err));
+      return { value: await backup(), degraded: true };
+    }
+  }
+
+  const cache = new Map<string, { at: number; body: RecommendationResponse }>();
 
   app.get(API_ROUTES.health, (_req, res) => {
     const health: Health = {
@@ -45,19 +64,38 @@ export function createApp({ signals, rail, engine }: AppDeps) {
 
   app.get(API_ROUTES.stations, async (req, res) => {
     const params = searchParams(req);
-    res.json(await rail.searchStations(params.get("q") ?? "", Number(params.get("limit") ?? 8)));
+    const q = params.get("q") ?? "";
+    const limit = Math.min(20, Math.max(1, Number(params.get("limit")) || 8));
+    const { value } = await guarded("rail.searchStations", () => rail.searchStations(q, limit), fallback && (() => fallback.rail.searchStations(q, limit)));
+    res.json(value);
   });
 
   app.get(API_ROUTES.recommendations, async (req, res) => {
-    res.json(await engine.recommend(parseRecommendationQuery(searchParams(req))));
+    const q = parseRecommendationQuery(searchParams(req));
+    const key = JSON.stringify(q);
+    const hit = cache.get(key);
+    if (hit && Date.now() - hit.at < cacheMs) {
+      res.json(hit.body);
+      return;
+    }
+    const { value, degraded } = await guarded("engine.recommend", () => engine.recommend(q), fallback && (() => fallback.engine.recommend(q)));
+    const body: RecommendationResponse = degraded ? { ...value, warnings: [...value.warnings, "The live engine failed, so this answer comes from demo fixtures."] } : value;
+    if (!degraded && cacheMs > 0) cache.set(key, { at: Date.now(), body });
+    res.json(body);
   });
 
   app.get(API_ROUTES.signals, async (req, res) => {
-    res.json(await signals.getSignals(parseSignalQuery(searchParams(req))));
+    const q = parseSignalQuery(searchParams(req));
+    const { value } = await guarded("signals.getSignals", () => signals.getSignals(q), fallback && (() => fallback.signals.getSignals(q)));
+    res.json(value);
   });
 
   app.get(API_ROUTES.sources, async (_req, res) => {
-    res.json([...(await signals.listSources()), ...(await rail.listSources())]);
+    const [fromSignals, fromRail] = await Promise.all([
+      guarded("signals.listSources", () => signals.listSources(), fallback && (() => fallback.signals.listSources())),
+      guarded("rail.listSources", () => rail.listSources(), fallback && (() => fallback.rail.listSources())),
+    ]);
+    res.json([...fromSignals.value, ...fromRail.value]);
   });
 
   app.use("/api", (_req, res) => {
@@ -70,7 +108,7 @@ export function createApp({ signals, rail, engine }: AppDeps) {
       return;
     }
     console.error(err);
-    res.status(500).json({ error: { code: "internal", message: err instanceof Error ? err.message : String(err) } });
+    res.status(500).json({ error: { code: "internal", message: errorText(err) } });
   };
   app.use(onError);
 

@@ -1,0 +1,82 @@
+{
+  "$comment": "Hand-curated SAMPLE strikes and engineering works (source id seed:disruptions): invented for the demo, labelled (sample), operator names deliberately inconsistent. Times are London wall clock. impact: engineering = late night only | reduced service | diversions | partial closure | line closed; strike = overtime ban | partial | full walkout | national.",
+  "items": [
+    {
+      "type": "engineering",
+      "title": "Engineering works Milton Keynes to Rugby",
+      "operators": ["Avanti West Coast", "London Northwestern"],
+      "stations": ["EUS", "MKC", "RUG", "NMP"],
+      "from": "2026-11-22 00:00",
+      "to": "2026-11-22 14:00",
+      "impact": "diversions",
+      "detail": "Trains diverted via Northampton, about 25 minutes longer",
+      "status": "confirmed"
+    },
+    {
+      "type": "engineering",
+      "title": "Engineering works Preston to Wigan",
+      "operators": ["TransPennine Express", "Avanti West Coast"],
+      "stations": ["PRE", "WGN"],
+      "from": "2026-11-22 00:00",
+      "to": "2026-11-22 23:59",
+      "impact": "partial closure",
+      "detail": "Buses replace some trains between Preston and Wigan",
+      "status": "confirmed"
+    },
+    {
+      "type": "engineering",
+      "title": "Engineering works Kings Cross to Peterborough",
+      "operators": ["LNER"],
+      "stations": ["KGX", "PBO"],
+      "from": "2026-11-21 22:00",
+      "to": "2026-11-22 08:00",
+      "impact": "reduced service",
+      "detail": "Fewer trains overnight and first trains later",
+      "status": "confirmed"
+    },
+    {
+      "type": "engineering",
+      "title": "Signalling work Carlisle to Lockerbie",
+      "operators": ["TPE", "Avanti West Coast"],
+      "stations": ["CAR", "LOC"],
+      "from": "2026-11-28 20:00",
+      "to": "2026-11-29 06:00",
+      "impact": "late night only",
+      "detail": "Late-night trains retimed",
+      "status": "confirmed"
+    },
+    {
+      "type": "strike",
+      "title": "RMT strike on TransPennine Express",
+      "operators": ["TransPennine Express"],
+      "stations": [],
+      "from": "2026-11-27",
+      "to": "2026-11-27",
+      "impact": "full walkout",
+      "detail": "Most services cancelled",
+      "status": "announced"
+    },
+    {
+      "type": "strike",
+      "title": "ASLEF strike on LNER",
+      "operators": ["London North Eastern Railway"],
+      "stations": [],
+      "from": "2026-12-04",
+      "to": "2026-12-04",
+      "impact": "partial",
+      "detail": "Called off after talks",
+      "status": "cancelled"
+    },
+    {
+      "type": "engineering",
+      "title": "Track renewal Reading",
+      "operators": ["Great Western Railway"],
+      "stations": ["RDG"],
+      "from": "2026-11-14 22:00",
+      "to": "2026-11-15 06:00",
+      "impact": "late night only",
+      "detail": "Late trains retimed",
+      "status": "unknown"
+    }
+  ]
+}

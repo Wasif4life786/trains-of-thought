@@ -17,7 +17,7 @@ describe("HTTP API (all lanes wired together)", () => {
   beforeAll(async () => {
     const signals = createSignalProvider();
     const rail = createRailProvider();
-    server = createApp({ signals, rail, engine: createEngine({ signals, rail }) }).listen(0);
+    server = createApp({ signals, rail, engine: createEngine({ signals, rail }), cacheMs: 0 }).listen(0);
     await new Promise((resolve) => server.once("listening", resolve));
     api = createApiClient({ baseUrl: `http://127.0.0.1:${(server.address() as AddressInfo).port}` });
   });

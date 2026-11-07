@@ -1,0 +1,27 @@
+{
+  "$comment": "Forecast points along the modelled corridors and the stations each one speaks for. Curated by hand: Open-Meteo is asked for these coordinates and weather signals are scoped to these stations.",
+  "points": [
+    { "id": "london", "name": "London", "lat": 51.53, "lon": -0.13, "stations": ["EUS", "KGX", "PAD", "STP", "WFJ"] },
+    { "id": "milton-keynes", "name": "Milton Keynes", "lat": 52.03, "lon": -0.77, "stations": ["MKC", "NMP"] },
+    { "id": "rugby", "name": "Rugby and Coventry", "lat": 52.38, "lon": -1.25, "stations": ["RUG", "COV"] },
+    { "id": "birmingham", "name": "Birmingham", "lat": 52.48, "lon": -1.9, "stations": ["BHM", "BHI"] },
+    { "id": "stoke", "name": "Stoke-on-Trent and Crewe", "lat": 53.0, "lon": -2.2, "stations": ["SOT", "CRE", "MAC", "STA"] },
+    { "id": "manchester", "name": "Manchester", "lat": 53.48, "lon": -2.23, "stations": ["MAN", "MCV", "SPT", "WML", "MIA", "MCO"] },
+    { "id": "liverpool", "name": "Liverpool", "lat": 53.41, "lon": -2.98, "stations": ["LIV", "LPY", "RUN"] },
+    { "id": "wigan-preston", "name": "Wigan and Preston", "lat": 53.65, "lon": -2.68, "stations": ["WGN", "PRE"] },
+    { "id": "lancaster", "name": "Lancaster", "lat": 54.05, "lon": -2.8, "stations": ["LAN"] },
+    { "id": "carlisle", "name": "Carlisle", "lat": 54.89, "lon": -2.93, "stations": ["CAR"] },
+    { "id": "edinburgh", "name": "Edinburgh", "lat": 55.95, "lon": -3.19, "stations": ["EDB", "HYM"] },
+    { "id": "huddersfield", "name": "Huddersfield and Dewsbury", "lat": 53.65, "lon": -1.78, "stations": ["HUD", "DEW", "MIR"] },
+    { "id": "leeds", "name": "Leeds", "lat": 53.8, "lon": -1.55, "stations": ["LDS", "WKF"] },
+    { "id": "peterborough", "name": "Peterborough", "lat": 52.57, "lon": -0.25, "stations": ["PBO"] },
+    { "id": "doncaster", "name": "Doncaster", "lat": 53.52, "lon": -1.14, "stations": ["DON"] },
+    { "id": "york", "name": "York", "lat": 53.96, "lon": -1.09, "stations": ["YRK"] },
+    { "id": "darlington", "name": "Darlington", "lat": 54.52, "lon": -1.55, "stations": ["DAR"] },
+    { "id": "newcastle", "name": "Newcastle", "lat": 54.97, "lon": -1.62, "stations": ["NCL"] },
+    { "id": "berwick", "name": "Berwick-upon-Tweed", "lat": 55.77, "lon": -2.0, "stations": ["BWK"] },
+    { "id": "reading", "name": "Reading and Didcot", "lat": 51.46, "lon": -1.1, "stations": ["RDG", "DID"] },
+    { "id": "swindon", "name": "Swindon and Chippenham", "lat": 51.5, "lon": -1.9, "stations": ["SWI", "CPM"] },
+    { "id": "bristol", "name": "Bristol and Bath", "lat": 51.43, "lon": -2.47, "stations": ["BRI", "BTH"] }
+  ]
+}
