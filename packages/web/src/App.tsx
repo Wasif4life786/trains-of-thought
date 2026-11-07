@@ -1,6 +1,7 @@
 import { useEffect, useState, type ChangeEvent, type ReactNode } from "react";
 import { formatPence, operatorName, type RecommendationQuery, type RecommendationResponse, type ScoredOption } from "@tot/shared";
 import { api, usingFixtures } from "./api";
+import { StationPicker } from "./StationPicker";
 
 // Starter UI so the whole pipeline is visible from minute one. A4 (Platform) owns this package: redesign freely (contract.md §6.4).
 
@@ -49,7 +50,7 @@ export function App() {
     void search(START);
   }, []);
 
-  const bind = (key: "origin" | "destination" | "dateFrom" | "dateTo") => ({
+  const bind = (key: "dateFrom" | "dateTo") => ({
     value: query[key],
     onChange: (e: ChangeEvent<HTMLInputElement>) => setQuery({ ...query, [key]: e.target.value }),
   });
@@ -69,12 +70,12 @@ export function App() {
         }}
         className="mb-8 grid grid-cols-2 items-end gap-3 sm:grid-cols-6"
       >
-        <Field label="From (CRS)">
-          <input className={INPUT} {...bind("origin")} />
-        </Field>
-        <Field label="To (CRS)">
-          <input className={INPUT} {...bind("destination")} />
-        </Field>
+        <div className="col-span-2 sm:col-span-1">
+          <StationPicker label="From" value={query.origin} onChange={(origin) => setQuery({ ...query, origin })} />
+        </div>
+        <div className="col-span-2 sm:col-span-1">
+          <StationPicker label="To" value={query.destination} onChange={(destination) => setQuery({ ...query, destination })} />
+        </div>
         <Field label="First day">
           <input type="date" className={INPUT} {...bind("dateFrom")} />
         </Field>
