@@ -1,0 +1,21 @@
+node_modules/
+dist/
+coverage/
+.vite/
+*.log
+.DS_Store
+
+# secrets — copy .env.example to .env
+.env
+.env.*
+!.env.example
+
+# live-fetch cache (each machine has its own; demo snapshots go in data/raw/**/snapshot/)
+data/cache/*
+!data/cache/.gitkeep
+
+# hivemind identity of this checkout (npm run hive:join -- A<n>)
+.hive/
+
+# personal Claude Code overrides
+.claude/settings.local.json

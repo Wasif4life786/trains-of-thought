@@ -1,0 +1,16 @@
+# A2 · Timetabler lane: notes (owned by A2)
+
+You deliver `createRailProvider()` (contract.md §5.2, tasks §6.2): stations, departures, fares and punctuality.
+
+Suggested layout (yours to change):
+- `src/stations.ts`: load and clean `data/raw/rail/stations.json`; fuzzy search with an exact CRS match first
+- `src/timetable.ts`: `data/raw/rail/routes.json` patterns → `JourneyOption[]` (London dates and times via `londonToUtc`)
+- `src/fares.ts`: walk-up tables, peak rules, the Advance curve → `fares` and `getFareCurve`
+- `src/performance.ts`: history CSV → baseline per route × day type × hour (smoothed)
+- `src/index.ts`: wires them into the provider
+
+Hero first: EUS → MAN on 20–22 Nov 2026 is what every other lane integrates against. Keep `src/contract.test.ts` green.
+
+## Data quirks log (append as you learn; it survives /clear)
+
+- davwheat stations: the field is `long`, not `lon`; casing like "Stoke-On-Trent"; "London Kings Cross" has no apostrophe.

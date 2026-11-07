@@ -1,0 +1,191 @@
+[
+  {
+    "id": "open-meteo:MAN:2026-11-20T16:gusts",
+    "kind": "weather",
+    "title": "Strong winds, gusts to 54 mph",
+    "detail": "Forecast 13 days out, so low confidence · West Coast Main Line north of Stoke",
+    "source": "open-meteo",
+    "start": "2026-11-20T16:00:00Z",
+    "end": "2026-11-20T23:00:00Z",
+    "place": {
+      "name": "Manchester",
+      "lat": 53.47722,
+      "lon": -2.23014
+    },
+    "scope": {
+      "stations": [
+        "MAN",
+        "SPT",
+        "MAC",
+        "SOT",
+        "WML",
+        "CRE"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.55,
+    "metrics": {
+      "windGustKph": 87
+    },
+    "url": "https://open-meteo.com/"
+  },
+  {
+    "id": "seed:events:2026-11-21:manchester-christmas-markets",
+    "kind": "event",
+    "title": "Manchester Christmas Markets (sample)",
+    "detail": "Busy Saturday, extra leisure demand into Piccadilly",
+    "source": "seed:events",
+    "start": "2026-11-21T09:00:00Z",
+    "end": "2026-11-21T20:00:00Z",
+    "place": {
+      "name": "Manchester city centre",
+      "lat": 53.4794,
+      "lon": -2.2453
+    },
+    "scope": {
+      "stations": [
+        "MAN",
+        "MCV"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 0.2,
+    "confidence": 0.9
+  },
+  {
+    "id": "openfootball:2026-11-21:liverpool-v-manchester-united",
+    "kind": "football",
+    "title": "Liverpool v Man United",
+    "detail": "Anfield · kick-off 15:00 (likely to move for TV) · 61,276 seats",
+    "source": "openfootball",
+    "start": "2026-11-21T12:00:00Z",
+    "end": "2026-11-21T18:00:00Z",
+    "place": {
+      "name": "Anfield",
+      "lat": 53.4308,
+      "lon": -2.9608
+    },
+    "scope": {
+      "stations": [
+        "LIV"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 1,
+    "confidence": 0.5,
+    "metrics": {
+      "capacity": 61276
+    }
+  },
+  {
+    "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "kind": "football",
+    "title": "Man City v Fulham",
+    "detail": "Etihad Stadium · kick-off 15:00 (provisional until TV picks) · 53,400 seats",
+    "source": "openfootball",
+    "start": "2026-11-21T12:00:00Z",
+    "end": "2026-11-21T18:00:00Z",
+    "place": {
+      "name": "Etihad Stadium",
+      "lat": 53.4831,
+      "lon": -2.2004
+    },
+    "scope": {
+      "stations": [
+        "MAN",
+        "MCV"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 0.8,
+    "confidence": 0.6,
+    "metrics": {
+      "capacity": 53400
+    }
+  },
+  {
+    "id": "seed:events:2026-11-21:co-op-live-concert",
+    "kind": "concert",
+    "title": "Sold-out arena concert at Co-op Live (sample)",
+    "detail": "Doors 18:30, show 19:30 · 23,500 capacity",
+    "source": "seed:events",
+    "start": "2026-11-21T16:30:00Z",
+    "end": "2026-11-21T23:30:00Z",
+    "place": {
+      "name": "Co-op Live",
+      "lat": 53.4848,
+      "lon": -2.1997
+    },
+    "scope": {
+      "stations": [
+        "MAN",
+        "MCV"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.8,
+    "metrics": {
+      "capacity": 23500
+    }
+  },
+  {
+    "id": "seed:disruptions:2026-11-22:wcml-mkc-rug",
+    "kind": "engineering_works",
+    "title": "Engineering works Milton Keynes to Rugby (sample)",
+    "detail": "Trains diverted via Northampton, about 25 minutes longer",
+    "source": "seed:disruptions",
+    "start": "2026-11-22T00:00:00Z",
+    "end": "2026-11-22T14:00:00Z",
+    "scope": {
+      "stations": [
+        "EUS",
+        "MKC",
+        "RUG",
+        "NMP"
+      ],
+      "operators": [
+        "VT",
+        "LM"
+      ],
+      "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.9
+  },
+  {
+    "id": "open-meteo:SOT:2026-11-22T14:rain",
+    "kind": "weather",
+    "title": "Heavy rain, 9 mm an hour",
+    "detail": "Forecast 15 days out, so low confidence · Stoke to Manchester",
+    "source": "open-meteo",
+    "start": "2026-11-22T14:00:00Z",
+    "end": "2026-11-22T19:00:00Z",
+    "place": {
+      "name": "Stoke-on-Trent",
+      "lat": 53.008012,
+      "lon": -2.181119
+    },
+    "scope": {
+      "stations": [
+        "SOT",
+        "MAC",
+        "SPT",
+        "MAN"
+      ],
+      "operators": [],
+      "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.45,
+    "metrics": {
+      "precipitationMmPerHour": 9
+    }
+  }
+]

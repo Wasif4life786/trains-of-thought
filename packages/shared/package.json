@@ -1,0 +1,19 @@
+{
+  "name": "@tot/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "THE CONTRACT: zod schemas, types, helpers, fixtures and fake providers shared by every lane.",
+  "exports": {
+    ".": "./src/index.ts",
+    "./fixtures": "./src/fixtures.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "test": "vitest run",
+    "fixtures": "tsx scripts/generate-fixtures.ts"
+  },
+  "dependencies": {
+    "zod": "^4.6.7"
+  }
+}

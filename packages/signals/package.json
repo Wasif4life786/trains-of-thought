@@ -1,0 +1,19 @@
+{
+  "name": "@tot/signals",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A1 Signaller: messy world data (weather, football, events, strikes, works, holidays) → Signal[]",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "ingest": "tsx src/ingest.ts"
+  },
+  "dependencies": {
+    "@tot/shared": "*",
+    "zod": "^4.6.7"
+  }
+}

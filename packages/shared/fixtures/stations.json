@@ -1,0 +1,296 @@
+[
+  {
+    "crs": "EUS",
+    "name": "London Euston",
+    "lat": 51.528853,
+    "lon": -0.134191,
+    "aliases": [
+      "Euston",
+      "London"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "KGX",
+    "name": "London King's Cross",
+    "lat": 51.532395,
+    "lon": -0.123022,
+    "aliases": [
+      "Kings Cross",
+      "King's Cross",
+      "London"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "PAD",
+    "name": "London Paddington",
+    "lat": 51.517095,
+    "lon": -0.177317,
+    "aliases": [
+      "Paddington",
+      "London"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "MAN",
+    "name": "Manchester Piccadilly",
+    "lat": 53.47722,
+    "lon": -2.23014,
+    "aliases": [
+      "Manchester",
+      "Piccadilly"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "MCV",
+    "name": "Manchester Victoria",
+    "lat": 53.487975,
+    "lon": -2.242485,
+    "aliases": [
+      "Manchester",
+      "Victoria"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "LIV",
+    "name": "Liverpool Lime Street",
+    "lat": 53.407299,
+    "lon": -2.977746,
+    "aliases": [
+      "Liverpool",
+      "Lime Street"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "BHM",
+    "name": "Birmingham New Street",
+    "lat": 52.477646,
+    "lon": -1.898694,
+    "aliases": [
+      "Birmingham",
+      "New Street"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "BHI",
+    "name": "Birmingham International",
+    "lat": 52.450673,
+    "lon": -1.725149,
+    "aliases": [
+      "Birmingham Airport",
+      "NEC"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "LDS",
+    "name": "Leeds",
+    "lat": 53.794414,
+    "lon": -1.548621,
+    "aliases": [
+      "Leeds City"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "EDB",
+    "name": "Edinburgh Waverley",
+    "lat": 55.951902,
+    "lon": -3.19042,
+    "aliases": [
+      "Edinburgh",
+      "Waverley"
+    ],
+    "country": "scotland"
+  },
+  {
+    "crs": "BRI",
+    "name": "Bristol Temple Meads",
+    "lat": 51.449099,
+    "lon": -2.580403,
+    "aliases": [
+      "Bristol",
+      "Temple Meads"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "MKC",
+    "name": "Milton Keynes Central",
+    "lat": 52.034201,
+    "lon": -0.774826,
+    "aliases": [
+      "Milton Keynes"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "WFJ",
+    "name": "Watford Junction",
+    "lat": 51.663945,
+    "lon": -0.396111,
+    "aliases": [
+      "Watford"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "NMP",
+    "name": "Northampton",
+    "lat": 52.237433,
+    "lon": -0.906689,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "RUG",
+    "name": "Rugby",
+    "lat": 52.379035,
+    "lon": -1.250274,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "COV",
+    "name": "Coventry",
+    "lat": 52.400787,
+    "lon": -1.513466,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "STA",
+    "name": "Stafford",
+    "lat": 52.803581,
+    "lon": -2.122626,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "SOT",
+    "name": "Stoke-on-Trent",
+    "lat": 53.008012,
+    "lon": -2.181119,
+    "aliases": [
+      "Stoke"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "MAC",
+    "name": "Macclesfield",
+    "lat": 53.259331,
+    "lon": -2.121397,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "CRE",
+    "name": "Crewe",
+    "lat": 53.088963,
+    "lon": -2.432636,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "WML",
+    "name": "Wilmslow",
+    "lat": 53.327099,
+    "lon": -2.226009,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "SPT",
+    "name": "Stockport",
+    "lat": 53.40545,
+    "lon": -2.163044,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "RDG",
+    "name": "Reading",
+    "lat": 51.45922,
+    "lon": -0.972318,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "SWI",
+    "name": "Swindon",
+    "lat": 51.5657,
+    "lon": -1.785284,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "BTH",
+    "name": "Bath Spa",
+    "lat": 51.377602,
+    "lon": -2.356719,
+    "aliases": [
+      "Bath"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "PBO",
+    "name": "Peterborough",
+    "lat": 52.574604,
+    "lon": -0.250316,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "DON",
+    "name": "Doncaster",
+    "lat": 53.521954,
+    "lon": -1.139915,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "WKF",
+    "name": "Wakefield Westgate",
+    "lat": 53.682212,
+    "lon": -1.50558,
+    "aliases": [
+      "Wakefield"
+    ],
+    "country": "england"
+  },
+  {
+    "crs": "YRK",
+    "name": "York",
+    "lat": 53.957966,
+    "lon": -1.093159,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "DAR",
+    "name": "Darlington",
+    "lat": 54.520462,
+    "lon": -1.54732,
+    "aliases": [],
+    "country": "england"
+  },
+  {
+    "crs": "NCL",
+    "name": "Newcastle",
+    "lat": 54.968336,
+    "lon": -1.616046,
+    "aliases": [
+      "Newcastle upon Tyne",
+      "Newcastle Central"
+    ],
+    "country": "england"
+  }
+]

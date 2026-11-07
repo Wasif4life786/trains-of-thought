@@ -1,0 +1,17 @@
+{
+  "name": "@tot/engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "A3 Controller: scores every departure for price + reliability, explains why, and advises when to book",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@tot/shared": "*"
+  }
+}

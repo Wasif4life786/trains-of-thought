@@ -1,0 +1,176 @@
+[
+  {
+    "id": "open-meteo",
+    "name": "Open-Meteo hourly forecast",
+    "lane": "signals",
+    "mode": "live",
+    "fetchedAt": "2026-11-07T20:55:00Z",
+    "quality": {
+      "rowsIn": 1152,
+      "rowsOut": 6,
+      "fixed": {
+        "kmh_to_mph": 1152,
+        "hours_merged_into_windows": 11
+      },
+      "dropped": {
+        "below_threshold": 1137,
+        "merged": 9
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "openfootball",
+    "name": "openfootball Premier League 2026/27",
+    "lane": "signals",
+    "mode": "live",
+    "fetchedAt": "2026-11-07T20:55:00Z",
+    "quality": {
+      "rowsIn": 380,
+      "rowsOut": 378,
+      "fixed": {
+        "team_alias_resolved": 380,
+        "kickoff_assumed_london_time": 380
+      },
+      "dropped": {
+        "duplicate_fixture": 2
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "thesportsdb",
+    "name": "TheSportsDB (TV kick-off times)",
+    "lane": "signals",
+    "mode": "live",
+    "fetchedAt": "2026-11-07T20:55:00Z",
+    "quality": {
+      "rowsIn": 10,
+      "rowsOut": 0,
+      "fixed": {
+        "kickoff_moved_for_tv": 3
+      },
+      "dropped": {
+        "merged_into_openfootball": 10
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "gov-uk-bank-holidays",
+    "name": "GOV.UK bank holidays",
+    "lane": "signals",
+    "mode": "cache",
+    "fetchedAt": "2026-11-07T09:12:00Z",
+    "quality": {
+      "rowsIn": 213,
+      "rowsOut": 53,
+      "fixed": {
+        "curly_apostrophes": 6
+      },
+      "dropped": {
+        "past_dates": 160
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "seed:events",
+    "name": "Big events near stations (curated CSV)",
+    "lane": "signals",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 64,
+      "rowsOut": 57,
+      "fixed": {
+        "ddmmyyyy_dates": 23,
+        "venue_alias_resolved": 19
+      },
+      "dropped": {
+        "duplicate": 5,
+        "past_event": 2
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "seed:disruptions",
+    "name": "Strikes & engineering works (curated)",
+    "lane": "signals",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 9,
+      "rowsOut": 8,
+      "fixed": {
+        "operator_name_to_atoc": 9
+      },
+      "dropped": {
+        "cancelled_works": 1
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "rail:stations",
+    "name": "UK stations (davwheat/uk-railway-stations)",
+    "lane": "rail",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 2609,
+      "rowsOut": 2609,
+      "fixed": {
+        "name_case_normalised": 41,
+        "alias_added": 120
+      },
+      "dropped": {}
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "rail:timetable",
+    "name": "Timetable model (hero corridors)",
+    "lane": "rail",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 6,
+      "rowsOut": 6,
+      "fixed": {},
+      "dropped": {}
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "rail:fares",
+    "name": "Fare tables and Advance curve",
+    "lane": "rail",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 24,
+      "rowsOut": 24,
+      "fixed": {
+        "pounds_to_pence": 24
+      },
+      "dropped": {}
+    },
+    "note": "Fixture: illustrative numbers"
+  },
+  {
+    "id": "rail:performance",
+    "name": "Punctuality history",
+    "lane": "rail",
+    "mode": "seed",
+    "quality": {
+      "rowsIn": 48210,
+      "rowsOut": 46873,
+      "fixed": {
+        "delay_parsed_from_text": 1820,
+        "crs_from_station_name": 412
+      },
+      "dropped": {
+        "missing_actual_time": 1102,
+        "duplicate": 235
+      }
+    },
+    "note": "Fixture: illustrative numbers"
+  }
+]
