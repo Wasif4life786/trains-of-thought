@@ -2,8 +2,15 @@
 
 ## To do for humans (accounts and keys the agents can't get)
 
-- [ ] **Ticketmaster API key** (optional, A1): free key from the Ticketmaster developer portal. Put it in `.env` as `TICKETMASTER_API_KEY=...`, never in chat or git. The signals adapter turns itself on when it's set (`npm run ingest -w @tot/signals`).
-- [ ] **Realtime Trains sign-up** (A2.9): register for a free API account at https://api.rtt.io and add the credentials to `.env`. This replaces the synthetic punctuality history with real timetables and delays.
+- [x] **Ticketmaster API key** (A1, done 2026-11-08): in `.env` as `TICKETMASTER_API_KEY`. Check it with `npm run ingest -w @tot/signals` (the `ticketmaster` row should say `live`).
+- [x] **Realtime Trains token** (A2.9, done 2026-11-08). For a new machine:
+  1. Open https://api-portal.rtt.io, click "Sign in with RTT" (create the Realtime Trains account there if needed).
+  2. Request an API token (free personal tier; it's a refresh token).
+  3. Add `RTT_TOKEN=<token>` to `.env`. Never paste it in chat or git.
+  4. Run `npm run fetch:rtt -w @tot/rail -- --wait` (about 4 hours for every corridor at 100 requests an hour; resumable).
+- [ ] **Before the demo:** freeze the real data so the demo works offline: `npm run ingest -w @tot/signals -- --snapshot`
+  and `npm run fetch:rtt -w @tot/rail -- --snapshot`, then commit `data/raw/signals/snapshot/` and `data/raw/rail/rtt/`.
+  The repo must stay private: Realtime Trains' free tier is personal, non-commercial use.
 - [ ] **A real walk-up fares source** (A2): there's no free open feed. Options: the National Rail Data Portal fares feed (sign-up, slow approval), a licensed fares API, or a hand-checked table from Trainline or operator sites. Until then fares stay modelled and labelled "(sample)".
 
 ## For humans: setup (about 5 minutes)

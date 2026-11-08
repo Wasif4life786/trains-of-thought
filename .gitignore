@@ -19,3 +19,7 @@ data/cache/*
 
 # personal Claude Code overrides
 .claude/settings.local.json
+
+# editor folders
+.idea/
+.vscode/
