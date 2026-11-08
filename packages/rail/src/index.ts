@@ -7,6 +7,7 @@ import {
   type FarePoint,
   type JourneyOption,
   type RailProvider,
+  type RouteRef,
   type SourceStatus,
 } from "@tot/shared";
 import { ADVANCE_ON_SALE_DAYS, faresFor, loadFares } from "./fares";
@@ -101,6 +102,13 @@ export function createRailProvider(): RailProvider {
         return { journeyId, bookingDate, points, advanceOnSale: addDays(date, -ADVANCE_ON_SALE_DAYS) };
       }
       return null;
+    },
+
+    async listRoutes(): Promise<RouteRef[]> {
+      return loadRoutes().flatMap((r) => [
+        { origin: r.from, destination: r.to, operator: r.operator },
+        { origin: r.to, destination: r.from, operator: r.operator },
+      ]);
     },
 
     async listSources(): Promise<SourceStatus[]> {
