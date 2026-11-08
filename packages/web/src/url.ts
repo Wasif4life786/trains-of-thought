@@ -15,6 +15,15 @@ export const DEFAULT_STATE: FormState = {
   query: { origin: "EUS", destination: "MAN", dateFrom: "2026-11-20", dateTo: "2026-11-22", earliest: "05:00", latest: "23:30" },
 };
 
+/**
+ * With the live API: open on today and the next two days, so the forecast uses the freshest data (live weather, today's
+ * TfL status, upcoming events, the latest real punctuality). DEFAULT_STATE (the 20–22 Nov hero weekend) stays for
+ * fixture mode, which only covers those dates.
+ */
+export function liveDefaults(today: string): FormState {
+  return { view: DEFAULT_STATE.view, query: { ...DEFAULT_STATE.query, dateFrom: today, dateTo: addDays(today, 2) } };
+}
+
 /** A query string → state; anything missing or invalid falls back to the defaults, never an error. */
 export function readState(search: string, fallback: FormState = DEFAULT_STATE): FormState {
   const params = new URLSearchParams(search);

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { DEFAULT_STATE, networkQuery, readState, writeState, type FormState } from "./url";
+import { DEFAULT_STATE, liveDefaults, networkQuery, readState, writeState, type FormState } from "./url";
 
 describe("URL state", () => {
   const state: FormState = {
@@ -34,6 +34,11 @@ describe("URL state", () => {
       earliest: "05:00",
       latest: "23:30",
     });
+  });
+
+  it("opens the live dashboard on today and the next two days, unless the link says otherwise", () => {
+    expect(readState("", liveDefaults("2026-11-08")).query).toMatchObject({ dateFrom: "2026-11-08", dateTo: "2026-11-10", origin: "EUS", destination: "MAN" });
+    expect(readState("?origin=EDB&destination=MAN&dateFrom=2026-11-21", liveDefaults("2026-11-08")).query.dateFrom).toBe("2026-11-21");
   });
 
   it("caps the network view at 7 days", () => {

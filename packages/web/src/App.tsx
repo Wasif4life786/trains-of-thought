@@ -1,11 +1,11 @@
 import { useEffect, useState, type ChangeEvent, type ReactNode } from "react";
-import { MAX_NETWORK_DAYS, type InputsResponse, type NetworkResponse, type OperationsResponse, type RouteRef } from "@tot/shared";
+import { MAX_NETWORK_DAYS, londonToday, type InputsResponse, type NetworkResponse, type OperationsResponse, type RouteRef } from "@tot/shared";
 import { api, usingFixtures } from "./api";
 import { InputsView } from "./InputsView";
 import { NetworkView } from "./NetworkView";
 import { RouteBoard } from "./RouteBoard";
 import { StationPicker } from "./StationPicker";
-import { networkQuery, readState, writeState, type FormState, type View } from "./url";
+import { DEFAULT_STATE, liveDefaults, networkQuery, readState, writeState, type FormState, type View } from "./url";
 
 // A4 (Platform) owns this package: redesign freely (contract.md §6.4).
 
@@ -43,7 +43,7 @@ async function fetchView(s: FormState): Promise<Result> {
 
 export function App() {
   // The form starts from the address bar, so a shared link reproduces the view.
-  const [initial] = useState(() => readState(window.location.search));
+  const [initial] = useState(() => readState(window.location.search, usingFixtures ? DEFAULT_STATE : liveDefaults(londonToday())));
   const [state, setState] = useState<FormState>(initial);
   const [result, setResult] = useState<Result | null>(null);
   const [error, setError] = useState<string | null>(null);
