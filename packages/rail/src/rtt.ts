@@ -121,6 +121,12 @@ function readDir(dir: string): { route: string; date: string; file: string }[] {
   );
 }
 
+/** Changes whenever a day is added or rewritten in the cache or snapshot: count + newest modification time. */
+export function rttSignature(dirs = { cache: RTT_CACHE_DIR, snapshot: RTT_SNAPSHOT_DIR }): string {
+  const files = [...readDir(dirs.cache), ...readDir(dirs.snapshot)];
+  return `${files.length}|${files.reduce((t, f) => Math.max(t, statSync(f.file).mtimeMs), 0)}`;
+}
+
 /** Every saved day, from this machine's cache if it has any, else the committed snapshot. */
 export function loadRttHistory(durationOf: (route: string) => number | undefined, dirs = { cache: RTT_CACHE_DIR, snapshot: RTT_SNAPSHOT_DIR }): RttHistory {
   const fromCache = readDir(dirs.cache);

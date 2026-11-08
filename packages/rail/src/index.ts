@@ -30,8 +30,7 @@ function loadModel() {
     const [a, b] = route.split("-");
     return routes.find((r) => (r.from === a && r.to === b) || (r.from === b && r.to === a))?.patterns[0]?.durationMin;
   };
-  const performance = loadPerformance(stations, known, durationOf);
-  return { stations, routes, fares, performance };
+  return { stations, routes, fares, known, durationOf };
 }
 
 /**
@@ -40,7 +39,11 @@ function loadModel() {
  */
 export function createRailProvider(): RailProvider {
   let model: ReturnType<typeof loadModel> | undefined;
-  const data = () => (model ??= loadModel());
+  // Punctuality is looked up on every call: it reloads itself when new Realtime Trains days have been fetched.
+  const data = () => {
+    model ??= loadModel();
+    return { ...model, performance: loadPerformance(model.stations, model.known, model.durationOf) };
+  };
 
   function journeyFor(service: Service, routeId: string, bookingDate: string): JourneyOption | null {
     const { fares, performance } = data();

@@ -1,6 +1,6 @@
 import type { QualityReport, ReliabilityBaseline } from "@tot/shared";
 import { bump, clamp01, parseCsv, readRaw, round } from "./data";
-import { loadRttHistory, type RttHistory } from "./rtt";
+import { loadRttHistory, rttSignature, type RttHistory } from "./rtt";
 import type { StationIndex } from "./stations";
 
 export interface Observation {
@@ -220,21 +220,37 @@ export interface PerformanceData {
   rtt: RttHistory;
 }
 
-let cached: PerformanceData | undefined;
+let synthetic: { model: BaselineModel; quality: QualityReport } | undefined;
+let cached: (PerformanceData & { signature: string; checkedAt: number }) | undefined;
+/** How often to look for newly fetched Realtime Trains days (one directory listing). */
+const RECHECK_MS = 60_000;
+
+const NO_RTT: RttHistory = { observations: [], quality: { rowsIn: 0, rowsOut: 0, fixed: {}, dropped: {} }, mode: null, days: 0, routes: 0 };
 
 /**
  * The synthetic history gives every route × day class × hour a baseline; real Realtime Trains arrivals, where we have
- * them, are layered on top and win wherever they have enough observations.
+ * them, are layered on top and win wherever they have enough observations. The real part is reloaded when
+ * `npm run fetch:rtt` saves new days, so a running API picks them up without a restart.
  */
 export function loadPerformance(stations: StationIndex, knownRoutes: ReadonlySet<string>, durationOf: (route: string) => number | undefined = () => undefined): PerformanceData {
-  if (!cached) {
+  if (!synthetic) {
     const { observations, quality } = cleanPerformance(readRaw("performance.csv"), stations, knownRoutes);
-    const synthetic = buildBaseline(observations);
-    // Tests stay deterministic: they never see whatever this machine happens to have fetched.
-    const rtt: RttHistory = process.env.VITEST
-      ? { observations: [], quality: { rowsIn: 0, rowsOut: 0, fixed: {}, dropped: {} }, mode: null, days: 0, routes: 0 }
-      : loadRttHistory((route) => (knownRoutes.has(route) ? durationOf(route) : undefined));
-    cached = { model: rtt.observations.length > 0 ? buildBaseline(rtt.observations, synthetic) : synthetic, quality, rtt };
+    synthetic = { model: buildBaseline(observations), quality };
   }
+  // Tests stay deterministic: they never see whatever this machine happens to have fetched.
+  if (process.env.VITEST) {
+    cached ??= { model: synthetic.model, quality: synthetic.quality, rtt: NO_RTT, signature: "", checkedAt: Infinity };
+    return cached;
+  }
+
+  const now = Date.now();
+  if (cached && now - cached.checkedAt < RECHECK_MS) return cached;
+  const signature = rttSignature();
+  if (cached && cached.signature === signature) {
+    cached.checkedAt = now;
+    return cached;
+  }
+  const rtt = loadRttHistory((route) => (knownRoutes.has(route) ? durationOf(route) : undefined));
+  cached = { model: rtt.observations.length > 0 ? buildBaseline(rtt.observations, synthetic.model) : synthetic.model, quality: synthetic.quality, rtt, signature, checkedAt: now };
   return cached;
 }
