@@ -25,8 +25,9 @@ const ADAPTERS: { id: string; name: string; run: Adapter }[] = [
   { id: "seed:disruptions", name: "Strikes and engineering works (curated sample)", run: disruptions },
   { id: "tfl-status", name: "TfL line status near the London termini", run: tfl },
   { id: "seasonal:leaf-fall", name: "Autumn leaf-fall adhesion (modelled seasonal rule)", run: seasonal },
-  // Real concerts: only when a Ticketmaster key is set (TICKETMASTER_API_KEY in .env), otherwise there is nothing to read.
-  ...(process.env.TICKETMASTER_API_KEY ? [{ id: "ticketmaster", name: "Ticketmaster Discovery (real concerts and events)", run: ticketmaster }] : []),
+  // Real concerts. Always registered: the adapter reads TICKETMASTER_API_KEY when it runs and reports nothing without
+  // one. (Checking the key here, at import time, ran before server.ts / ingest.ts had loaded .env, so it never fired.)
+  { id: "ticketmaster", name: "Ticketmaster Discovery (real concerts and events)", run: ticketmaster },
 ];
 
 /** How long a loaded source is reused before it's fetched again. */

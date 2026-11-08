@@ -65,6 +65,25 @@ describe("Ticketmaster", () => {
     invariant(quality);
   });
 
+  it("matches Ticketmaster's own venue names nearby, but not every bar next to an arena", () => {
+    const at = (name: string, latitude: string, longitude: string) => ({ venues: [{ name, location: { latitude, longitude } }] });
+    const feed = JSON.stringify({
+      _embedded: {
+        events: [
+          event("v1", "", { _embedded: at("Leeds First Direct Bank Arena", "53.804616", "-1.544073") }), // real name and spot (2026-11-08)
+          event("v2", "", { _embedded: at("O2 Academy Leeds", "53.8030", "-1.5470") }), // a different, smaller venue next door
+          event("v3", "", { _embedded: at("First Direct Arena", "51.50", "-0.12") }), // right name, wrong city: matched by name alone
+        ],
+      },
+    });
+    const { signals, quality } = buildTicketmaster(feed, venues);
+    expect(signals.map((s) => s.id)).toEqual(["ticketmaster:v1", "ticketmaster:v3"]);
+    expect(signals[0]).toMatchObject({ title: "Big Gig at First Direct Arena", scope: { stations: ["LDS"] } });
+    expect(quality.fixed).toEqual({ venue_name_variant_matched: 1 });
+    expect(quality.dropped).toEqual({ venue_not_near_our_stations: 1 });
+    invariant(quality);
+  });
+
   it("copes with no events at all", () => {
     expect(buildTicketmaster("{}", venues)).toMatchObject({ signals: [], quality: { rowsIn: 0, rowsOut: 0 } });
   });

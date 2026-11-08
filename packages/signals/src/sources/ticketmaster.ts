@@ -6,8 +6,8 @@ import { parseVenues, type Venue } from "./events";
 const ID = "ticketmaster";
 const NAME = "Ticketmaster Discovery (real concerts and events)";
 
-// Shape from the public Discovery API docs (developer.ticketmaster.com). Needs TICKETMASTER_API_KEY, so this is exercised by
-// its tests on a hand-written sample; it has not been run against the live API.
+// Shape from the public Discovery API docs (developer.ticketmaster.com), checked against the live API on 2026-11-08.
+// Needs TICKETMASTER_API_KEY; the tests use a hand-written sample.
 const Feed = z.object({
   _embedded: z
     .object({
@@ -17,12 +17,31 @@ const Feed = z.object({
           name: z.string(),
           dates: z.object({ start: z.object({ localDate: z.string().optional(), localTime: z.string().optional() }) }),
           classifications: z.array(z.object({ segment: z.object({ name: z.string().optional() }).optional() })).optional(),
-          _embedded: z.object({ venues: z.array(z.object({ name: z.string() })).optional() }).optional(),
+          _embedded: z
+            .object({
+              venues: z
+                .array(z.object({ name: z.string(), location: z.object({ latitude: z.string(), longitude: z.string() }).optional() }))
+                .optional(),
+            })
+            .optional(),
         }),
       ),
     })
     .optional(),
 });
+
+/** Great-circle distance in km. */
+function km(aLat: number, aLon: number, bLat: number, bLon: number): number {
+  const rad = Math.PI / 180;
+  const h = Math.sin(((bLat - aLat) * rad) / 2) ** 2 + Math.cos(aLat * rad) * Math.cos(bLat * rad) * Math.sin(((bLon - aLon) * rad) / 2) ** 2;
+  return 12_742 * Math.asin(Math.sqrt(h));
+}
+
+/**
+ * Ticketmaster names venues its own way ("Leeds First Direct Bank Arena"). A venue within 750 m matches when its name
+ * contains every word of one of our multi-word names for it; distance alone would sweep in every bar next to an arena.
+ */
+const NEAR_KM = 0.75;
 
 const norm = (s: string) => s.toLowerCase().replace(/&/g, " and ").replace(/[^a-z0-9 ]+/g, " ").replace(/\s+/g, " ").trim();
 
@@ -35,8 +54,18 @@ export function buildTicketmaster(json: string, venues: Map<string, Venue>): { s
   const seen = new Set<string>();
 
   for (const e of events) {
-    const venueName = e._embedded?.venues?.[0]?.name ?? "";
-    const venue = venues.get(norm(venueName));
+    const tmVenue = e._embedded?.venues?.[0];
+    let venue = venues.get(norm(tmVenue?.name ?? ""));
+    if (!venue && tmVenue?.location) {
+      const lat = Number(tmVenue.location.latitude);
+      const lon = Number(tmVenue.location.longitude);
+      const words = new Set(norm(tmVenue.name).split(" "));
+      venue = [...venues.entries()].find(([name, v]) => {
+        const ours = name.split(" ");
+        return ours.length >= 2 && ours.every((w) => words.has(w)) && km(lat, lon, v.lat, v.lon) <= NEAR_KM;
+      })?.[1];
+      if (venue) bump(fixed, "venue_name_variant_matched");
+    }
     if (!venue) {
       bump(dropped, "venue_not_near_our_stations");
       continue;
@@ -78,14 +107,37 @@ export function buildTicketmaster(json: string, venues: Map<string, Venue>): { s
 }
 
 /** Only registered when TICKETMASTER_API_KEY is set (see index.ts): without a key there is nothing to read. */
+/** Venues big enough to move rail demand; smaller ones are curated by hand in events.csv. */
+const MIN_CAPACITY = 8_000;
+
+/**
+ * One search per big venue we know (events within 1 km over the next 30 days), not one national search: GB has ~9,000
+ * listed events a month, so a date-sorted national page only covers the next day or so, mostly small London venues.
+ */
 export const ticketmaster: Adapter = async (ctx) => {
   const key = process.env.TICKETMASTER_API_KEY;
   if (!key) return { signals: [], statuses: [] };
   const from = ctx.now.toISOString().slice(0, 19) + "Z";
   const to = new Date(ctx.now.getTime() + 30 * 86_400_000).toISOString().slice(0, 19) + "Z";
-  const url = `https://app.ticketmaster.com/discovery/v2/events.json?countryCode=GB&size=200&sort=date,asc&startDateTime=${from}&endDateTime=${to}&apikey=${key}`;
-  const got = await fetchText(ID, url, "ticketmaster-events.json", ctx);
-  if (!got) return { signals: [], statuses: [downStatus(ID, NAME, "No live data or cache available")] };
-  const { signals, quality } = buildTicketmaster(got.text, parseVenues(readRaw("venues.csv")));
-  return { signals, statuses: [{ id: ID, name: NAME, lane: "signals", mode: got.mode, ...(got.fetchedAt ? { fetchedAt: got.fetchedAt } : {}), quality }] };
+  const venues = parseVenues(readRaw("venues.csv"));
+  const big = [...new Set(venues.values())].filter((v) => v.capacity >= MIN_CAPACITY);
+
+  const events: unknown[] = [];
+  const modes: string[] = [];
+  let fetchedAt: string | undefined;
+  for (const v of big) {
+    const url = `https://app.ticketmaster.com/discovery/v2/events.json?latlong=${v.lat},${v.lon}&radius=1&unit=km&size=100&sort=date,asc&startDateTime=${from}&endDateTime=${to}&apikey=${key}`;
+    const got = await fetchText(`${ID}-${slug(v.venue)}`, url, `ticketmaster-${slug(v.venue)}.json`, ctx);
+    if (!got) continue;
+    modes.push(got.mode);
+    fetchedAt ??= got.fetchedAt;
+    events.push(...((JSON.parse(got.text) as { _embedded?: { events?: unknown[] } })._embedded?.events ?? []));
+  }
+  if (modes.length === 0) return { signals: [], statuses: [downStatus(ID, NAME, "No live data or cache available")] };
+  const { signals, quality } = buildTicketmaster(JSON.stringify({ _embedded: { events } }), venues);
+  const mode = modes.includes("live") ? "live" : modes.includes("cache") ? "cache" : "seed";
+  return {
+    signals,
+    statuses: [{ id: ID, name: NAME, lane: "signals", mode, ...(fetchedAt ? { fetchedAt } : {}), quality, note: `${modes.length} of ${big.length} big venues searched` }],
+  };
 };
