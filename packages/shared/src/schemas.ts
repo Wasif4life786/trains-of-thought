@@ -4,7 +4,7 @@
  */
 import { z } from "zod";
 
-export const CONTRACT_VERSION = "1.2.0";
+export const CONTRACT_VERSION = "1.4.0";
 
 // ── Primitives ──────────────────────────────────────────────────────────────
 
@@ -213,6 +213,8 @@ export const ReasonSchema = z.object({
   reliabilityDelta: z.number().min(-1).max(1).optional(),
   /** Change in price caused by this factor, signed pence. */
   priceDeltaPence: z.number().int().optional(),
+  /** Operator view (v1.3.0): expected Delay Repay cost this factor adds to the service, pence. */
+  compensationPence: Pence.optional(),
 });
 
 export const VERDICTS = ["best", "great", "good", "risky", "avoid"] as const;
@@ -276,6 +278,218 @@ export const RecommendationResponseSchema = z.object({
   warnings: z.array(z.string()),
 });
 
+// ── Operations: delay & compensation risk for train operators (v1.3.0, A3 → A4) ──
+
+/** Delay Repay bands, by minutes late at the destination (contract.md §5.6). */
+export const DELAY_BANDS = ["15_29", "30_59", "60_119", "120_plus"] as const;
+export const DelayBand = z.enum(DELAY_BANDS);
+
+/**
+ * Delay Repay 15: share of the single fare paid back per band. 120+ pays the whole return, so it is 1 + the share of
+ * passengers holding returns (assumed 0.4, "(sample)"). A cancellation is treated as a 60–119 minute delay.
+ */
+export const DELAY_REPAY_15: Record<(typeof DELAY_BANDS)[number], number> = { "15_29": 0.25, "30_59": 0.5, "60_119": 1, "120_plus": 1.4 };
+
+export const RISK_LEVELS = ["low", "elevated", "high", "severe"] as const;
+export const RiskLevel = z.enum(RISK_LEVELS);
+
+export const OperationsQuerySchema = z.object({
+  origin: Crs,
+  destination: Crs,
+  dateFrom: IsoDate,
+  dateTo: IsoDate,
+  earliest: LocalTime,
+  latest: LocalTime,
+  /** Fares (and so compensation) as of this London date; defaults to today. */
+  bookingDate: IsoDate.optional(),
+});
+
+export const DelayForecastSchema = z.object({
+  /** P(runs and arrives under 15 minutes late). */
+  onTimeProb: Prob,
+  cancelProb: Prob,
+  /** P(arrives this late), one per band; onTime + cancel + Σ bands = 1. */
+  bands: z.object({ "15_29": Prob, "30_59": Prob, "60_119": Prob, "120_plus": Prob }),
+  /** Expected minutes late at the destination, cancellations counted as 60. */
+  expectedDelayMin: z.number().nonnegative(),
+});
+
+export const CompensationEstimateSchema = z.object({
+  /** Modelled passengers on board at the busiest point. */
+  passengers: z.number().int().nonnegative(),
+  /** Share of eligible passengers who claim. */
+  claimRate: Prob,
+  /** Average single fare paid on this train. */
+  avgFarePence: Pence,
+  /** Expected number of successful claims. */
+  expectedClaims: z.number().nonnegative(),
+  /** Expected Delay Repay payout for this service. */
+  expectedCostPence: Pence,
+  /** The same with no world signals (punctuality history only), so the signal-driven extra is visible. */
+  baselineCostPence: Pence,
+});
+
+export const MITIGATION_KINDS = [
+  "contingency_timetable",
+  "extra_capacity",
+  "standby_crew",
+  "standby_stock",
+  "crowd_management",
+  "engineering_contingency",
+  "passenger_comms",
+] as const;
+export const MitigationKind = z.enum(MITIGATION_KINDS);
+
+export const MitigationSchema = z.object({
+  kind: MitigationKind,
+  /** "Publish a reduced timetable by 22:00 the day before". */
+  title: z.string().min(1),
+  /** Why and where: "Man City v Fulham: queue barriers and extra staff at Manchester Piccadilly 12:00–18:00". */
+  detail: z.string().min(1),
+  /** The signal it counters, when it counters one (must be in the response's `signals`). */
+  signalId: z.string().optional(),
+  /** Estimated cost of doing it for this service. */
+  costPence: Pence,
+  /** Expected compensation avoided. */
+  savingPence: Pence,
+  /** saving − cost, signed. */
+  netPence: z.number().int(),
+});
+
+export const ServiceRiskSchema = z.object({
+  journey: JourneyOptionSchema,
+  delay: DelayForecastSchema,
+  compensation: CompensationEstimateSchema,
+  riskLevel: RiskLevel,
+  /** What drives the risk, biggest first; `compensationPence` says how much each adds. */
+  reasons: z.array(ReasonSchema),
+  /** Pre-emptive actions, best net first. Only actions that pay for themselves are listed (netPence > 0). */
+  mitigations: z.array(MitigationSchema),
+});
+
+export const ExposureCellSchema = z.object({
+  date: IsoDate,
+  hour: z.number().int().min(0).max(23),
+  /** Σ expected compensation of the services departing in this hour; null = no trains. */
+  expectedCostPence: Pence.nullable(),
+  worstRisk: RiskLevel.nullable(),
+  serviceIds: z.array(z.string()),
+});
+
+export const OperationsTotalsSchema = z.object({
+  services: z.number().int().nonnegative(),
+  highRiskServices: z.number().int().nonnegative(),
+  expectedCostPence: Pence,
+  baselineCostPence: Pence,
+  /** If the best mitigation is taken on every service that has one: what it costs, and the compensation it avoids. */
+  mitigationCostPence: Pence,
+  mitigationSavingPence: Pence,
+});
+
+export const OperationsResponseSchema = z.object({
+  contractVersion: z.string(),
+  generatedAt: IsoUtc,
+  query: OperationsQuerySchema,
+  /** Every service in the window, sorted by departAt. */
+  services: z.array(ServiceRiskSchema),
+  /** One cell per (London date, hour) in the window, sorted by date then hour. */
+  heatmap: z.array(ExposureCellSchema),
+  totals: OperationsTotalsSchema,
+  /** Every signal cited by a reason or mitigation. */
+  signals: z.array(SignalSchema),
+  sources: z.array(SourceStatusSchema),
+  warnings: z.array(z.string()),
+});
+
+export const RouteRefSchema = z.object({ origin: Crs, destination: Crs, operator: z.string().min(2) });
+
+export const NetworkQuerySchema = z.object({
+  dateFrom: IsoDate,
+  dateTo: IsoDate,
+  bookingDate: IsoDate.optional(),
+});
+
+export const DisruptionAlertSchema = z.object({
+  /** The signal's id. */
+  id: z.string().min(1),
+  signal: SignalSchema,
+  /** The worst risk level among the services it touches. */
+  riskLevel: RiskLevel,
+  /** Route directions it touches. */
+  routes: z.array(RouteRefSchema),
+  affectedServices: z.number().int().nonnegative(),
+  /** Expected compensation this signal adds across the network. */
+  expectedCostPence: Pence,
+  /** Best mitigation against it, summed over the services it touches. */
+  action: MitigationSchema.nullable(),
+});
+
+export const RouteSummarySchema = RouteRefSchema.extend({
+  services: z.number().int().nonnegative(),
+  highRiskServices: z.number().int().nonnegative(),
+  expectedCostPence: Pence,
+  baselineCostPence: Pence,
+  mitigationSavingPence: Pence,
+});
+
+export const NetworkResponseSchema = z.object({
+  contractVersion: z.string(),
+  generatedAt: IsoUtc,
+  query: NetworkQuerySchema,
+  /** Biggest expected cost first. */
+  alerts: z.array(DisruptionAlertSchema),
+  /** Biggest expected cost first. */
+  routes: z.array(RouteSummarySchema),
+  totals: OperationsTotalsSchema,
+  sources: z.array(SourceStatusSchema),
+  warnings: z.array(z.string()),
+});
+
+// ── Inputs: the data behind the forecast, for the visual explorer (v1.4.0, A3 → A4) ──
+
+export const CorridorSchema = RouteRefSchema.extend({
+  /** Stations in running order from origin to destination (the longest stopping pattern seen). */
+  stops: z.array(Crs).min(2),
+  /** Services both ways in the window. */
+  services: z.number().int().nonnegative(),
+  /** Mean historical P(on time) of those services: the punctuality-history input. */
+  onTimeProb: Prob,
+  /** Expected compensation of services departing in each hour, both ways; aligned with the response's `timeline`. */
+  exposureByHour: z.array(Pence),
+});
+
+export const SignalImpactSchema = z.object({
+  signal: SignalSchema,
+  /** Expected compensation it adds across the network (0 = it touches nothing we run, or adds nothing). */
+  expectedCostPence: Pence,
+  affectedServices: z.number().int().nonnegative(),
+  routes: z.array(RouteRefSchema),
+});
+
+export const ExposurePointSchema = z.object({
+  /** Start of the hour (UTC). */
+  at: IsoUtc,
+  services: z.number().int().nonnegative(),
+  expectedCostPence: Pence,
+  baselineCostPence: Pence,
+});
+
+export const InputsResponseSchema = z.object({
+  contractVersion: z.string(),
+  generatedAt: IsoUtc,
+  query: NetworkQuerySchema,
+  /** Every station on a corridor, for the map. */
+  stations: z.array(StationSchema),
+  /** One per route, both directions merged. */
+  corridors: z.array(CorridorSchema),
+  /** Every signal in the window touching a corridor station or nationwide, sorted by start. */
+  signals: z.array(SignalImpactSchema),
+  /** Network-wide exposure by departure hour, every hour of every London day in the window. */
+  timeline: z.array(ExposurePointSchema),
+  sources: z.array(SourceStatusSchema),
+  warnings: z.array(z.string()),
+});
+
 // ── HTTP envelope (A3 → A4) ─────────────────────────────────────────────────
 
 export const HealthSchema = z.object({
@@ -318,3 +532,23 @@ export type BookingAdvice = z.infer<typeof BookingAdviceSchema>;
 export type RecommendationResponse = z.infer<typeof RecommendationResponseSchema>;
 export type Health = z.infer<typeof HealthSchema>;
 export type ApiErrorBody = z.infer<typeof ApiErrorSchema>;
+export type DelayBand = z.infer<typeof DelayBand>;
+export type RiskLevel = z.infer<typeof RiskLevel>;
+export type OperationsQuery = z.infer<typeof OperationsQuerySchema>;
+export type DelayForecast = z.infer<typeof DelayForecastSchema>;
+export type CompensationEstimate = z.infer<typeof CompensationEstimateSchema>;
+export type MitigationKind = z.infer<typeof MitigationKind>;
+export type Mitigation = z.infer<typeof MitigationSchema>;
+export type ServiceRisk = z.infer<typeof ServiceRiskSchema>;
+export type ExposureCell = z.infer<typeof ExposureCellSchema>;
+export type OperationsTotals = z.infer<typeof OperationsTotalsSchema>;
+export type OperationsResponse = z.infer<typeof OperationsResponseSchema>;
+export type RouteRef = z.infer<typeof RouteRefSchema>;
+export type NetworkQuery = z.infer<typeof NetworkQuerySchema>;
+export type DisruptionAlert = z.infer<typeof DisruptionAlertSchema>;
+export type RouteSummary = z.infer<typeof RouteSummarySchema>;
+export type NetworkResponse = z.infer<typeof NetworkResponseSchema>;
+export type Corridor = z.infer<typeof CorridorSchema>;
+export type SignalImpact = z.infer<typeof SignalImpactSchema>;
+export type ExposurePoint = z.infer<typeof ExposurePointSchema>;
+export type InputsResponse = z.infer<typeof InputsResponseSchema>;

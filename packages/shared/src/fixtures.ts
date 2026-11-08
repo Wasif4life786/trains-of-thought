@@ -5,6 +5,9 @@
  */
 import { z } from "zod";
 import journeyOptionsJson from "../fixtures/journey-options.json";
+import inputsJson from "../fixtures/inputs.json";
+import networkJson from "../fixtures/network.json";
+import operationsJson from "../fixtures/operations.json";
 import recommendationJson from "../fixtures/recommendation.json";
 import signalsJson from "../fixtures/signals.json";
 import sourcesJson from "../fixtures/sources.json";
@@ -12,12 +15,18 @@ import stationsJson from "../fixtures/stations.json";
 import { FIXTURE_QUERY, fixtureFareCurve, mirrorJourney, mirrorRecommendation } from "./fixture-model";
 import type { Engine, RailProvider, SignalProvider } from "./providers";
 import {
+  InputsResponseSchema,
   JourneyOptionSchema,
+  NetworkResponseSchema,
+  OperationsResponseSchema,
   RecommendationResponseSchema,
   SignalSchema,
   SourceStatusSchema,
   StationSchema,
+  type InputsResponse,
   type JourneyOption,
+  type NetworkResponse,
+  type OperationsResponse,
   type RecommendationResponse,
   type Signal,
   type SourceStatus,
@@ -47,6 +56,18 @@ export function loadFixtures(): Fixtures {
     recommendation: RecommendationResponseSchema.parse(recommendationJson),
   };
   return cache;
+}
+
+let opsCache: { operations: OperationsResponse; network: NetworkResponse; inputs: InputsResponse } | undefined;
+
+/**
+ * (v1.3.0) The canned operator answers: the EUS → MAN board for FIXTURE_QUERY's dates and the network view, made by
+ * A3's real engine on the fake providers (`npm run fixtures:ops -w @tot/engine`). Loaded separately so the generator
+ * can run before they exist.
+ */
+export function loadOperationsFixtures(): { operations: OperationsResponse; network: NetworkResponse; inputs: InputsResponse } {
+  opsCache ??= { operations: OperationsResponseSchema.parse(operationsJson), network: NetworkResponseSchema.parse(networkJson), inputs: InputsResponseSchema.parse(inputsJson) };
+  return opsCache;
 }
 
 /** Fake A1: filters the canned signals exactly as the real provider must (window overlap, stations or nationwide, kinds). */
@@ -101,6 +122,12 @@ export function createFixtureRailProvider(): RailProvider {
     async listSources() {
       return loadFixtures().sources.filter((s) => s.lane === "rail");
     },
+    async listRoutes() {
+      return [
+        { origin: FIXTURE_QUERY.origin, destination: FIXTURE_QUERY.destination, operator: "VT" },
+        { origin: FIXTURE_QUERY.destination, destination: FIXTURE_QUERY.origin, operator: "VT" },
+      ];
+    },
   };
 }
 
@@ -121,6 +148,23 @@ export function createFixtureEngine(): Engine {
             ? base.warnings
             : [...base.warnings, `Fixture engine: showing the canned ${FIXTURE_QUERY.origin} → ${FIXTURE_QUERY.destination} example, not ${q.origin} → ${q.destination}.`],
       };
+    },
+    async operations(q) {
+      const canned = loadOperationsFixtures().operations;
+      const same = q.origin === canned.query.origin && q.destination === canned.query.destination;
+      return {
+        ...canned,
+        query: { ...q, bookingDate: q.bookingDate ?? canned.query.bookingDate },
+        warnings: same ? canned.warnings : [...canned.warnings, `Fixture engine: showing the canned ${canned.query.origin} → ${canned.query.destination} board, not ${q.origin} → ${q.destination}.`],
+      };
+    },
+    async network(q) {
+      const canned = loadOperationsFixtures().network;
+      return { ...canned, query: { ...q, bookingDate: q.bookingDate ?? canned.query.bookingDate } };
+    },
+    async inputs(q) {
+      const canned = loadOperationsFixtures().inputs;
+      return { ...canned, query: { ...q, bookingDate: q.bookingDate ?? canned.query.bookingDate } };
     },
   };
 }

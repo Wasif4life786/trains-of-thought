@@ -17,6 +17,9 @@ node -e 'const r = require("./packages/shared/fixtures/recommendation.json"); co
 | `journey-options.json` | 136 Avanti West Coast EUS → MAN departures over those three days, priced as if bought on 2026-11-07 (the fake provider also serves them mirrored as MAN → EUS) | fake A2 |
 | `sources.json` | 10 `SourceStatus` records with illustrative data-quality numbers | fake A1/A2 `listSources` |
 | `recommendation.json` | the full answer to `FIXTURE_QUERY`, made with the default model (contract.md §5.5) | fake A3 engine, A4 UI |
+| `operations.json` | (v1.3.0, ~300 KB: don't read whole) the operator risk board for EUS → MAN, 20–22 Nov, made by A3's real engine on the fake providers (`npm run fixtures:ops -w @tot/engine`) | fake A3 `operations`, A4 UI |
+| `network.json` | (v1.3.0) the network alert feed for the same dates over EUS ⇄ MAN | fake A3 `network`, A4 UI |
+| `inputs.json` | (v1.4.0) the data-inputs explorer for the same dates: EUS ⇄ MAN corridor, its stations, every signal, exposure by hour | fake A3 `inputs`, A4 UI |
 | `recommendation.sample.json` | trimmed valid copy for reading: best pick, one option per verdict, 6 heatmap cells | humans and agents |
 
 Football fixtures come from openfootball's 2026/27 Premier League file. Anything titled "(sample)" is invented for the demo.

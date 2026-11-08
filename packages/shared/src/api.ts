@@ -3,12 +3,19 @@ import { z } from "zod";
 import {
   ApiErrorSchema,
   HealthSchema,
+  InputsResponseSchema,
+  NetworkQuerySchema,
+  NetworkResponseSchema,
+  OperationsQuerySchema,
+  OperationsResponseSchema,
   RecommendationQuerySchema,
   RecommendationResponseSchema,
   SignalQuerySchema,
   SignalSchema,
   SourceStatusSchema,
   StationSchema,
+  type NetworkQuery,
+  type OperationsQuery,
   type RecommendationQuery,
   type SignalQuery,
 } from "./schemas";
@@ -20,10 +27,17 @@ export const API_ROUTES = {
   recommendations: "/api/recommendations",
   signals: "/api/signals",
   sources: "/api/sources",
+  operations: "/api/operations",
+  network: "/api/network",
+  inputs: "/api/inputs",
 } as const;
 
 export const RECOMMENDATION_DEFAULTS = { earliest: "06:00", latest: "22:00", priority: 0.5 } as const;
 export const MAX_RANGE_DAYS = 14;
+/** The operator board covers the whole operating day by default. */
+export const OPERATIONS_DEFAULTS = { earliest: "05:00", latest: "23:30" } as const;
+/** The network view sweeps every route, so its window is shorter. */
+export const MAX_NETWORK_DAYS = 7;
 
 type Params = URLSearchParams | Record<string, string | undefined>;
 type QueryValues = Record<string, string | number | readonly string[] | undefined>;
@@ -55,6 +69,37 @@ export function parseRecommendationQuery(params: Params): RecommendationQuery {
     priority: priority === undefined ? RECOMMENDATION_DEFAULTS.priority : Number(priority),
     bookingDate: get("bookingDate"),
   });
+}
+
+const OperationsParams = OperationsQuerySchema.refine((q) => q.dateTo >= q.dateFrom, { message: "dateTo must be on or after dateFrom", path: ["dateTo"] })
+  .refine((q) => daysBetween(q.dateFrom, q.dateTo) < MAX_RANGE_DAYS, { message: `at most ${MAX_RANGE_DAYS} days per search`, path: ["dateTo"] })
+  .refine((q) => q.earliest <= q.latest, { message: "earliest must not be after latest", path: ["latest"] });
+
+/** Query string → OperationsQuery with defaults filled in (the whole operating day). Throws a ZodError (HTTP 400). */
+export function parseOperationsQuery(params: Params): OperationsQuery {
+  const get = reader(params);
+  const dateFrom = get("dateFrom");
+  return OperationsParams.parse({
+    origin: get("origin")?.toUpperCase(),
+    destination: get("destination")?.toUpperCase(),
+    dateFrom,
+    dateTo: get("dateTo") ?? dateFrom,
+    earliest: get("earliest") ?? OPERATIONS_DEFAULTS.earliest,
+    latest: get("latest") ?? OPERATIONS_DEFAULTS.latest,
+    bookingDate: get("bookingDate"),
+  });
+}
+
+const NetworkParams = NetworkQuerySchema.refine((q) => q.dateTo >= q.dateFrom, { message: "dateTo must be on or after dateFrom", path: ["dateTo"] }).refine(
+  (q) => daysBetween(q.dateFrom, q.dateTo) < MAX_NETWORK_DAYS,
+  { message: `at most ${MAX_NETWORK_DAYS} days for the network view`, path: ["dateTo"] },
+);
+
+/** Query string → NetworkQuery. Throws a ZodError (HTTP 400). */
+export function parseNetworkQuery(params: Params): NetworkQuery {
+  const get = reader(params);
+  const dateFrom = get("dateFrom");
+  return NetworkParams.parse({ dateFrom, dateTo: get("dateTo") ?? dateFrom, bookingDate: get("bookingDate") });
 }
 
 /** Query string → SignalQuery: from/to are ISO UTC, stations and kinds are comma lists. */
@@ -119,6 +164,9 @@ export function createApiClient({ baseUrl = "", fetch: doFetch = (input, init) =
     recommendations: (q: RecommendationQuery) => get(API_ROUTES.recommendations, { ...q }, RecommendationResponseSchema),
     signals: (q: SignalQuery) => get(API_ROUTES.signals, { from: q.from, to: q.to, stations: q.stations, kinds: q.kinds }, z.array(SignalSchema)),
     sources: () => get(API_ROUTES.sources, {}, z.array(SourceStatusSchema)),
+    operations: (q: OperationsQuery) => get(API_ROUTES.operations, { ...q }, OperationsResponseSchema),
+    network: (q: NetworkQuery) => get(API_ROUTES.network, { ...q }, NetworkResponseSchema),
+    inputs: (q: NetworkQuery) => get(API_ROUTES.inputs, { ...q }, InputsResponseSchema),
   };
 }
 

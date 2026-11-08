@@ -1,0 +1,529 @@
+{
+ "contractVersion": "1.4.0",
+ "generatedAt": "2026-11-07T12:00:00Z",
+ "query": {
+  "dateFrom": "2026-11-20",
+  "dateTo": "2026-11-22",
+  "bookingDate": "2026-11-07"
+ },
+ "alerts": [
+  {
+   "id": "open-meteo:MAN:2026-11-20T16:gusts",
+   "signal": {
+    "id": "open-meteo:MAN:2026-11-20T16:gusts",
+    "kind": "weather",
+    "title": "Strong winds, gusts to 54 mph",
+    "detail": "Forecast 13 days out, so low confidence · West Coast Main Line north of Stoke",
+    "source": "open-meteo",
+    "start": "2026-11-20T16:00:00Z",
+    "end": "2026-11-20T23:00:00Z",
+    "place": {
+     "name": "Manchester",
+     "lat": 53.47722,
+     "lon": -2.23014
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "SPT",
+      "MAC",
+      "SOT",
+      "WML",
+      "CRE"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.55,
+    "metrics": {
+     "windGustKph": 87
+    },
+    "url": "https://open-meteo.com/"
+   },
+   "riskLevel": "high",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 49,
+   "expectedCostPence": 9279434,
+   "action": {
+    "kind": "contingency_timetable",
+    "title": "Run a reduced, slower weather timetable",
+    "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it (45 services)",
+    "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
+    "costPence": 1800000,
+    "savingPence": 5929467,
+    "netPence": 4129467
+   }
+  },
+  {
+   "id": "seed:disruptions:2026-11-22:wcml-mkc-rug",
+   "signal": {
+    "id": "seed:disruptions:2026-11-22:wcml-mkc-rug",
+    "kind": "engineering_works",
+    "title": "Engineering works Milton Keynes to Rugby (sample)",
+    "detail": "Trains diverted via Northampton, about 25 minutes longer",
+    "source": "seed:disruptions",
+    "start": "2026-11-22T00:00:00Z",
+    "end": "2026-11-22T14:00:00Z",
+    "scope": {
+     "stations": [
+      "EUS",
+      "MKC",
+      "RUG",
+      "NMP"
+     ],
+     "operators": [
+      "VT",
+      "LM"
+     ],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.9
+   },
+   "riskLevel": "severe",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 34,
+   "expectedCostPence": 4057986,
+   "action": {
+    "kind": "engineering_contingency",
+    "title": "Retime around the works and add diversion running time",
+    "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before (34 services)",
+    "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
+    "costPence": 1020000,
+    "savingPence": 2634859,
+    "netPence": 1614859
+   }
+  },
+  {
+   "id": "open-meteo:SOT:2026-11-22T14:rain",
+   "signal": {
+    "id": "open-meteo:SOT:2026-11-22T14:rain",
+    "kind": "weather",
+    "title": "Heavy rain, 9 mm an hour",
+    "detail": "Forecast 15 days out, so low confidence · Stoke to Manchester",
+    "source": "open-meteo",
+    "start": "2026-11-22T14:00:00Z",
+    "end": "2026-11-22T19:00:00Z",
+    "place": {
+     "name": "Stoke-on-Trent",
+     "lat": 53.008012,
+     "lon": -2.181119
+    },
+    "scope": {
+     "stations": [
+      "SOT",
+      "MAC",
+      "SPT",
+      "MAN"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.45,
+    "metrics": {
+     "precipitationMmPerHour": 9
+    }
+   },
+   "riskLevel": "severe",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 42,
+   "expectedCostPence": 2575764,
+   "action": {
+    "kind": "contingency_timetable",
+    "title": "Run a reduced, slower weather timetable",
+    "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it (23 services)",
+    "signalId": "open-meteo:SOT:2026-11-22T14:rain",
+    "costPence": 920000,
+    "savingPence": 1182002,
+    "netPence": 262002
+   }
+  },
+  {
+   "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+   "signal": {
+    "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "kind": "football",
+    "title": "Man City v Fulham",
+    "detail": "Etihad Stadium · kick-off 15:00 (provisional until TV picks) · 53,400 seats",
+    "source": "openfootball",
+    "start": "2026-11-21T12:00:00Z",
+    "end": "2026-11-21T18:00:00Z",
+    "place": {
+     "name": "Etihad Stadium",
+     "lat": 53.4831,
+     "lon": -2.2004
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.8,
+    "confidence": 0.6,
+    "metrics": {
+     "capacity": 53400
+    }
+   },
+   "riskLevel": "high",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 42,
+   "expectedCostPence": 2575708,
+   "action": {
+    "kind": "crowd_management",
+    "title": "Queue barriers and extra platform staff",
+    "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times (10 services)",
+    "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "costPence": 350000,
+    "savingPence": 357617,
+    "netPence": 7617
+   }
+  },
+  {
+   "id": "seed:events:2026-11-21:co-op-live-concert",
+   "signal": {
+    "id": "seed:events:2026-11-21:co-op-live-concert",
+    "kind": "concert",
+    "title": "Sold-out arena concert at Co-op Live (sample)",
+    "detail": "Doors 18:30, show 19:30 · 23,500 capacity",
+    "source": "seed:events",
+    "start": "2026-11-21T16:30:00Z",
+    "end": "2026-11-21T23:30:00Z",
+    "place": {
+     "name": "Co-op Live",
+     "lat": 53.4848,
+     "lon": -2.1997
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.8,
+    "metrics": {
+     "capacity": 23500
+    }
+   },
+   "riskLevel": "severe",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 42,
+   "expectedCostPence": 1270989,
+   "action": null
+  },
+  {
+   "id": "seed:events:2026-11-21:manchester-christmas-markets",
+   "signal": {
+    "id": "seed:events:2026-11-21:manchester-christmas-markets",
+    "kind": "event",
+    "title": "Manchester Christmas Markets (sample)",
+    "detail": "Busy Saturday, extra leisure demand into Piccadilly",
+    "source": "seed:events",
+    "start": "2026-11-21T09:00:00Z",
+    "end": "2026-11-21T20:00:00Z",
+    "place": {
+     "name": "Manchester city centre",
+     "lat": 53.4794,
+     "lon": -2.2453
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.2,
+    "confidence": 0.9
+   },
+   "riskLevel": "high",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 72,
+   "expectedCostPence": 452930,
+   "action": null
+  }
+ ],
+ "routes": [
+  {
+   "origin": "EUS",
+   "destination": "MAN",
+   "operator": "VT",
+   "services": 136,
+   "highRiskServices": 37,
+   "expectedCostPence": 21288086,
+   "baselineCostPence": 10022661,
+   "mitigationSavingPence": 5498798
+  },
+  {
+   "origin": "MAN",
+   "destination": "EUS",
+   "operator": "VT",
+   "services": 136,
+   "highRiskServices": 33,
+   "expectedCostPence": 20402118,
+   "baselineCostPence": 10022661,
+   "mitigationSavingPence": 5219430
+  }
+ ],
+ "totals": {
+  "services": 272,
+  "highRiskServices": 70,
+  "expectedCostPence": 41690204,
+  "baselineCostPence": 20045322,
+  "mitigationCostPence": 4140000,
+  "mitigationSavingPence": 10718228
+ },
+ "sources": [
+  {
+   "id": "open-meteo",
+   "name": "Open-Meteo hourly forecast",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 1152,
+    "rowsOut": 6,
+    "fixed": {
+     "kmh_to_mph": 1152,
+     "hours_merged_into_windows": 11
+    },
+    "dropped": {
+     "below_threshold": 1137,
+     "merged": 9
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "openfootball",
+   "name": "openfootball Premier League 2026/27",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 380,
+    "rowsOut": 378,
+    "fixed": {
+     "team_alias_resolved": 380,
+     "kickoff_assumed_london_time": 380
+    },
+    "dropped": {
+     "duplicate_fixture": 2
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "thesportsdb",
+   "name": "TheSportsDB (TV kick-off times)",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 10,
+    "rowsOut": 0,
+    "fixed": {
+     "kickoff_moved_for_tv": 3
+    },
+    "dropped": {
+     "merged_into_openfootball": 10
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "gov-uk-bank-holidays",
+   "name": "GOV.UK bank holidays",
+   "lane": "signals",
+   "mode": "cache",
+   "fetchedAt": "2026-11-07T09:12:00Z",
+   "quality": {
+    "rowsIn": 213,
+    "rowsOut": 53,
+    "fixed": {
+     "curly_apostrophes": 6
+    },
+    "dropped": {
+     "past_dates": 160
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "seed:events",
+   "name": "Big events near stations (curated CSV)",
+   "lane": "signals",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 64,
+    "rowsOut": 57,
+    "fixed": {
+     "ddmmyyyy_dates": 23,
+     "venue_alias_resolved": 19
+    },
+    "dropped": {
+     "duplicate": 5,
+     "past_event": 2
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "seed:disruptions",
+   "name": "Strikes & engineering works (curated)",
+   "lane": "signals",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 9,
+    "rowsOut": 8,
+    "fixed": {
+     "operator_name_to_atoc": 9
+    },
+    "dropped": {
+     "cancelled_works": 1
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:stations",
+   "name": "UK stations (davwheat/uk-railway-stations)",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 2609,
+    "rowsOut": 2609,
+    "fixed": {
+     "name_case_normalised": 41,
+     "alias_added": 120
+    },
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:timetable",
+   "name": "Timetable model (hero corridors)",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 6,
+    "rowsOut": 6,
+    "fixed": {},
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:fares",
+   "name": "Fare tables and Advance curve",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 24,
+    "rowsOut": 24,
+    "fixed": {
+     "pounds_to_pence": 24
+    },
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:performance",
+   "name": "Punctuality history",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 48210,
+    "rowsOut": 46873,
+    "fixed": {
+     "delay_parsed_from_text": 1820,
+     "crs_from_station_name": 412
+    },
+    "dropped": {
+     "missing_actual_time": 1102,
+     "duplicate": 235
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  }
+ ],
+ "warnings": [
+  "Passenger loads, the 30% claim rate and mitigation costs are modelled assumptions (sample), not operator data."
+ ]
+}

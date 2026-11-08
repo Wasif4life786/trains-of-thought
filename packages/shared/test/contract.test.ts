@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import { CONTRACT_VERSION, RecommendationResponseSchema } from "../src/index";
-import { FIXTURE_QUERY, createFixtureEngine, createFixtureRailProvider, createFixtureSignalProvider, loadFixtures } from "../src/fixtures";
+import { FIXTURE_QUERY, createFixtureEngine, createFixtureRailProvider, createFixtureSignalProvider, loadFixtures, loadOperationsFixtures } from "../src/fixtures";
 
 describe("the contract itself", () => {
   it("contract.md and CONTRACT_VERSION agree (bump both together, contract.md §8)", () => {
@@ -11,6 +11,15 @@ describe("the contract itself", () => {
 
   it("every fixture validates against its schema", () => {
     expect(() => loadFixtures()).not.toThrow();
+    expect(() => loadOperationsFixtures()).not.toThrow();
+  });
+
+  it("the fake engine answers the operator endpoints (v1.3.0)", async () => {
+    const engine = createFixtureEngine();
+    const ops = await engine.operations({ ...FIXTURE_QUERY, earliest: "05:00", latest: "23:30" });
+    expect(ops.services.length).toBeGreaterThan(0);
+    expect((await engine.network({ dateFrom: FIXTURE_QUERY.dateFrom, dateTo: FIXTURE_QUERY.dateTo })).routes.length).toBe(2);
+    expect((await engine.inputs({ dateFrom: FIXTURE_QUERY.dateFrom, dateTo: FIXTURE_QUERY.dateTo })).timeline).toHaveLength(72);
   });
 });
 

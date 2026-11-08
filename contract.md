@@ -1,4 +1,4 @@
-# Trains of Thought · team contract v1.2.0
+# Trains of Thought · team contract v1.4.0
 
 > The plan and the interfaces for the four-agent hivemind (or one agent playing all four: see "Solo mode" in §3). This
 > is the human-readable half of the contract; the
@@ -11,9 +11,11 @@
 
 ## 0. TL;DR
 
-- **Product:** tell us where you're going and roughly when. We score every train in that window on **price** and
-  **reliability**, explain *why* (football crowds, storms, concerts, strikes, engineering works, bank holidays, rush
-  hour) and say whether to **book now or wait**.
+- **Product (pivot, v1.3.0):** a tool for **train operators**. For every upcoming service we forecast how late it is
+  likely to run, what that will cost in **Delay Repay** compensation, *why* (storms, football crowds, concerts,
+  strikes, engineering works, bank holidays, poor punctuality history), and which **pre-emptive actions** pay for
+  themselves. Two views: a per-route **risk board** and a network-wide **alert feed** (§1.5, §5.6). The original
+  consumer search (`/api/recommendations`, §1.2) stays in the API but is no longer in the website.
 - **Four lanes:** A1 Signaller (world data) and A2 Timetabler (rail data) feed A3 Controller (engine + API), which
   feeds A4 Platform (website).
 - **Contract first:** everyone codes against `@tot/shared` from minute one. Fixtures and fake providers mean nobody
@@ -83,7 +85,31 @@ weather.
 
 ### 1.4 Out of scope
 
-Buying tickets or taking payments, user accounts, journeys with changes (P2), Northern Ireland, other modes of transport.
+Buying tickets or taking payments, user accounts, journeys with changes (P2), Northern Ireland, other modes of
+transport, and (operator view) real operator data: loads, claim rates and costs are modelled.
+
+### 1.5 The operator product (v1.3.0)
+
+Operators pay Delay Repay on every train that arrives 15+ minutes late, and much of that lateness is predictable days
+ahead from the same messy world data. The website is now for an operator's control and planning teams:
+
+1. **Risk board** (one route direction, 1–14 days): the expected compensation for the window and how much of it the
+   world signals add, the high-risk service count, and the saving if every recommended action is taken; a day × hour
+   heatmap of £ exposure; and every service (10 per page, sortable, biggest expected cost first by default) with its
+   risk level, chance of a 15+ min delay or cancellation, expected payout, top driver and best action. Expanding a
+   service shows the Delay Repay band forecast, every driver with the £ it adds, and every costed mitigation.
+2. **Network alerts** (every route the rail lane knows, 1–7 days): one card per world signal that adds cost, with the
+   routes and services it touches, the £ it adds, and the best action against it summed over those services; plus a
+   table of routes by exposure.
+3. **Data inputs** (v1.4.0, the demo's showpiece): the evidence behind the forecast. A "messy data → £" pipeline
+   strip (sources → rows read → repaired → discarded → signals → £ they add); a map of the corridors coloured by
+   expected payout in the current hour, with every signal drawn where it happens (size = severity, fill =
+   confidence, pulsing while live; engineering works drawn on the track they close); a Play control that runs the
+   window hour by hour; and signal swimlanes over the £-by-hour curve (expected vs punctuality history alone).
+4. **What we cleaned** stays: the data-quality story per source.
+
+Passenger loads, the claim rate and mitigation costs are modelled assumptions and are labelled "(sample)" in the UI.
+
 
 ## 2. Architecture
 
@@ -296,6 +322,9 @@ Semantics every implementation keeps (each lane's `contract.test.ts` checks them
 | `GET /api/recommendations` | `origin`, `destination` (CRS, any case) · `dateFrom` · `dateTo` (default `dateFrom`, at most 14 days) · `earliest`, `latest` (default 06:00 / 22:00) · `priority` (default 0.5) · `bookingDate` (default today) | `RecommendationResponse` |
 | `GET /api/signals` | `from`, `to` (ISO UTC) · `stations`, `kinds` (comma lists) | `Signal[]` |
 | `GET /api/sources` | none | `SourceStatus[]` (signals first, then rail) |
+| `GET /api/operations` (v1.3.0) | `origin`, `destination` · `dateFrom` · `dateTo` (default `dateFrom`, at most 14 days) · `earliest`, `latest` (default 05:00 / 23:30) · `bookingDate` (default today) | `OperationsResponse` |
+| `GET /api/network` (v1.3.0) | `dateFrom` · `dateTo` (default `dateFrom`, at most 7 days) · `bookingDate` | `NetworkResponse` |
+| `GET /api/inputs` (v1.4.0) | same as `/api/network` | `InputsResponse` |
 
 - Parse with `parseRecommendationQuery` / `parseSignalQuery` and call with `createApiClient()`. Both sides share them,
   so a URL means the same thing everywhere and the web app's address bar can mirror the API's query string.
@@ -341,6 +370,52 @@ bookingAdvice     for best: travel > 84 days away → not_on_sale_yet; price 7 d
 ```
 
 Tune the numbers freely (A3.8): the shapes and semantics are the contract, the weights aren't.
+
+### 5.6 Operator model (v1.3.0; A3's starting point, `packages/engine/src/operations.ts`)
+
+Shapes (in `schemas.ts`): `OperationsQuery`, `DelayForecast { onTimeProb, cancelProb, bands{15_29, 30_59, 60_119,
+120_plus}, expectedDelayMin }`, `CompensationEstimate { passengers, claimRate, avgFarePence, expectedClaims,
+expectedCostPence, baselineCostPence }`, `Mitigation { kind, title, detail, signalId?, costPence, savingPence, netPence }`,
+`ServiceRisk { journey, delay, compensation, riskLevel: low | elevated | high | severe, reasons[], mitigations[] }`,
+`ExposureCell`, `OperationsTotals`, `OperationsResponse`, and for the network view `RouteRef`, `DisruptionAlert`,
+`RouteSummary`, `NetworkResponse`. `Reason` gains an optional `compensationPence`. `RailProvider` gains an optional
+`listRoutes()`; `Engine` gains `operations(q)` and `network(q)`.
+
+```
+delay             start from baseline: onTime, cancel, late = 1 − onTime − cancel (tail mean max(10, 2 × avgDelayMin + 6))
+                  each touching signal (in §5.5 order): lost = onTime × risk(s); onTime −= lost
+                    cancel += lost × CANCEL_SHARE[kind]; the rest is late with tail mean TAIL_MIN[kind]
+                  minutes over 15 late ~ exponential(tail) → split into the four Delay Repay bands
+compensation      DELAY_REPAY_15 = 15–29: 25% · 30–59: 50% · 60–119: 100% · 120+: 140% of the single fare
+                    (100% of a return for the ~40% holding one) · a cancellation pays as 60–119
+                  passengers = seats[operator] × min(1.1, 0.3 + 0.8 × crowding)        (sample)
+                  avgFare    = 0.7 × cheapest fare + 0.3 × cheapest walk-up               (sample)
+                  cost       = passengers × claimRate (0.30, sample) × avgFare × Σ P(band) × payout
+                  baselineCost = the same with no signals
+reasons           §5.5 reasons minus price and peak; each signal's compensationPence = cost − cost without it
+riskLevel         by P(15+ late or cancelled): severe ≥ .45 · high ≥ .30 · elevated ≥ .20 · else low
+mitigations       per driver (strike → contingency timetable by 22:00 the day before, works → retime, weather →
+                  standby stock / weather timetable, crowds → crowd management / extra coaches, poor history →
+                  standby crew, any big signal → passenger comms); saving = cost − cost with the lever applied;
+                  only netPence > 0 are listed, best first
+totals            sums; mitigation totals take each service's best action
+network           operations() for every listRoutes() direction (whole day); one alert per signal that adds cost
+```
+
+Every `signalId` in a reason or mitigation appears in the response's `signals`. Fixtures: `operations.json` (EUS → MAN,
+20–22 Nov) and `network.json`, made by `npm run fixtures:ops -w @tot/engine` and served by the fake engine.
+
+### 5.7 Inputs for the visual explorer (v1.4.0)
+
+`Engine.inputs(q: NetworkQuery) → InputsResponse { stations[], corridors[], signals[], timeline[], sources[], warnings[] }`.
+
+- `corridors`: one per route with both directions merged: `{ origin, destination, operator, stops[] (longest stopping
+  pattern, running order), services, onTimeProb (mean history), exposureByHour[] (aligned with timeline) }`.
+- `stations`: every corridor stop, with coordinates.
+- `signals`: `SignalImpact { signal, expectedCostPence, affectedServices, routes[] }` for every signal in the window
+  touching a corridor station or nationwide, including those that add nothing; sorted by start.
+- `timeline`: one `ExposurePoint { at, services, expectedCostPence, baselineCostPence }` per hour of every London day
+  in the window; its `expectedCostPence` sums to `/api/network`'s total. Fixture: `inputs.json`.
 
 ## 6. Tasks
 
@@ -551,3 +626,5 @@ request per ❌ and don't fix other lanes' code.
 | 1.0.0 | 2026-11-07 | setup | Initial contract: lanes, schemas, HTTP API, fixtures, tasks |
 | 1.1.0 | 2026-11-07 | setup | Fake providers also serve MAN → EUS (mirrored EUS → MAN fixtures) so return trips can be built; shapes unchanged |
 | 1.2.0 | 2026-11-07 | LEAD | Solo mode; return trips, railcards, sorting and Trainline links documented (website-only); Edinburgh ⇄ Manchester second scenario; EDB–MAN and MAN–LDS added to A2.2; shapes unchanged |
+| 1.3.0 | 2026-11-08 | LEAD | Pivot to an operator product: delay and Delay Repay 15 forecasting with costed mitigations (§1.5, §5.6). Additive: `/api/operations`, `/api/network`, their schemas, `Reason.compensationPence?`, `RailProvider.listRoutes?()`, `Engine.operations/network`, `operations.json` and `network.json` fixtures. The consumer API is unchanged |
+| 1.4.0 | 2026-11-08 | LEAD | Data inputs explorer (§1.5, §5.7). Additive: `/api/inputs`, `InputsResponse`, `Corridor`, `SignalImpact`, `ExposurePoint`, `Engine.inputs`, `inputs.json` fixture |

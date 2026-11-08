@@ -2,7 +2,13 @@
 import type {
   FareCurve,
   JourneyOption,
+  InputsResponse,
   JourneyQuery,
+  NetworkQuery,
+  NetworkResponse,
+  OperationsQuery,
+  OperationsResponse,
+  RouteRef,
   RecommendationQuery,
   RecommendationResponse,
   Signal,
@@ -35,12 +41,20 @@ export interface RailProvider {
   /** How the cheapest fare for one journey moves by booking date; null for an unknown id. */
   getFareCurve(journeyId: string, bookingDate: string): Promise<FareCurve | null>;
   listSources(): Promise<SourceStatus[]>;
+  /** (v1.3.0) Every route direction it has a timetable for, for the network view. Optional: absent = unknown. */
+  listRoutes?(): Promise<RouteRef[]>;
 }
 
 /** A3 · Controller implements this in @tot/engine (createEngine). */
 export interface Engine {
   readonly name: string;
   recommend(q: RecommendationQuery): Promise<RecommendationResponse>;
+  /** (v1.3.0) Operator view: delay and Delay Repay risk for every service on one route direction (contract.md §5.6). */
+  operations(q: OperationsQuery): Promise<OperationsResponse>;
+  /** (v1.3.0) Operator view: disruption alerts and route exposure across every known route. */
+  network(q: NetworkQuery): Promise<NetworkResponse>;
+  /** (v1.4.0) The data behind the forecast, for the visual explorer: corridors, every signal, exposure by hour. */
+  inputs(q: NetworkQuery): Promise<InputsResponse>;
 }
 
 /** What the engine gets injected; only @tot/api wires concrete lanes together. */

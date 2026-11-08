@@ -1,0 +1,1032 @@
+{
+ "contractVersion": "1.4.0",
+ "generatedAt": "2026-11-07T12:00:00Z",
+ "query": {
+  "dateFrom": "2026-11-20",
+  "dateTo": "2026-11-22",
+  "bookingDate": "2026-11-07"
+ },
+ "stations": [
+  {
+   "crs": "EUS",
+   "name": "London Euston",
+   "lat": 51.528853,
+   "lon": -0.134191,
+   "aliases": [
+    "Euston",
+    "London"
+   ],
+   "country": "england"
+  },
+  {
+   "crs": "MKC",
+   "name": "Milton Keynes Central",
+   "lat": 52.034201,
+   "lon": -0.774826,
+   "aliases": [
+    "Milton Keynes"
+   ],
+   "country": "england"
+  },
+  {
+   "crs": "SOT",
+   "name": "Stoke-on-Trent",
+   "lat": 53.008012,
+   "lon": -2.181119,
+   "aliases": [
+    "Stoke"
+   ],
+   "country": "england"
+  },
+  {
+   "crs": "MAC",
+   "name": "Macclesfield",
+   "lat": 53.259331,
+   "lon": -2.121397,
+   "aliases": [],
+   "country": "england"
+  },
+  {
+   "crs": "SPT",
+   "name": "Stockport",
+   "lat": 53.40545,
+   "lon": -2.163044,
+   "aliases": [],
+   "country": "england"
+  },
+  {
+   "crs": "MAN",
+   "name": "Manchester Piccadilly",
+   "lat": 53.47722,
+   "lon": -2.23014,
+   "aliases": [
+    "Manchester",
+    "Piccadilly"
+   ],
+   "country": "england"
+  }
+ ],
+ "corridors": [
+  {
+   "origin": "EUS",
+   "destination": "MAN",
+   "operator": "VT",
+   "stops": [
+    "EUS",
+    "MKC",
+    "SOT",
+    "MAC",
+    "SPT",
+    "MAN"
+   ],
+   "services": 272,
+   "onTimeProb": 0.876,
+   "exposureByHour": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    967868,
+    1168830,
+    725568,
+    906768,
+    194014,
+    204888,
+    173106,
+    325351,
+    542828,
+    1368008,
+    4264436,
+    4423724,
+    4286662,
+    1150628,
+    678254,
+    645515,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    148509,
+    182626,
+    240580,
+    449923,
+    579733,
+    692874,
+    832156,
+    638008,
+    783058,
+    788997,
+    781852,
+    736000,
+    523106,
+    422861,
+    467372,
+    777857,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    687410,
+    996542,
+    1009858,
+    1041283,
+    990352,
+    814373,
+    878074,
+    852122,
+    912980,
+    687763,
+    741082,
+    497727,
+    242452,
+    266226,
+    0,
+    0
+   ]
+  }
+ ],
+ "signals": [
+  {
+   "signal": {
+    "id": "open-meteo:MAN:2026-11-20T16:gusts",
+    "kind": "weather",
+    "title": "Strong winds, gusts to 54 mph",
+    "detail": "Forecast 13 days out, so low confidence · West Coast Main Line north of Stoke",
+    "source": "open-meteo",
+    "start": "2026-11-20T16:00:00Z",
+    "end": "2026-11-20T23:00:00Z",
+    "place": {
+     "name": "Manchester",
+     "lat": 53.47722,
+     "lon": -2.23014
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "SPT",
+      "MAC",
+      "SOT",
+      "WML",
+      "CRE"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.55,
+    "metrics": {
+     "windGustKph": 87
+    },
+    "url": "https://open-meteo.com/"
+   },
+   "expectedCostPence": 9279434,
+   "affectedServices": 49,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  },
+  {
+   "signal": {
+    "id": "seed:events:2026-11-21:manchester-christmas-markets",
+    "kind": "event",
+    "title": "Manchester Christmas Markets (sample)",
+    "detail": "Busy Saturday, extra leisure demand into Piccadilly",
+    "source": "seed:events",
+    "start": "2026-11-21T09:00:00Z",
+    "end": "2026-11-21T20:00:00Z",
+    "place": {
+     "name": "Manchester city centre",
+     "lat": 53.4794,
+     "lon": -2.2453
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.2,
+    "confidence": 0.9
+   },
+   "expectedCostPence": 452930,
+   "affectedServices": 72,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  },
+  {
+   "signal": {
+    "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "kind": "football",
+    "title": "Man City v Fulham",
+    "detail": "Etihad Stadium · kick-off 15:00 (provisional until TV picks) · 53,400 seats",
+    "source": "openfootball",
+    "start": "2026-11-21T12:00:00Z",
+    "end": "2026-11-21T18:00:00Z",
+    "place": {
+     "name": "Etihad Stadium",
+     "lat": 53.4831,
+     "lon": -2.2004
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.8,
+    "confidence": 0.6,
+    "metrics": {
+     "capacity": 53400
+    }
+   },
+   "expectedCostPence": 2575708,
+   "affectedServices": 42,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  },
+  {
+   "signal": {
+    "id": "seed:events:2026-11-21:co-op-live-concert",
+    "kind": "concert",
+    "title": "Sold-out arena concert at Co-op Live (sample)",
+    "detail": "Doors 18:30, show 19:30 · 23,500 capacity",
+    "source": "seed:events",
+    "start": "2026-11-21T16:30:00Z",
+    "end": "2026-11-21T23:30:00Z",
+    "place": {
+     "name": "Co-op Live",
+     "lat": 53.4848,
+     "lon": -2.1997
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.8,
+    "metrics": {
+     "capacity": 23500
+    }
+   },
+   "expectedCostPence": 1270989,
+   "affectedServices": 42,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  },
+  {
+   "signal": {
+    "id": "seed:disruptions:2026-11-22:wcml-mkc-rug",
+    "kind": "engineering_works",
+    "title": "Engineering works Milton Keynes to Rugby (sample)",
+    "detail": "Trains diverted via Northampton, about 25 minutes longer",
+    "source": "seed:disruptions",
+    "start": "2026-11-22T00:00:00Z",
+    "end": "2026-11-22T14:00:00Z",
+    "scope": {
+     "stations": [
+      "EUS",
+      "MKC",
+      "RUG",
+      "NMP"
+     ],
+     "operators": [
+      "VT",
+      "LM"
+     ],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.9
+   },
+   "expectedCostPence": 4057986,
+   "affectedServices": 34,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  },
+  {
+   "signal": {
+    "id": "open-meteo:SOT:2026-11-22T14:rain",
+    "kind": "weather",
+    "title": "Heavy rain, 9 mm an hour",
+    "detail": "Forecast 15 days out, so low confidence · Stoke to Manchester",
+    "source": "open-meteo",
+    "start": "2026-11-22T14:00:00Z",
+    "end": "2026-11-22T19:00:00Z",
+    "place": {
+     "name": "Stoke-on-Trent",
+     "lat": 53.008012,
+     "lon": -2.181119
+    },
+    "scope": {
+     "stations": [
+      "SOT",
+      "MAC",
+      "SPT",
+      "MAN"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.6,
+    "confidence": 0.45,
+    "metrics": {
+     "precipitationMmPerHour": 9
+    }
+   },
+   "expectedCostPence": 2575764,
+   "affectedServices": 42,
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ]
+  }
+ ],
+ "timeline": [
+  {
+   "at": "2026-11-20T00:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T01:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T02:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T03:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T04:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T05:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T06:00:00Z",
+   "services": 6,
+   "expectedCostPence": 967868,
+   "baselineCostPence": 967868
+  },
+  {
+   "at": "2026-11-20T07:00:00Z",
+   "services": 6,
+   "expectedCostPence": 1168830,
+   "baselineCostPence": 1168830
+  },
+  {
+   "at": "2026-11-20T08:00:00Z",
+   "services": 6,
+   "expectedCostPence": 725568,
+   "baselineCostPence": 725568
+  },
+  {
+   "at": "2026-11-20T09:00:00Z",
+   "services": 6,
+   "expectedCostPence": 906768,
+   "baselineCostPence": 906768
+  },
+  {
+   "at": "2026-11-20T10:00:00Z",
+   "services": 6,
+   "expectedCostPence": 194014,
+   "baselineCostPence": 194014
+  },
+  {
+   "at": "2026-11-20T11:00:00Z",
+   "services": 6,
+   "expectedCostPence": 204888,
+   "baselineCostPence": 204888
+  },
+  {
+   "at": "2026-11-20T12:00:00Z",
+   "services": 6,
+   "expectedCostPence": 173106,
+   "baselineCostPence": 173106
+  },
+  {
+   "at": "2026-11-20T13:00:00Z",
+   "services": 6,
+   "expectedCostPence": 325351,
+   "baselineCostPence": 162068
+  },
+  {
+   "at": "2026-11-20T14:00:00Z",
+   "services": 6,
+   "expectedCostPence": 542828,
+   "baselineCostPence": 207506
+  },
+  {
+   "at": "2026-11-20T15:00:00Z",
+   "services": 6,
+   "expectedCostPence": 1368008,
+   "baselineCostPence": 607338
+  },
+  {
+   "at": "2026-11-20T16:00:00Z",
+   "services": 6,
+   "expectedCostPence": 4264436,
+   "baselineCostPence": 2088136
+  },
+  {
+   "at": "2026-11-20T17:00:00Z",
+   "services": 6,
+   "expectedCostPence": 4423724,
+   "baselineCostPence": 2291134
+  },
+  {
+   "at": "2026-11-20T18:00:00Z",
+   "services": 6,
+   "expectedCostPence": 4286662,
+   "baselineCostPence": 2118512
+  },
+  {
+   "at": "2026-11-20T19:00:00Z",
+   "services": 6,
+   "expectedCostPence": 1150628,
+   "baselineCostPence": 489912
+  },
+  {
+   "at": "2026-11-20T20:00:00Z",
+   "services": 6,
+   "expectedCostPence": 678254,
+   "baselineCostPence": 202586
+  },
+  {
+   "at": "2026-11-20T21:00:00Z",
+   "services": 6,
+   "expectedCostPence": 645515,
+   "baselineCostPence": 238780
+  },
+  {
+   "at": "2026-11-20T22:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-20T23:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T00:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T01:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T02:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T03:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T04:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T05:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T06:00:00Z",
+   "services": 4,
+   "expectedCostPence": 148509,
+   "baselineCostPence": 132092
+  },
+  {
+   "at": "2026-11-21T07:00:00Z",
+   "services": 6,
+   "expectedCostPence": 182626,
+   "baselineCostPence": 160398
+  },
+  {
+   "at": "2026-11-21T08:00:00Z",
+   "services": 6,
+   "expectedCostPence": 240580,
+   "baselineCostPence": 208828
+  },
+  {
+   "at": "2026-11-21T09:00:00Z",
+   "services": 6,
+   "expectedCostPence": 449923,
+   "baselineCostPence": 230286
+  },
+  {
+   "at": "2026-11-21T10:00:00Z",
+   "services": 6,
+   "expectedCostPence": 579733,
+   "baselineCostPence": 264366
+  },
+  {
+   "at": "2026-11-21T11:00:00Z",
+   "services": 6,
+   "expectedCostPence": 692874,
+   "baselineCostPence": 290658
+  },
+  {
+   "at": "2026-11-21T12:00:00Z",
+   "services": 6,
+   "expectedCostPence": 832156,
+   "baselineCostPence": 262906
+  },
+  {
+   "at": "2026-11-21T13:00:00Z",
+   "services": 6,
+   "expectedCostPence": 638008,
+   "baselineCostPence": 182274
+  },
+  {
+   "at": "2026-11-21T14:00:00Z",
+   "services": 6,
+   "expectedCostPence": 783058,
+   "baselineCostPence": 174780
+  },
+  {
+   "at": "2026-11-21T15:00:00Z",
+   "services": 6,
+   "expectedCostPence": 788997,
+   "baselineCostPence": 175658
+  },
+  {
+   "at": "2026-11-21T16:00:00Z",
+   "services": 6,
+   "expectedCostPence": 781852,
+   "baselineCostPence": 185756
+  },
+  {
+   "at": "2026-11-21T17:00:00Z",
+   "services": 6,
+   "expectedCostPence": 736000,
+   "baselineCostPence": 177282
+  },
+  {
+   "at": "2026-11-21T18:00:00Z",
+   "services": 6,
+   "expectedCostPence": 523106,
+   "baselineCostPence": 149324
+  },
+  {
+   "at": "2026-11-21T19:00:00Z",
+   "services": 6,
+   "expectedCostPence": 422861,
+   "baselineCostPence": 173386
+  },
+  {
+   "at": "2026-11-21T20:00:00Z",
+   "services": 6,
+   "expectedCostPence": 467372,
+   "baselineCostPence": 206878
+  },
+  {
+   "at": "2026-11-21T21:00:00Z",
+   "services": 6,
+   "expectedCostPence": 777857,
+   "baselineCostPence": 207776
+  },
+  {
+   "at": "2026-11-21T22:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-21T23:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T00:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T01:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T02:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T03:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T04:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T05:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T06:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T07:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T08:00:00Z",
+   "services": 4,
+   "expectedCostPence": 687410,
+   "baselineCostPence": 195264
+  },
+  {
+   "at": "2026-11-22T09:00:00Z",
+   "services": 6,
+   "expectedCostPence": 996542,
+   "baselineCostPence": 248402
+  },
+  {
+   "at": "2026-11-22T10:00:00Z",
+   "services": 6,
+   "expectedCostPence": 1009858,
+   "baselineCostPence": 264416
+  },
+  {
+   "at": "2026-11-22T11:00:00Z",
+   "services": 6,
+   "expectedCostPence": 1041283,
+   "baselineCostPence": 245670
+  },
+  {
+   "at": "2026-11-22T12:00:00Z",
+   "services": 6,
+   "expectedCostPence": 990352,
+   "baselineCostPence": 249360
+  },
+  {
+   "at": "2026-11-22T13:00:00Z",
+   "services": 6,
+   "expectedCostPence": 814373,
+   "baselineCostPence": 251804
+  },
+  {
+   "at": "2026-11-22T14:00:00Z",
+   "services": 6,
+   "expectedCostPence": 878074,
+   "baselineCostPence": 268600
+  },
+  {
+   "at": "2026-11-22T15:00:00Z",
+   "services": 6,
+   "expectedCostPence": 852122,
+   "baselineCostPence": 377424
+  },
+  {
+   "at": "2026-11-22T16:00:00Z",
+   "services": 6,
+   "expectedCostPence": 912980,
+   "baselineCostPence": 401272
+  },
+  {
+   "at": "2026-11-22T17:00:00Z",
+   "services": 6,
+   "expectedCostPence": 687763,
+   "baselineCostPence": 314218
+  },
+  {
+   "at": "2026-11-22T18:00:00Z",
+   "services": 6,
+   "expectedCostPence": 741082,
+   "baselineCostPence": 428776
+  },
+  {
+   "at": "2026-11-22T19:00:00Z",
+   "services": 6,
+   "expectedCostPence": 497727,
+   "baselineCostPence": 361776
+  },
+  {
+   "at": "2026-11-22T20:00:00Z",
+   "services": 6,
+   "expectedCostPence": 242452,
+   "baselineCostPence": 242452
+  },
+  {
+   "at": "2026-11-22T21:00:00Z",
+   "services": 6,
+   "expectedCostPence": 266226,
+   "baselineCostPence": 266226
+  },
+  {
+   "at": "2026-11-22T22:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  },
+  {
+   "at": "2026-11-22T23:00:00Z",
+   "services": 0,
+   "expectedCostPence": 0,
+   "baselineCostPence": 0
+  }
+ ],
+ "sources": [
+  {
+   "id": "open-meteo",
+   "name": "Open-Meteo hourly forecast",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 1152,
+    "rowsOut": 6,
+    "fixed": {
+     "kmh_to_mph": 1152,
+     "hours_merged_into_windows": 11
+    },
+    "dropped": {
+     "below_threshold": 1137,
+     "merged": 9
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "openfootball",
+   "name": "openfootball Premier League 2026/27",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 380,
+    "rowsOut": 378,
+    "fixed": {
+     "team_alias_resolved": 380,
+     "kickoff_assumed_london_time": 380
+    },
+    "dropped": {
+     "duplicate_fixture": 2
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "thesportsdb",
+   "name": "TheSportsDB (TV kick-off times)",
+   "lane": "signals",
+   "mode": "live",
+   "fetchedAt": "2026-11-07T20:55:00Z",
+   "quality": {
+    "rowsIn": 10,
+    "rowsOut": 0,
+    "fixed": {
+     "kickoff_moved_for_tv": 3
+    },
+    "dropped": {
+     "merged_into_openfootball": 10
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "gov-uk-bank-holidays",
+   "name": "GOV.UK bank holidays",
+   "lane": "signals",
+   "mode": "cache",
+   "fetchedAt": "2026-11-07T09:12:00Z",
+   "quality": {
+    "rowsIn": 213,
+    "rowsOut": 53,
+    "fixed": {
+     "curly_apostrophes": 6
+    },
+    "dropped": {
+     "past_dates": 160
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "seed:events",
+   "name": "Big events near stations (curated CSV)",
+   "lane": "signals",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 64,
+    "rowsOut": 57,
+    "fixed": {
+     "ddmmyyyy_dates": 23,
+     "venue_alias_resolved": 19
+    },
+    "dropped": {
+     "duplicate": 5,
+     "past_event": 2
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "seed:disruptions",
+   "name": "Strikes & engineering works (curated)",
+   "lane": "signals",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 9,
+    "rowsOut": 8,
+    "fixed": {
+     "operator_name_to_atoc": 9
+    },
+    "dropped": {
+     "cancelled_works": 1
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:stations",
+   "name": "UK stations (davwheat/uk-railway-stations)",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 2609,
+    "rowsOut": 2609,
+    "fixed": {
+     "name_case_normalised": 41,
+     "alias_added": 120
+    },
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:timetable",
+   "name": "Timetable model (hero corridors)",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 6,
+    "rowsOut": 6,
+    "fixed": {},
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:fares",
+   "name": "Fare tables and Advance curve",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 24,
+    "rowsOut": 24,
+    "fixed": {
+     "pounds_to_pence": 24
+    },
+    "dropped": {}
+   },
+   "note": "Fixture: illustrative numbers"
+  },
+  {
+   "id": "rail:performance",
+   "name": "Punctuality history",
+   "lane": "rail",
+   "mode": "seed",
+   "quality": {
+    "rowsIn": 48210,
+    "rowsOut": 46873,
+    "fixed": {
+     "delay_parsed_from_text": 1820,
+     "crs_from_station_name": 412
+    },
+    "dropped": {
+     "missing_actual_time": 1102,
+     "duplicate": 235
+    }
+   },
+   "note": "Fixture: illustrative numbers"
+  }
+ ],
+ "warnings": []
+}
