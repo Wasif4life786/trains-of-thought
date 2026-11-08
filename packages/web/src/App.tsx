@@ -11,6 +11,28 @@ import { networkQuery, readState, writeState, type FormState, type View } from "
 
 const INPUT = "w-full rounded-lg border border-slate-300 bg-white px-3 py-2";
 
+const VIEW_TABS = [
+  ["route", "Route risk board"],
+  ["network", "Network alerts"],
+  ["inputs", "✨ Data inputs"],
+] as const;
+
+/** Light/dark: starts from the saved choice or the system setting (index.html applies it before first paint), toggled by hand. */
+function useTheme() {
+  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
+  function toggle() {
+    const next = !dark;
+    document.documentElement.classList.toggle("dark", next);
+    try {
+      localStorage.setItem("tot-theme", next ? "dark" : "light");
+    } catch {
+      // private window or blocked storage: the choice just won't persist
+    }
+    setDark(next);
+  }
+  return { dark, toggle };
+}
+
 type Result = { view: "route"; data: OperationsResponse } | { view: "network"; data: NetworkResponse } | { view: "inputs"; data: InputsResponse };
 
 async function fetchView(s: FormState): Promise<Result> {
@@ -27,6 +49,7 @@ export function App() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const { view, query } = state;
+  const theme = useTheme();
 
   async function load(s: FormState) {
     setLoading(true);
@@ -68,26 +91,47 @@ export function App() {
   });
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8 text-slate-900">
+    <main id="main" tabIndex={-1} className="mx-auto max-w-6xl px-4 py-8 text-slate-900 outline-none">
+      <a href="#results" className="sr-only rounded-lg bg-slate-900 px-3 py-2 font-semibold text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50">
+        Skip to results
+      </a>
       <header className="mb-6">
-        <h1 className="text-3xl font-bold tracking-tight">🚆 Trains of Thought · Operations</h1>
+        <div className="flex items-start justify-between gap-4">
+          <h1 className="text-3xl font-bold tracking-tight">🚆 Trains of Thought · Operations</h1>
+          <button
+            type="button"
+            onClick={theme.toggle}
+            aria-pressed={theme.dark}
+            className="shrink-0 rounded-lg border border-slate-300 px-3 py-1.5 text-sm font-medium text-slate-700 hover:bg-slate-100"
+          >
+            {theme.dark ? "☀️ Light" : "🌙 Dark"}
+          </button>
+        </div>
         <p className="text-slate-600">See the delays coming, price the Delay Repay they'll cost, and act before they happen.</p>
         {usingFixtures && <p className="mt-2 text-sm text-amber-700">Fixture mode: answers come from @tot/shared/fixtures, not the API.</p>}
       </header>
 
-      <div role="tablist" aria-label="View" className="mb-4 inline-flex rounded-lg bg-slate-200 p-1 text-sm font-semibold">
-        {(
-          [
-            ["route", "Route risk board"],
-            ["network", "Network alerts"],
-            ["inputs", "✨ Data inputs"],
-          ] as const
-        ).map(([v, label]) => (
+      <div
+        role="tablist"
+        aria-label="View"
+        className="mb-4 inline-flex rounded-lg bg-slate-200 p-1 text-sm font-semibold"
+        onKeyDown={(e) => {
+          const i = VIEW_TABS.findIndex(([v]) => v === view);
+          const next = e.key === "ArrowRight" ? (i + 1) % VIEW_TABS.length : e.key === "ArrowLeft" ? (i + VIEW_TABS.length - 1) % VIEW_TABS.length : e.key === "Home" ? 0 : e.key === "End" ? VIEW_TABS.length - 1 : -1;
+          if (next < 0) return;
+          e.preventDefault();
+          switchView(VIEW_TABS[next]![0]);
+          requestAnimationFrame(() => document.getElementById(`tab-${VIEW_TABS[next]![0]}`)?.focus());
+        }}
+      >
+        {VIEW_TABS.map(([v, label]) => (
           <button
             key={v}
+            id={`tab-${v}`}
             type="button"
             role="tab"
             aria-selected={view === v}
+            tabIndex={view === v ? 0 : -1}
             onClick={() => switchView(v)}
             className={`rounded-md px-4 py-1.5 ${view === v ? "bg-white shadow-sm" : "text-slate-600 hover:text-slate-900"}`}
           >
@@ -128,7 +172,7 @@ export function App() {
       {error && <p className="mb-6 rounded-lg bg-rose-50 p-4 text-rose-800">{error}</p>}
       {!result && loading && <Skeleton />}
       {result && (
-        <div className={loading ? "opacity-60 transition-opacity" : ""} aria-busy={loading}>
+        <div id="results" className={loading ? "opacity-60 transition-opacity" : ""} aria-busy={loading}>
           {result.view === "route" ? (
             <RouteBoard key={result.data.generatedAt + result.data.query.origin + result.data.query.destination} data={result.data} />
           ) : result.view === "network" ? (

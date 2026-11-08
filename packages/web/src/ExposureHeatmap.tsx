@@ -61,8 +61,8 @@ export function ExposureHeatmap({ cells, selected, onSelect }: Props) {
                     aria-label={text}
                     aria-pressed={selected === key}
                     onClick={() => onSelect(selected === key ? null : key)}
-                    className={`h-8 rounded text-[10px] font-medium ${cost === null ? "cursor-default text-slate-300" : "hover:brightness-95"} ${cost !== null && cost / max > 0.6 ? "text-white" : "text-slate-800"} ${selected === key ? "ring-2 ring-slate-900" : ""}`}
-                    style={{ backgroundColor: exposureColor(cost === null ? null : cost / max) }}
+                    className={`h-8 rounded text-[10px] font-medium ${cost === null ? "cursor-default text-slate-300" : "hover:brightness-95"} ${selected === key ? "ring-2 ring-slate-900" : ""}`}
+                    style={{ backgroundColor: exposureColor(cost === null ? null : cost / max), ...(cost === null ? {} : { color: cost / max > 0.6 ? "#ffffff" : "#1e293b" }) }}
                   >
                     {cost === null ? "·" : cost >= 100_000 ? `${Math.round(cost / 100_000)}k` : Math.round(cost / 100)}
                   </button>

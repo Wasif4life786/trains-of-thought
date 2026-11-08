@@ -271,7 +271,7 @@ function NetworkMap({ data, hourIndex, active, focus, onFocus }: { data: InputsR
       const idx = c.stops.map((crs, i) => (s.signal.scope.stations.includes(crs) ? i : -1)).filter((i) => i >= 0);
       if (idx.length < 2) return [];
       const stops = c.stops.slice(Math.min(...idx), Math.max(...idx) + 1).flatMap((crs) => (byCrs.get(crs) ? [byCrs.get(crs)!] : []));
-      return stops.length >= 2 ? [{ s, key: `${s.signal.id}|${c.origin}`, points: stops.map((st) => project(st.lon, st.lat).join(",")).join(" ") }] : [];
+      return stops.length >= 2 ? [{ s, key: `${s.signal.id}|${c.origin}-${c.destination}`, points: stops.map((st) => project(st.lon, st.lat).join(",")).join(" ") }] : [];
     });
   });
   const segmentFor = new Set(worksSegments.map((w) => w.s.signal.id));
@@ -498,8 +498,8 @@ function Timeline({ data, index, focus, onFocus, onSeek }: { data: InputsRespons
         >
           {days.map((i) => (
             <g key={i}>
-              <line x1={LABEL_W + i * slotW} x2={LABEL_W + i * slotW} y1={14} y2={curveTop + CURVE_H} stroke="#e2e8f0" />
-              <text x={LABEL_W + i * slotW + 4} y={11} fontSize={11} fill="#64748b">
+              <line x1={LABEL_W + i * slotW} x2={LABEL_W + i * slotW} y1={14} y2={curveTop + CURVE_H} className="stroke-slate-200" />
+              <text x={LABEL_W + i * slotW + 4} y={11} fontSize={11} className="fill-slate-500">
                 {dayShort.format(new Date(timeline[i]!.at))}
               </text>
             </g>
@@ -507,7 +507,7 @@ function Timeline({ data, index, focus, onFocus, onSeek }: { data: InputsRespons
 
           {laneLayout.map((lane) => (
             <g key={lane.kind}>
-              <text x={0} y={lane.top + 13} fontSize={12} fill="#334155" fontWeight={600}>
+              <text x={0} y={lane.top + 13} fontSize={12} className="fill-slate-700" fontWeight={600}>
                 {REASON_ICON[lane.kind as SignalKind]} {KIND_LABEL[lane.kind as SignalKind]}
               </text>
               {lane.rows.map((row, r) =>
@@ -533,11 +533,11 @@ function Timeline({ data, index, focus, onFocus, onSeek }: { data: InputsRespons
                         rx={4}
                         fill={KIND_COLOR[s.signal.kind]}
                         fillOpacity={0.35 + 0.6 * s.signal.confidence}
-                        stroke={focused ? "#0f172a" : "#ffffff"}
+                        className={focused ? "stroke-slate-900" : "stroke-white"}
                         strokeWidth={2}
                       />
                       {x1 - x0 > 90 && (
-                        <text x={x0 + 6} y={lane.top + r * ROW_H + 13} fontSize={10.5} fill="#0f172a" pointerEvents="none">
+                        <text x={x0 + 6} y={lane.top + r * ROW_H + 13} fontSize={10.5} className="fill-slate-900" pointerEvents="none">
                           {s.signal.title.length > (x1 - x0) / 6.2 ? `${s.signal.title.slice(0, Math.floor((x1 - x0) / 6.2) - 1)}…` : s.signal.title}
                         </text>
                       )}
@@ -551,20 +551,20 @@ function Timeline({ data, index, focus, onFocus, onSeek }: { data: InputsRespons
           <text x={0} y={curveTop + 12} fontSize={12} fill="#334155" fontWeight={600}>
             💷 Delay Repay
           </text>
-          <text x={0} y={curveTop + 27} fontSize={11} fill="#64748b">
+          <text x={0} y={curveTop + 27} fontSize={11} className="fill-slate-500">
             by departure hour
           </text>
-          <text x={LABEL_W - 6} y={curveTop + 4} fontSize={10} fill="#94a3b8" textAnchor="end">
+          <text x={LABEL_W - 6} y={curveTop + 4} fontSize={10} className="fill-slate-400" textAnchor="end">
             {pounds(maxCost)}
           </text>
-          <line x1={LABEL_W} x2={width - 8} y1={curveTop + CURVE_H} y2={curveTop + CURVE_H} stroke="#cbd5e1" />
-          <path d={area("expectedCostPence")} fill="#e11d48" fillOpacity={0.12} />
-          <path d={area("baselineCostPence")} fill="#cbd5e1" />
-          <path d={line("expectedCostPence")} fill="none" stroke="#be123c" strokeWidth={2} strokeLinejoin="round" />
+          <line x1={LABEL_W} x2={width - 8} y1={curveTop + CURVE_H} y2={curveTop + CURVE_H} className="stroke-slate-300" />
+          <path d={area("expectedCostPence")} className="fill-rose-600" fillOpacity={0.12} />
+          <path d={area("baselineCostPence")} className="fill-slate-300" />
+          <path d={line("expectedCostPence")} fill="none" className="stroke-rose-700" strokeWidth={2} strokeLinejoin="round" />
 
-          <line x1={midX(index)} x2={midX(index)} y1={14} y2={curveTop + CURVE_H} stroke="#0f172a" strokeWidth={2} />
-          <circle cx={midX(index)} cy={yCost(timeline[index]!.expectedCostPence)} r={5} fill="#be123c" stroke="#ffffff" strokeWidth={2} />
-          {hover !== null && hover !== index && <line x1={midX(hover)} x2={midX(hover)} y1={14} y2={curveTop + CURVE_H} stroke="#94a3b8" strokeDasharray="3 3" />}
+          <line x1={midX(index)} x2={midX(index)} y1={14} y2={curveTop + CURVE_H} className="stroke-slate-900" strokeWidth={2} />
+          <circle cx={midX(index)} cy={yCost(timeline[index]!.expectedCostPence)} r={5} className="fill-rose-700 stroke-white" strokeWidth={2} />
+          {hover !== null && hover !== index && <line x1={midX(hover)} x2={midX(hover)} y1={14} y2={curveTop + CURVE_H} className="stroke-slate-400" strokeDasharray="3 3" />}
         </svg>
         {tip && (
           <div className="pointer-events-none absolute z-20 w-72 rounded-lg bg-white p-2 shadow-lg ring-1 ring-slate-200" style={{ left: Math.min(tip.x + 14, width - 290), top: tip.y + 14 }}>
