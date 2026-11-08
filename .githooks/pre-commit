@@ -1,3 +1,0 @@
-#!/bin/sh
-# Lane check: scripts/hive/check-staged.mjs
-exec node "$(git rev-parse --show-toplevel)/scripts/hive/check-staged.mjs"

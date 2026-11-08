@@ -14,12 +14,6 @@ coverage/
 data/cache/*
 !data/cache/.gitkeep
 
-# hivemind identity of this checkout (npm run hive:join -- A<n>)
-.hive/
-
-# personal Claude Code overrides
-.claude/settings.local.json
-
 # editor folders
 .idea/
 .vscode/

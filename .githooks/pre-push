@@ -1,13 +1,13 @@
 #!/bin/sh
-# Main stays green: typecheck + every package's tests must pass before anything is pushed.
-# Emergency escape, humans only: HIVE_SKIP_CHECKS=1 git push
-if [ "$HIVE_SKIP_CHECKS" = "1" ]; then
-  echo "hive: checks skipped (HIVE_SKIP_CHECKS=1)"
+# Keep main green: typecheck + every package's tests must pass before anything is pushed.
+# Emergency escape: SKIP_CHECKS=1 git push
+if [ "$SKIP_CHECKS" = "1" ]; then
+  echo "pre-push: checks skipped (SKIP_CHECKS=1)"
   exit 0
 fi
 cd "$(git rev-parse --show-toplevel)" || exit 1
-echo "hive: npm run check before push…"
+echo "pre-push: npm run check…"
 if ! npm run check --silent; then
-  echo "hive: ✋ push blocked, typecheck/tests are failing. Fix your lane; if another lane broke main, tell your human and npm run hive:ask."
+  echo "pre-push: push blocked, typecheck/tests are failing."
   exit 1
 fi

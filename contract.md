@@ -1,8 +1,6 @@
 # Trains of Thought · team contract v1.5.0
 
-> The plan and the interfaces for the four-agent hivemind (or one agent playing all four: see "Solo mode" in §3). This
-> is the human-readable half of the contract; the
-> machine-readable half is `packages/shared/src/` (zod schemas and types). They change together, only through §8,
+> The plan and the interfaces for the team. This is the human-readable half of the contract; the machine-readable half is `packages/shared/src/` (zod schemas and types). They change together, only through §8,
 > and a test checks that the version above matches `CONTRACT_VERSION`.
 
 | Kickoff | Hackathon ends | Feature freeze | Demo |
@@ -20,9 +18,7 @@
   feeds A4 Platform (website).
 - **Contract first:** everyone codes against `@tot/shared` from minute one. Fixtures and fake providers mean nobody
   waits for anybody; real code replaces the fakes behind the same interfaces.
-- **Stay in your lane**, push small and often, and talk through `hivemind/` (see `hivemind/README.md`).
-- **Solo mode:** if teammates aren't contributing, one agent works every lane as `LEAD` (§3). The lanes stay as code
-  boundaries and the contract stays the contract; only the "who" changes.
+- **Stay in your lane** and push small and often.
 
 ## 1. Product
 
@@ -152,20 +148,14 @@ There's no database: lanes read seeds from `data/raw/<lane>/`, cache live fetche
 
 ## 3. Lanes
 
-| Agent | Name | Owns (write access) | Provides | Consumes |
+| Lane | Name | Owns | Provides | Consumes |
 |---|---|---|---|---|
 | A1 | Signaller | `packages/signals/`, `data/raw/signals/` | `SignalProvider`: messy world data → `Signal[]` + `SourceStatus[]` | shared |
 | A2 | Timetabler | `packages/rail/`, `data/raw/rail/` | `RailProvider`: stations, `JourneyOption[]`, fare curves, `SourceStatus[]` | shared |
 | A3 | Controller | `packages/engine/`, `packages/api/` | `Engine` + the HTTP API; integration owner | A1, A2 through their interfaces |
 | A4 | Platform | `packages/web/` | The website and the demo flow | A3 over HTTP |
 
-Each agent also owns `hivemind/board/<id>.md`. The contract (`packages/shared/`, this file) changes only through §8.
-Everything else is team-wide and needs human approval. The machine-readable map is `hivemind/ownership.json`; the
-Claude guard hook and the git pre-commit hook enforce it.
-
-**Solo mode.** When the team isn't all contributing, one agent works every lane: the human runs
-`npm run hive:join -- LEAD` (no lane limits; contract and team files still need the human's approval). Keep the lane
-boundaries in the code anyway (§2.1) so teammates can pick a lane up later, and keep the per-lane boards current.
+The contract (`packages/shared/`, this file) changes only through §8. Everything else is team-wide: agree it first.
 
 ## 4. Conventions (MUST)
 
@@ -420,8 +410,8 @@ Every `signalId` in a reason or mitigation appears in the response's `signals`. 
 
 ## 6. Tasks
 
-Task ids (A1.3 …) are for boards and commit messages. **P0** = must have by M1, **P1** = by M2, **P2** = only if
-ahead. Don't tick boxes here; progress lives on your board. Every lane keeps its `contract.test.ts` green and adds
+Task ids (A1.3 …) are for commit messages. **P0** = must have by M1, **P1** = by M2, **P2** = only if
+ahead. Every lane keeps its `contract.test.ts` green and adds
 tests for what it builds.
 
 ### 6.1 A1 · Signaller (`packages/signals`, `data/raw/signals`)
@@ -565,7 +555,7 @@ P2
 
 | Milestone | Target | Everyone | Proof |
 |---|---|---|---|
-| **M0 Hive up** | T + 0:20 | Joined, plan posted on board, `npm run check` green | `npm run hive:status` shows four 🟢 boards |
+| **M0 Set up** | T + 0:20 | Everyone installed, `npm run check` green | Every lane's stub answers from fixtures |
 | **M1 Walking skeleton on real code** | T + 2:30 | Each lane's P0 core behind its interface (fixtures where not ready) | A3's checkpoint: hero query through real providers and engine, rendered by the web app |
 | **M2 Feature complete** | T + 6:00 | All P0 + chosen P1 | The hero story tells itself from real data; quality panel; booking advice |
 | **M3 Freeze** | end − 3:00 | Bug fixes only | Two offline rehearsals (`TOT_OFFLINE=1`), snapshots committed, `DEMO.md` |
@@ -574,14 +564,13 @@ P2
 ### 7.2 Integration checkpoint (A3 runs it; anyone may)
 
 ```bash
-npm run hive:sync && npm run check
+git pull --rebase && npm install && npm run check
 npm run dev
 curl -s localhost:8787/api/health      # which lanes are real?
 open "http://localhost:5173/?origin=EUS&destination=MAN&dateFrom=2026-11-20&dateTo=2026-11-22"
 ```
 
-Post the result under "Notes for the team" on `hivemind/board/A3.md`: ✅ works · ❌ broken (owner) · next. File one
-request per ❌ and don't fix other lanes' code.
+Share the result with the team: ✅ works · ❌ broken (owner) · next. The owner of a ❌ lane fixes it.
 
 ### 7.3 Demo (3 minutes)
 
@@ -596,15 +585,14 @@ and `npm run demo:check` before going on stage. In outline:
 
 ## 8. Changing the contract
 
-1. **Additive?** A new optional field, a new endpoint, or a new enum value that every `switch` handles: OK with your
-   human's approval. **Breaking?** A rename, removal, type change or change of meaning: stop. The humans decide
-   together, and the request file records the migration plan.
-2. File it: `npm run hive:ask -- <affected lane | ALL> "contract: <change>"`.
+1. **Additive?** A new optional field, a new endpoint, or a new enum value that every `switch` handles: OK once the
+   affected lanes agree. **Breaking?** A rename, removal, type change or change of meaning: stop. The team decides
+   together and agrees a migration plan.
+2. Tell the lanes it affects.
 3. Change `packages/shared/src/*`, regenerate fixtures (`npm run fixtures`) if shapes changed, update §5 here, bump
    `CONTRACT_VERSION` **and** the version in this file's first line (1.0.0 → 1.1.0), and add a line to §10.
-4. Run `npm run check`, then commit **only** those files as `contract: <summary> (v1.1.0)` (the pre-commit hook
-   enforces this) and push straight away.
-5. Tell your human. The other agents pick it up on their next `npm run hive:sync`, which shows the new version.
+4. Run `npm run check`, then commit **only** those files as `contract: <summary> (v1.1.0)` and push straight away.
+5. Everyone picks it up on their next `git pull`.
 
 ## 9. Data sources (checked 2026-11-07 unless noted)
 
@@ -628,7 +616,7 @@ and `npm run demo:check` before going on stage. In outline:
 |---|---|---|---|
 | 1.0.0 | 2026-11-07 | setup | Initial contract: lanes, schemas, HTTP API, fixtures, tasks |
 | 1.1.0 | 2026-11-07 | setup | Fake providers also serve MAN → EUS (mirrored EUS → MAN fixtures) so return trips can be built; shapes unchanged |
-| 1.2.0 | 2026-11-07 | LEAD | Solo mode; return trips, railcards, sorting and Trainline links documented (website-only); Edinburgh ⇄ Manchester second scenario; EDB–MAN and MAN–LDS added to A2.2; shapes unchanged |
-| 1.3.0 | 2026-11-08 | LEAD | Pivot to an operator product: delay and Delay Repay 15 forecasting with costed mitigations (§1.5, §5.6). Additive: `/api/operations`, `/api/network`, their schemas, `Reason.compensationPence?`, `RailProvider.listRoutes?()`, `Engine.operations/network`, `operations.json` and `network.json` fixtures. The consumer API is unchanged |
-| 1.4.0 | 2026-11-08 | LEAD | Data inputs explorer (§1.5, §5.7). Additive: `/api/inputs`, `InputsResponse`, `Corridor`, `SignalImpact`, `ExposurePoint`, `Engine.inputs`, `inputs.json` fixture |
-| 1.5.0 | 2026-11-08 | LEAD | Additive: optional `railcard` (`RailcardId`, `RAILCARDS`, `discountFares`) on the journey and recommendation queries; one-change journeys (`changes: 1`) built from connecting corridors; TfL status, leaf-fall, away-fan and optional Ticketmaster signal sources; demand-adjusted Advance prices (a `price` reason); 13 corridors; operator model recalibrated (25% claim rate). Fixtures regenerated |
+| 1.2.0 | 2026-11-07 | team | Return trips, railcards, sorting and Trainline links documented (website-only); Edinburgh ⇄ Manchester second scenario; EDB–MAN and MAN–LDS added to A2.2; shapes unchanged |
+| 1.3.0 | 2026-11-08 | team | Pivot to an operator product: delay and Delay Repay 15 forecasting with costed mitigations (§1.5, §5.6). Additive: `/api/operations`, `/api/network`, their schemas, `Reason.compensationPence?`, `RailProvider.listRoutes?()`, `Engine.operations/network`, `operations.json` and `network.json` fixtures. The consumer API is unchanged |
+| 1.4.0 | 2026-11-08 | team | Data inputs explorer (§1.5, §5.7). Additive: `/api/inputs`, `InputsResponse`, `Corridor`, `SignalImpact`, `ExposurePoint`, `Engine.inputs`, `inputs.json` fixture |
+| 1.5.0 | 2026-11-08 | team | Additive: optional `railcard` (`RailcardId`, `RAILCARDS`, `discountFares`) on the journey and recommendation queries; one-change journeys (`changes: 1`) built from connecting corridors; TfL status, leaf-fall, away-fan and optional Ticketmaster signal sources; demand-adjusted Advance prices (a `price` reason); 13 corridors; operator model recalibrated (25% claim rate). Fixtures regenerated |

@@ -21,11 +21,7 @@
     "test": "npm run test --workspaces --if-present",
     "check": "npm run typecheck && npm run test",
     "fixtures": "npm run fixtures -w @tot/shared",
-    "hive:join": "node scripts/hive/join.mjs",
-    "hive:status": "node scripts/hive/status.mjs",
-    "hive:sync": "node scripts/hive/sync.mjs",
-    "hive:ask": "node scripts/hive/ask.mjs",
-    "prepare": "node scripts/hive/install-hooks.mjs"
+    "prepare": "git config core.hooksPath .githooks || true"
   },
   "devDependencies": {
     "@types/node": "^24.19.2",

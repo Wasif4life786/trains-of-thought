@@ -545,7 +545,7 @@ const recommendation = RecommendationResponseSchema.parse({
   ],
 });
 
-// A small, valid copy for reading: the full files are too big for anyone (human or agent) to read whole.
+// A small, valid copy for reading: the full files are too big to read whole.
 const sampleOptions = (["best", "great", "good", "risky", "avoid"] as const).flatMap((v) => options.find((o) => o.verdict === v) ?? []);
 const sample = RecommendationResponseSchema.parse({
   ...recommendation,

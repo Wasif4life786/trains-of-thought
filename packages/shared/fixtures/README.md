@@ -20,6 +20,6 @@ node -e 'const r = require("./packages/shared/fixtures/recommendation.json"); co
 | `operations.json` | (v1.3.0, ~300 KB: don't read whole) the operator risk board for EUS → MAN, 20–22 Nov, made by A3's real engine on the fake providers (`npm run fixtures:ops -w @tot/engine`) | fake A3 `operations`, A4 UI |
 | `network.json` | (v1.3.0) the network alert feed for the same dates over EUS ⇄ MAN | fake A3 `network`, A4 UI |
 | `inputs.json` | (v1.4.0) the data-inputs explorer for the same dates: EUS ⇄ MAN corridor, its stations, every signal, exposure by hour | fake A3 `inputs`, A4 UI |
-| `recommendation.sample.json` | trimmed valid copy for reading: best pick, one option per verdict, 6 heatmap cells | humans and agents |
+| `recommendation.sample.json` | trimmed valid copy for reading: best pick, one option per verdict, 6 heatmap cells | people reading the fixtures |
 
 Football fixtures come from openfootball's 2026/27 Premier League file. Anything titled "(sample)" is invented for the demo.
