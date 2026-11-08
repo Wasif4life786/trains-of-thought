@@ -1,8 +1,10 @@
 # CLAUDE.md: Trains of Thought (hackathon, four-agent hivemind)
 
-**Product:** find the cheapest, most reliable time to take the train. We fuse messy world data (weather, football,
-concerts, strikes, engineering works, bank holidays, rush hour) with fares and punctuality history, explain the
-answer, and say when to book.
+**Product (pivoted in contract v1.3.0):** a tool for **train operators** to see delays coming and cut Delay Repay
+compensation. We fuse messy world data (weather, football, concerts, strikes, engineering works, bank holidays, rush
+hour) with fares, loads and punctuality history, forecast each service's delay bands and expected payout, explain the
+drivers, and recommend pre-emptive actions that pay for themselves (contract.md §1.5, §5.6). The old consumer search
+(`/api/recommendations`) still exists in the API but not in the website.
 
 **Team:** four humans, each running one Claude agent. You are one of those agents. The hivemind only works if every
 agent stays in its lane and codes against the contract.
