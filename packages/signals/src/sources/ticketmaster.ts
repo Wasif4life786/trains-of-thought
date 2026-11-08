@@ -47,7 +47,11 @@ const norm = (s: string) => s.toLowerCase().replace(/&/g, " and ").replace(/[^a-
 
 /** Discovery API events at venues we know near our stations → signals, like the curated events. */
 export function buildTicketmaster(json: string, venues: Map<string, Venue>): { signals: Signal[]; quality: ReturnType<typeof report> } {
-  const events = Feed.parse(JSON.parse(json))._embedded?.events ?? [];
+  // Ticketmaster lists add-ons (VIP packages, parking, hospitality) as events of their own: the plain show goes first,
+  // so it is the one kept when the same venue and start time come round again.
+  const ADDON = /package|parking|hospitality|\bvip\b|upgrade|experience|add-?on/i;
+  const events = [...(Feed.parse(JSON.parse(json))._embedded?.events ?? [])].sort((a, b) => Number(ADDON.test(a.name)) - Number(ADDON.test(b.name)));
+  const shows = new Set<string>();
   const dropped: Record<string, number> = {};
   const fixed: Record<string, number> = {};
   const signals: Signal[] = [];
@@ -85,6 +89,12 @@ export function buildTicketmaster(json: string, venues: Map<string, Venue>): { s
       time = "19:00";
       bump(fixed, "start_time_defaulted");
     }
+    const show = `${venue.venue}|${date}|${time}`;
+    if (shows.has(show)) {
+      bump(dropped, "same_show_listed_twice");
+      continue;
+    }
+    shows.add(show);
     const start = londonToUtc(date, time);
     const music = e.classifications?.[0]?.segment?.name?.toLowerCase() === "music";
     signals.push({

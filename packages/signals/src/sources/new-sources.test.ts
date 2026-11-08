@@ -72,7 +72,7 @@ describe("Ticketmaster", () => {
         events: [
           event("v1", "", { _embedded: at("Leeds First Direct Bank Arena", "53.804616", "-1.544073") }), // real name and spot (2026-11-08)
           event("v2", "", { _embedded: at("O2 Academy Leeds", "53.8030", "-1.5470") }), // a different, smaller venue next door
-          event("v3", "", { _embedded: at("First Direct Arena", "51.50", "-0.12") }), // right name, wrong city: matched by name alone
+          event("v3", "", { _embedded: at("First Direct Arena", "51.50", "-0.12"), dates: { start: { localDate: "2026-11-22", localTime: "19:30:00" } } }), // exact name: matched by name alone
         ],
       },
     });
@@ -81,6 +81,16 @@ describe("Ticketmaster", () => {
     expect(signals[0]).toMatchObject({ title: "Big Gig at First Direct Arena", scope: { stations: ["LDS"] } });
     expect(quality.fixed).toEqual({ venue_name_variant_matched: 1 });
     expect(quality.dropped).toEqual({ venue_not_near_our_stations: 1 });
+    invariant(quality);
+  });
+
+  it("counts a show once, keeping its plain name, when add-ons are listed as separate events", () => {
+    const feed = JSON.stringify({
+      _embedded: { events: [event("p1", "AO Arena", { name: "Noah Kahan - Venue Premium Packages" }), event("p2", "AO Arena", { name: "Noah Kahan - The Great Divide Tour" }), event("p3", "AO Arena", { name: "Official Parking" })] },
+    });
+    const { signals, quality } = buildTicketmaster(feed, venues);
+    expect(signals.map((s) => s.title)).toEqual(["Noah Kahan - The Great Divide Tour at AO Arena"]);
+    expect(quality.dropped).toEqual({ same_show_listed_twice: 2 });
     invariant(quality);
   });
 
