@@ -10,11 +10,8 @@ Built at a hackathon by four humans and four Claude agents working in parallel: 
 
 ```bash
 npm install
-npm run hive:join -- A1   # your lane: A1 Signaller · A2 Timetabler · A3 Controller · A4 Platform
 npm run dev               # API http://localhost:8787 · web http://localhost:5173
 ```
-
-Then open Claude Code in this folder and paste your lane's kickoff prompt from [prompt.md](prompt.md).
 
 ## Map
 
