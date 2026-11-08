@@ -10,7 +10,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run",
-    "generate:performance": "tsx src/generate-performance.ts"
+    "generate:performance": "tsx src/generate-performance.ts",
+    "fetch:rtt": "tsx src/fetch-rtt.ts"
   },
   "dependencies": {
     "@tot/shared": "*",

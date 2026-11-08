@@ -1,5 +1,6 @@
 import {
   addDays,
+  toIsoUtc,
   discountFares,
   daysBetween,
   datesBetween,
@@ -25,7 +26,11 @@ function loadModel() {
   const routes = loadRoutes();
   const fares = loadFares();
   const known = new Set(routes.flatMap((r) => [`${r.from}-${r.to}`, `${r.to}-${r.from}`]));
-  const performance = loadPerformance(stations, known);
+  const durationOf = (route: string) => {
+    const [a, b] = route.split("-");
+    return routes.find((r) => (r.from === a && r.to === b) || (r.from === b && r.to === a))?.patterns[0]?.durationMin;
+  };
+  const performance = loadPerformance(stations, known, durationOf);
   return { stations, routes, fares, performance };
 }
 
@@ -155,7 +160,27 @@ export function createRailProvider(): RailProvider {
           note: "Modelled service patterns, not a published timetable",
         },
         { id: "seed:rail-fares", name: "Walk-up fares and Advance range", lane: "rail", mode: "seed", quality: fares.quality, note: "Rounded estimates, not an official fares file" },
-        { id: "seed:rail-performance", name: "Punctuality history (synthetic)", lane: "rail", mode: "seed", quality: performance.quality, note: "Synthetic history generated to look like a messy export" },
+        {
+          id: "seed:rail-performance",
+          name: "Punctuality history (synthetic)",
+          lane: "rail",
+          mode: "seed",
+          quality: performance.quality,
+          note: performance.rtt.mode ? "Fallback where real history is thin: real Realtime Trains arrivals take precedence" : "Synthetic history generated to look like a messy export",
+        },
+        ...(performance.rtt.mode
+          ? [
+              {
+                id: "rail:rtt",
+                name: `Real arrivals, Realtime Trains (${performance.rtt.routes} route directions, ${performance.rtt.days} days)`,
+                lane: "rail" as const,
+                mode: performance.rtt.mode,
+                ...(performance.rtt.fetchedAt ? { fetchedAt: toIsoUtc(performance.rtt.fetchedAt) } : {}),
+                quality: performance.rtt.quality,
+                note: "Actual arrival lateness at the destination, the measure Delay Repay uses. Data: realtimetrains.co.uk",
+              },
+            ]
+          : []),
       ];
     },
   };

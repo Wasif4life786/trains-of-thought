@@ -1,5 +1,6 @@
 import type { QualityReport, ReliabilityBaseline } from "@tot/shared";
 import { bump, clamp01, parseCsv, readRaw, round } from "./data";
+import { loadRttHistory, type RttHistory } from "./rtt";
 import type { StationIndex } from "./stations";
 
 export interface Observation {
@@ -163,7 +164,11 @@ export interface BaselineModel {
   get(route: string, weekday: number, hour: number): Pick<ReliabilityBaseline, "onTimeProb" | "cancelProb" | "avgDelayMin" | "sampleSize">;
 }
 
-export function buildBaseline(observations: Observation[]): BaselineModel {
+/**
+ * `prior`, when given, is what a cell falls back to where this history is thin: real Realtime Trains observations
+ * (A2.9) are layered over the synthetic baseline, so a route × hour with three real trains doesn't swing wildly.
+ */
+export function buildBaseline(observations: Observation[], prior?: BaselineModel): BaselineModel {
   const cells = new Map<string, Tally>();
   const classes = new Map<string, Tally>();
   const routes = new Map<string, Tally>();
@@ -191,15 +196,16 @@ export function buildBaseline(observations: Observation[]): BaselineModel {
       const cell = cells.get(`${route}|${cls}|${hour}`) ?? empty();
       const klass = classes.get(`${route}|${cls}`) ?? empty();
       const whole = routes.get(route) ?? empty();
+      const base = prior?.get(route, weekday, hour);
       const layered = (pick: (t: Tally) => number, nOf: (t: Tally) => number, prior: number) => {
         const r = shrink(pick(whole), nOf(whole), prior, 5);
         const c = shrink(pick(klass), nOf(klass), r, 8);
         return shrink(pick(cell), nOf(cell), c, 14);
       };
       return {
-        onTimeProb: round(clamp01(layered((t) => t.ok, (t) => t.n, 0.85)), 3),
-        cancelProb: round(clamp01(layered((t) => t.cancelled, (t) => t.n, 0.02)), 3),
-        avgDelayMin: round(Math.max(0, layered((t) => t.delaySum, (t) => t.delayN, 4)), 1),
+        onTimeProb: round(clamp01(layered((t) => t.ok, (t) => t.n, base?.onTimeProb ?? 0.85)), 3),
+        cancelProb: round(clamp01(layered((t) => t.cancelled, (t) => t.n, base?.cancelProb ?? 0.02)), 3),
+        avgDelayMin: round(Math.max(0, layered((t) => t.delaySum, (t) => t.delayN, base?.avgDelayMin ?? 4)), 1),
         sampleSize: cell.n,
       };
     },
@@ -208,15 +214,27 @@ export function buildBaseline(observations: Observation[]): BaselineModel {
 
 export interface PerformanceData {
   model: BaselineModel;
+  /** Quality of the synthetic history file. */
   quality: QualityReport;
+  /** Real arrivals from Realtime Trains, when any have been fetched (A2.9). */
+  rtt: RttHistory;
 }
 
 let cached: PerformanceData | undefined;
 
-export function loadPerformance(stations: StationIndex, knownRoutes: ReadonlySet<string>): PerformanceData {
+/**
+ * The synthetic history gives every route × day class × hour a baseline; real Realtime Trains arrivals, where we have
+ * them, are layered on top and win wherever they have enough observations.
+ */
+export function loadPerformance(stations: StationIndex, knownRoutes: ReadonlySet<string>, durationOf: (route: string) => number | undefined = () => undefined): PerformanceData {
   if (!cached) {
     const { observations, quality } = cleanPerformance(readRaw("performance.csv"), stations, knownRoutes);
-    cached = { model: buildBaseline(observations), quality };
+    const synthetic = buildBaseline(observations);
+    // Tests stay deterministic: they never see whatever this machine happens to have fetched.
+    const rtt: RttHistory = process.env.VITEST
+      ? { observations: [], quality: { rowsIn: 0, rowsOut: 0, fixed: {}, dropped: {} }, mode: null, days: 0, routes: 0 }
+      : loadRttHistory((route) => (knownRoutes.has(route) ? durationOf(route) : undefined));
+    cached = { model: rtt.observations.length > 0 ? buildBaseline(rtt.observations, synthetic) : synthetic, quality, rtt };
   }
   return cached;
 }
