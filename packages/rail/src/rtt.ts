@@ -26,6 +26,8 @@ interface RttCall {
 }
 interface RttService {
   temporalData?: { arrival?: RttCall; departure?: RttCall };
+  /** Where the train starts; when that is our origin, its scheduled time is the real departure. */
+  origin?: { location?: { description?: string }; temporalData?: { scheduleAdvertised?: string; scheduleInternal?: string } }[];
   scheduleMetadata?: { uniqueIdentity?: string; operator?: { code?: string }; inPassengerService?: boolean; modeType?: string };
 }
 interface RttLocationResponse {
@@ -50,6 +52,8 @@ export function parseRttDay(
   durationMin: number,
   quality: { fixed: Record<string, number>; dropped: Record<string, number>; rowsIn: number },
   seen: Set<string>,
+  /** The route's operator: an operator's view counts only its own trains (e.g. Avanti, not WMR, on Birmingham–Euston). */
+  operator?: string,
 ): Observation[] {
   const services = (json as RttLocationResponse | null)?.services ?? [];
   const out: Observation[] = [];
@@ -58,6 +62,10 @@ export function parseRttDay(
     const meta = s.scheduleMetadata ?? {};
     if (meta.inPassengerService === false || (meta.modeType && meta.modeType !== "TRAIN")) {
       bump(quality.dropped, "not_a_passenger_train");
+      continue;
+    }
+    if (operator && meta.operator?.code && meta.operator.code !== operator) {
+      bump(quality.dropped, "other_operator");
       continue;
     }
     const arr = s.temporalData?.arrival;
@@ -99,6 +107,54 @@ export function parseRttDay(
   return out;
 }
 
+/** One real scheduled train for a route direction. */
+export interface RealService {
+  /** London date and time it leaves our origin. */
+  departDate: string;
+  time: string;
+  durationMin: number;
+  operator: string;
+  /** True when the train starts further back, so the departure is its arrival minus the usual running time. */
+  estimated: boolean;
+}
+
+const minutesBetween = (a: string, b: string) => (Date.parse(`${b.slice(0, 19)}Z`) - Date.parse(`${a.slice(0, 19)}Z`)) / 60_000;
+const shiftLocal = (stamp: string, minutes: number) => new Date(Date.parse(`${stamp.slice(0, 19)}Z`) + minutes * 60_000).toISOString().slice(0, 16);
+const sameStation = (a: string, b: string) => {
+  const n = (x: string) => x.toLowerCase().replace(/[^a-z]+/g, " ").trim();
+  return n(a) === n(b) || n(b).startsWith(`${n(a)} `) || n(a).startsWith(`${n(b)} `);
+};
+
+/**
+ * The real timetable in one saved day: every scheduled passenger train of the route's operator (cancelled ones too,
+ * they were still timetabled). Departure is the train's own scheduled start when it starts at our origin.
+ */
+export function scheduleFromDay(json: unknown, originName: string | undefined, durationMin: number, operator?: string): RealService[] {
+  const out: RealService[] = [];
+  const seen = new Set<string>();
+  for (const s of (json as RttLocationResponse | null)?.services ?? []) {
+    const meta = s.scheduleMetadata ?? {};
+    if (meta.inPassengerService === false || (meta.modeType && meta.modeType !== "TRAIN")) continue;
+    if (operator && meta.operator?.code && meta.operator.code !== operator) continue;
+    const arr = s.temporalData?.arrival?.scheduleAdvertised ?? s.temporalData?.arrival?.scheduleInternal;
+    if (!arr || seen.has(meta.uniqueIdentity ?? arr)) continue;
+    seen.add(meta.uniqueIdentity ?? arr);
+    const start = s.origin?.[0];
+    const startTime = start?.temporalData?.scheduleAdvertised ?? start?.temporalData?.scheduleInternal;
+    const fromOrigin = Boolean(originName && start?.location?.description && startTime && sameStation(originName, start.location.description));
+    let depart = fromOrigin ? startTime! : shiftLocal(arr, -durationMin);
+    let duration = fromOrigin ? minutesBetween(startTime!, arr) : durationMin;
+    let estimated = !fromOrigin;
+    if (!(duration > 0 && duration <= durationMin * 2.5)) {
+      depart = shiftLocal(arr, -durationMin);
+      duration = durationMin;
+      estimated = true;
+    }
+    out.push({ departDate: depart.slice(0, 10), time: depart.slice(11, 16), durationMin: Math.round(duration), operator: meta.operator?.code ?? operator ?? "", estimated });
+  }
+  return out;
+}
+
 export interface RttHistory {
   observations: Observation[];
   quality: QualityReport;
@@ -107,6 +163,15 @@ export interface RttHistory {
   days: number;
   routes: number;
   fetchedAt?: Date;
+  /** Real timetable: route direction → London departure date → trains, earliest first. */
+  timetable: Map<string, Map<string, RealService[]>>;
+}
+
+/** What loadRttHistory needs to know about a route direction ("EUS-MAN"); undefined = a route we don't run. */
+export interface RouteInfo {
+  durationMin: number;
+  operator: string;
+  originName: string;
 }
 
 /** Saved files are `<dir>/<ORIGIN>-<DEST>/<yyyy-mm-dd>.json`. */
@@ -128,25 +193,29 @@ export function rttSignature(dirs = { cache: RTT_CACHE_DIR, snapshot: RTT_SNAPSH
 }
 
 /** Every saved day, from this machine's cache if it has any, else the committed snapshot. */
-export function loadRttHistory(durationOf: (route: string) => number | undefined, dirs = { cache: RTT_CACHE_DIR, snapshot: RTT_SNAPSHOT_DIR }): RttHistory {
+export function loadRttHistory(routeInfo: (route: string) => RouteInfo | undefined, dirs = { cache: RTT_CACHE_DIR, snapshot: RTT_SNAPSHOT_DIR }): RttHistory {
   const fromCache = readDir(dirs.cache);
   const files = fromCache.length > 0 ? fromCache : readDir(dirs.snapshot);
   const mode = files.length === 0 ? null : fromCache.length > 0 ? "cache" : "seed";
   const quality = { rowsIn: 0, fixed: {} as Record<string, number>, dropped: {} as Record<string, number> };
   const seen = new Set<string>();
   const observations: Observation[] = [];
+  const timetable = new Map<string, Map<string, RealService[]>>();
   let newest = 0;
   for (const f of files) {
-    const duration = durationOf(f.route);
+    const info = routeInfo(f.route);
     // A file for a route we no longer run, or a half-written one, holds no rows we could count: skip it.
-    if (duration === undefined) continue;
+    if (info === undefined) continue;
     let json: unknown;
     try {
       json = JSON.parse(readFileSync(f.file, "utf8"));
     } catch {
       continue;
     }
-    observations.push(...parseRttDay(json, f.route, duration, quality, seen));
+    observations.push(...parseRttDay(json, f.route, info.durationMin, quality, seen, info.operator));
+    const byDate = timetable.get(f.route) ?? new Map<string, RealService[]>();
+    for (const r of scheduleFromDay(json, info.originName, info.durationMin, info.operator)) byDate.set(r.departDate, [...(byDate.get(r.departDate) ?? []), r]);
+    timetable.set(f.route, byDate);
     newest = Math.max(newest, statSync(f.file).mtimeMs);
   }
   return {
@@ -156,5 +225,6 @@ export function loadRttHistory(durationOf: (route: string) => number | undefined
     days: new Set(files.map((f) => f.date)).size,
     routes: new Set(files.map((f) => f.route)).size,
     ...(newest ? { fetchedAt: new Date(newest) } : {}),
+    timetable: new Map([...timetable].map(([route, byDate]) => [route, new Map([...byDate].map(([d, list]) => [d, list.sort((a, b) => a.time.localeCompare(b.time))]))])),
   };
 }

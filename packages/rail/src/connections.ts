@@ -17,7 +17,13 @@ export interface Connection {
  * For each first-leg departure the earliest workable second leg, and per departure the hub that gets there soonest, so every
  * departure appears once. Journeys that need more than one change are not offered.
  */
-export function findConnections(origin: string, destination: string, date: string): Connection[] {
+export function findConnections(
+  origin: string,
+  destination: string,
+  date: string,
+  /** Where each leg's trains come from: the real timetable in the provider, the modelled pattern by default. */
+  services: (route: Route, reverse: boolean, date: string) => Service[] = servicesOn,
+): Connection[] {
   const routes = loadRoutes();
   const best = new Map<string, Connection>();
   for (const r1 of routes) {
@@ -29,8 +35,8 @@ export function findConnections(origin: string, destination: string, date: strin
       if (r2 === r1 || (r2.from !== hub && r2.to !== hub)) continue;
       const reverse2 = r2.to === hub;
       if ((reverse2 ? r2.from : r2.to) !== destination) continue;
-      const firsts = servicesOn(r1, reverse1, date);
-      const seconds = servicesOn(r2, reverse2, date);
+      const firsts = services(r1, reverse1, date);
+      const seconds = services(r2, reverse2, date);
       for (const first of firsts) {
         const earliest = Date.parse(addMinutes(first.arriveAt, MIN_CONNECTION_MIN));
         const latest = Date.parse(addMinutes(first.arriveAt, MAX_CONNECTION_MIN));

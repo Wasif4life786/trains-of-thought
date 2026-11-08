@@ -4,7 +4,9 @@ import { tmpdir } from "node:os";
 import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildBaseline } from "./performance";
-import { loadRttHistory, parseRttDay } from "./rtt";
+import { servicesFor } from "./index";
+import { loadRoutes } from "./routes";
+import { loadRttHistory, parseRttDay, scheduleFromDay, type RealService } from "./rtt";
 
 const arrival = (planned: string, o: Record<string, unknown> = {}) => ({
   temporalData: { arrival: { scheduleInternal: planned, scheduleAdvertised: planned, realtimeActual: planned, realtimeAdvertisedLateness: 0, realtimeInternalLateness: 0, isCancelled: false, ...o } },
@@ -59,7 +61,7 @@ describe("loadRttHistory", () => {
     writeFileSync(`${dirs.snapshot}EUS-MAN/2026-11-07.json`, JSON.stringify(day));
     mkdirSync(`${dirs.snapshot}XXX-YYY`, { recursive: true });
     writeFileSync(`${dirs.snapshot}XXX-YYY/2026-11-07.json`, JSON.stringify(day));
-    const durations = (r: string) => (r === "EUS-MAN" ? 128 : undefined);
+    const durations = (r: string) => (r === "EUS-MAN" ? { durationMin: 128, operator: "VT", originName: "London Euston" } : undefined);
 
     const fromSnapshot = loadRttHistory(durations, dirs);
     expect(fromSnapshot.mode).toBe("seed");
@@ -75,7 +77,7 @@ describe("loadRttHistory", () => {
 
   it("returns nothing (synthetic history only) when no real data has been fetched", () => {
     const root = mkdtempSync(path.join(tmpdir(), "rtt-"));
-    expect(loadRttHistory(() => 128, { cache: `${root}/a/`, snapshot: `${root}/b/` })).toMatchObject({ mode: null, observations: [] });
+    expect(loadRttHistory(() => ({ durationMin: 128, operator: "VT", originName: "London Euston" }), { cache: `${root}/a/`, snapshot: `${root}/b/` })).toMatchObject({ mode: null, observations: [] });
   });
 });
 
@@ -91,5 +93,40 @@ describe("real history layered over the synthetic baseline", () => {
 
   it("falls back to the synthetic prior where real data is missing", () => {
     expect(buildBaseline([], synthetic).get("EUS-MAN", 6, 9).onTimeProb).toBeCloseTo(synthetic.get("EUS-MAN", 6, 9).onTimeProb, 2);
+  });
+});
+
+describe("real timetable", () => {
+  const withOrigin = (arrive: string, depart: string | null, o: Record<string, unknown> = {}) => ({
+    ...arrival(arrive),
+    ...(depart ? { origin: [{ location: { description: "London Euston" }, temporalData: { scheduleAdvertised: depart } }] } : { origin: [{ location: { description: "Wolverhampton" }, temporalData: { scheduleAdvertised: "2026-11-07T07:00:00" } }] }),
+    ...o,
+  });
+
+  it("takes the real departure when the train starts at our origin, else estimates it from the arrival", () => {
+    const day = {
+      services: [
+        withOrigin("2026-11-07T08:44:00", "2026-11-07T06:29:00"),
+        withOrigin("2026-11-07T09:05:00", null),
+        { ...withOrigin("2026-11-07T09:44:00", "2026-11-07T07:33:00"), scheduleMetadata: { uniqueIdentity: "x", operator: { code: "LM" }, inPassengerService: true } },
+      ],
+    };
+    expect(scheduleFromDay(day, "London Euston", 128, "VT")).toEqual([
+      { departDate: "2026-11-07", time: "06:29", durationMin: 135, operator: "VT", estimated: false },
+      { departDate: "2026-11-07", time: "06:57", durationMin: 128, operator: "VT", estimated: true },
+    ]);
+  });
+
+  it("drives the departures: the real times for that weekday, not the modelled :00/:20/:40 pattern", () => {
+    const route = loadRoutes().find((r) => r.id === "EUS-MAN")!;
+    const sat: RealService[] = ["06:29", "07:33", "08:33"].map((time) => ({ departDate: "2026-11-07", time, durationMin: 132, operator: "VT", estimated: false }));
+    const timetable = new Map([["EUS-MAN", new Map([["2026-11-07", sat]])]]);
+    const onSat = servicesFor(route, false, "2026-11-21", timetable);
+    expect(onSat.map((s) => s.time)).toEqual(["06:29", "07:33", "08:33"]);
+    expect(onSat[0]).toMatchObject({ origin: "EUS", destination: "MAN", departAt: "2026-11-21T06:29:00Z", arriveAt: "2026-11-21T08:41:00Z", weekday: 6 });
+    // No real Sunday yet, and a weekend never borrows another day: the modelled pattern stands in.
+    expect(servicesFor(route, false, "2026-11-22", timetable).map((s) => s.time.slice(3))).toContain("20");
+    // The other direction has no real data at all.
+    expect(servicesFor(route, true, "2026-11-21", timetable)[0]!.origin).toBe("MAN");
   });
 });

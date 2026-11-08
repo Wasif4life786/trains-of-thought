@@ -1,5 +1,7 @@
 import {
   addDays,
+  addMinutes,
+  londonToUtc,
   toIsoUtc,
   discountFares,
   daysBetween,
@@ -16,7 +18,8 @@ import { combineFares, findConnections, mergeLegs } from "./connections";
 import { ADVANCE_ON_SALE_DAYS, faresFor, loadFares } from "./fares";
 import { crowding, isPeak } from "./peak";
 import { loadPerformance } from "./performance";
-import { findRoutes, loadRoutes, parseJourneyId, servicesOn, type Service } from "./routes";
+import { findRoutes, loadRoutes, parseJourneyId, servicesOn, type Route, type Service } from "./routes";
+import type { RouteInfo, RttHistory } from "./rtt";
 import { loadStations } from "./stations";
 
 export { cleanStationName } from "./stations";
@@ -26,11 +29,52 @@ function loadModel() {
   const routes = loadRoutes();
   const fares = loadFares();
   const known = new Set(routes.flatMap((r) => [`${r.from}-${r.to}`, `${r.to}-${r.from}`]));
-  const durationOf = (route: string) => {
-    const [a, b] = route.split("-");
-    return routes.find((r) => (r.from === a && r.to === b) || (r.from === b && r.to === a))?.patterns[0]?.durationMin;
+  const routeInfo = (direction: string): RouteInfo | undefined => {
+    const [a = "", b = ""] = direction.split("-");
+    const r = routes.find((x) => (x.from === a && x.to === b) || (x.from === b && x.to === a));
+    const durationMin = r?.patterns[0]?.durationMin;
+    return r && durationMin ? { durationMin, operator: r.operator, originName: stations.byCrs.get(a)?.name ?? a } : undefined;
   };
-  return { stations, routes, fares, known, durationOf };
+  return { stations, routes, fares, known, routeInfo };
+}
+
+/**
+ * The trains on one route direction on a London date. Real Realtime Trains schedules when we have them (the date
+ * itself if it was fetched, else the most complete fetched day of the same weekday: timetables repeat weekly, and
+ * Mon–Fri stand in for each other), otherwise the modelled pattern in routes.json.
+ */
+export function servicesFor(route: Route, reverse: boolean, date: string, timetable: RttHistory["timetable"]): Service[] {
+  const origin = reverse ? route.to : route.from;
+  const destination = reverse ? route.from : route.to;
+  const days = timetable.get(`${origin}-${destination}`);
+  if (!days || days.size === 0) return servicesOn(route, reverse, date);
+  const weekday = utcToLondon(londonToUtc(date, "12:00")).weekday;
+  const weekdayOf = (d: string) => utcToLondon(londonToUtc(d, "12:00")).weekday;
+  const pick = (ok: (w: number) => boolean) =>
+    [...days.entries()].filter(([d]) => ok(weekdayOf(d))).sort((x, y) => y[1].length - x[1].length || y[0].localeCompare(x[0]))[0]?.[1];
+  const real = days.get(date) ?? pick((w) => w === weekday) ?? (weekday <= 5 ? pick((w) => w <= 5) : undefined);
+  if (!real || real.length === 0) return servicesOn(route, reverse, date);
+
+  const pattern = route.patterns[0]!;
+  const seen = new Set<string>();
+  return real
+    .filter((r) => !seen.has(r.time) && Boolean(seen.add(r.time)))
+    .map((r) => {
+      const departAt = londonToUtc(date, r.time);
+      return {
+        routeId: route.id,
+        origin,
+        destination,
+        operator: r.operator || route.operator,
+        departAt,
+        arriveAt: addMinutes(departAt, r.durationMin),
+        durationMin: r.durationMin,
+        callingPoints: reverse ? [...pattern.callingPoints].reverse() : pattern.callingPoints,
+        date,
+        time: r.time,
+        weekday,
+      };
+    });
 }
 
 /**
@@ -42,8 +86,9 @@ export function createRailProvider(): RailProvider {
   // Punctuality is looked up on every call: it reloads itself when new Realtime Trains days have been fetched.
   const data = () => {
     model ??= loadModel();
-    return { ...model, performance: loadPerformance(model.stations, model.known, model.durationOf) };
+    return { ...model, performance: loadPerformance(model.stations, model.known, model.routeInfo) };
   };
+  const services = (route: Route, reverse: boolean, date: string) => servicesFor(route, reverse, date, data().performance.rtt.timetable);
 
   function journeyFor(service: Service, routeId: string, bookingDate: string): JourneyOption | null {
     const { fares, performance } = data();
@@ -87,7 +132,7 @@ export function createRailProvider(): RailProvider {
       const direct = findRoutes(q.origin, q.destination);
       if (direct.length === 0) {
         for (const date of datesBetween(q.dateFrom, q.dateTo)) {
-          for (const c of findConnections(q.origin, q.destination, date)) {
+          for (const c of findConnections(q.origin, q.destination, date, services)) {
             if (c.first.service.time < q.earliest || c.first.service.time > q.latest) continue;
             const a = journeyFor(c.first.service, c.first.route.id, q.bookingDate);
             const b = journeyFor(c.second.service, c.second.route.id, q.bookingDate);
@@ -100,7 +145,7 @@ export function createRailProvider(): RailProvider {
       }
       for (const { route, reverse } of direct) {
         for (const date of datesBetween(q.dateFrom, q.dateTo)) {
-          for (const service of servicesOn(route, reverse, date)) {
+          for (const service of services(route, reverse, date)) {
             if (service.time < q.earliest || service.time > q.latest) continue;
             const journey = journeyFor(service, route.id, q.bookingDate);
             if (journey) out.push(q.railcard ? { ...journey, fares: discountFares(journey.fares, q.railcard, journey.departAt) } : journey);
@@ -115,7 +160,7 @@ export function createRailProvider(): RailProvider {
       if (!parsed) return null;
       const date = utcToLondon(parsed.departAt).date;
       if (findRoutes(parsed.origin, parsed.destination).length === 0) {
-        const c = findConnections(parsed.origin, parsed.destination, date).find((x) => x.first.service.departAt === parsed.departAt);
+        const c = findConnections(parsed.origin, parsed.destination, date, services).find((x) => x.first.service.departAt === parsed.departAt);
         const tableA = c && data().fares.tables.get(c.first.route.id);
         const tableB = c && data().fares.tables.get(c.second.route.id);
         if (!c || !tableA || !tableB) return null;
@@ -129,7 +174,7 @@ export function createRailProvider(): RailProvider {
         return { journeyId, bookingDate, points, advanceOnSale: addDays(date, -ADVANCE_ON_SALE_DAYS) };
       }
       for (const { route, reverse } of findRoutes(parsed.origin, parsed.destination)) {
-        const service = servicesOn(route, reverse, date).find((s) => s.departAt === parsed.departAt);
+        const service = services(route, reverse, date).find((s) => s.departAt === parsed.departAt);
         const table = data().fares.tables.get(route.id);
         if (!service || !table) continue;
         const points: FarePoint[] = [];

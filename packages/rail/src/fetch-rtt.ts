@@ -66,10 +66,16 @@ async function authenticator(token: string) {
 }
 
 /** Only the fields parseRttDay reads: keeps the committed snapshot small and free of anything we don't use. */
-function strip(body: { services?: { temporalData?: { arrival?: unknown }; scheduleMetadata?: Record<string, unknown> }[] | null }) {
+function strip(body: {
+  services?: { temporalData?: { arrival?: unknown }; origin?: { location?: { description?: string }; temporalData?: { scheduleAdvertised?: string; scheduleInternal?: string } }[]; scheduleMetadata?: Record<string, unknown> }[] | null;
+}) {
   return {
     services: (body.services ?? []).map((s) => ({
       temporalData: { arrival: s.temporalData?.arrival },
+      origin: (s.origin ?? []).slice(0, 1).map((o) => ({
+        location: { description: o.location?.description },
+        temporalData: { scheduleAdvertised: o.temporalData?.scheduleAdvertised, scheduleInternal: o.temporalData?.scheduleInternal },
+      })),
       scheduleMetadata: {
         uniqueIdentity: s.scheduleMetadata?.uniqueIdentity,
         operator: s.scheduleMetadata?.operator,
