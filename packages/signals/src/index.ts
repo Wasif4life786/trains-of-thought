@@ -3,6 +3,9 @@ import { bankHolidays } from "./sources/bank-holidays";
 import { disruptions } from "./sources/disruptions";
 import { events } from "./sources/events";
 import { football } from "./sources/football";
+import { seasonal } from "./sources/seasonal";
+import { ticketmaster } from "./sources/ticketmaster";
+import { tfl } from "./sources/tfl";
 import { weather } from "./sources/weather";
 import { downStatus, type Adapter, type AdapterResult, type Ctx } from "./util";
 
@@ -20,6 +23,10 @@ const ADAPTERS: { id: string; name: string; run: Adapter }[] = [
   { id: "openfootball", name: "openfootball Premier League 2026/27", run: football },
   { id: "seed:events", name: "Big events near stations (curated sample)", run: events },
   { id: "seed:disruptions", name: "Strikes and engineering works (curated sample)", run: disruptions },
+  { id: "tfl-status", name: "TfL line status near the London termini", run: tfl },
+  { id: "seasonal:leaf-fall", name: "Autumn leaf-fall adhesion (modelled seasonal rule)", run: seasonal },
+  // Real concerts: only when a Ticketmaster key is set (TICKETMASTER_API_KEY in .env), otherwise there is nothing to read.
+  ...(process.env.TICKETMASTER_API_KEY ? [{ id: "ticketmaster", name: "Ticketmaster Discovery (real concerts and events)", run: ticketmaster }] : []),
 ];
 
 /** How long a loaded source is reused before it's fetched again. */

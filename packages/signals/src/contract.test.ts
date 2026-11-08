@@ -51,7 +51,7 @@ describe("A1 SignalProvider contract", () => {
 
   it("reports every source honestly, with every row accounted for", async () => {
     const sources = z.array(SourceStatusSchema).parse(await provider.listSources());
-    expect(sources.map((s) => s.id)).toEqual(["gov-uk-bank-holidays", "open-meteo", "openfootball", "thesportsdb", "seed:events", "seed:disruptions"]);
+    expect(sources.map((s) => s.id)).toEqual(["gov-uk-bank-holidays", "open-meteo", "openfootball", "thesportsdb", "seed:events", "seed:disruptions", "tfl-status", "seasonal:leaf-fall"]);
     for (const s of sources) {
       expect(s.lane).toBe("signals");
       expect(s.quality.rowsIn - s.quality.rowsOut, s.id).toBe(Object.values(s.quality.dropped).reduce((a, b) => a + b, 0));

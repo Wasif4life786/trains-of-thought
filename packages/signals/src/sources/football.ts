@@ -15,6 +15,8 @@ export interface Club {
   lon: number;
   capacity: number;
   stations: string[];
+  /** Where the club's fans start a journey to an away game: its city's main stations. */
+  hub: string[];
 }
 
 /** "Brighton & Hove Albion FC" and "Brighton and Hove Albion" are the same team. */
@@ -25,9 +27,9 @@ export const normaliseTeam = (name: string): string =>
 export function parseStadiums(text: string): Map<string, Club> {
   const byName = new Map<string, Club>();
   for (const row of parseCsv(text).slice(1)) {
-    const [club, aliases = "", short, stadium, lat, lon, capacity, stations = ""] = row.map((c) => c.trim());
+    const [club, aliases = "", short, stadium, lat, lon, capacity, stations = "", hub = ""] = row.map((c) => c.trim());
     if (!club || !short || !stadium) continue;
-    const entry: Club = { club, short, stadium, lat: Number(lat), lon: Number(lon), capacity: Number(capacity), stations: stations.split("|").filter(Boolean) };
+    const entry: Club = { club, short, stadium, lat: Number(lat), lon: Number(lon), capacity: Number(capacity), stations: stations.split("|").filter(Boolean), hub: hub.split("|").filter(Boolean) };
     for (const name of [club, ...aliases.split("|")]) if (name) byName.set(normaliseTeam(name), entry);
   }
   return byName;
@@ -117,6 +119,25 @@ export function buildFootball(season: unknown, sportsDb: unknown, clubs: Map<str
       confidence,
       metrics: { capacity: home.capacity },
     });
+
+    // Away fans travel out of their own city in the hours before kick-off: a lower-severity signal on the away club's stations.
+    if (away.hub.length > 0) {
+      const awaySeverity = derby ? 0.5 : away.capacity >= 45_000 ? 0.3 : 0.2;
+      signals.push({
+        id: `${OPENFOOTBALL}:${m.date}:${slug(home.club)}-v-${slug(away.club)}:away-fans`,
+        kind: "football",
+        title: `${away.short} fans travelling to ${home.short}`,
+        detail: `Away support heading for ${home.stadium}, kick-off ${hhmm(kickoff)}${provisional ? " (provisional)" : ""}`,
+        source: OPENFOOTBALL,
+        start: addMinutes(kickoff, -300),
+        end: addMinutes(kickoff, -60),
+        place: { name: away.stadium, lat: away.lat, lon: away.lon },
+        scope: { stations: away.hub, operators: [], nationwide: false },
+        severity: awaySeverity,
+        confidence: Math.max(0.4, confidence - 0.1),
+      });
+      bump(fixed, "away_fan_signal_added");
+    }
   }
 
   const merged = events.filter((e) => clubs.has(normaliseTeam(e.strHomeTeam)) && clubs.has(normaliseTeam(e.strAwayTeam))).length;

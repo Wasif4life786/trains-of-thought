@@ -4,8 +4,8 @@ Raw inputs for world signals, as downloaded or hand-collected (cleaned in `packa
 
 | File | What | Where from |
 |---|---|---|
-| `bank-holidays.json` | GOV.UK bank holidays, three divisions | gov.uk/bank-holidays.json (7 Nov 2026) |
-| `open-meteo-forecast.json` | 16-day hourly forecast for the 22 points in `weather-points.json` | Open-Meteo (7 Nov 2026) |
+| `bank-holidays.json` | GOV.UK bank holidays, three divisions | gov.uk/bank-holidays.json (8 Nov 2026) |
+| `open-meteo-forecast.json` | 16-day hourly forecast for the 25 points in `weather-points.json` | Open-Meteo (8 Nov 2026) |
 | `openfootball-en1-2026-27.json` | Premier League 2026/27 fixtures | openfootball/football.json |
 | `thesportsdb-epl-next.json` | next matches with TV-adjusted times (free key: one match) | TheSportsDB |
 | `weather-points.json` | forecast points and the stations each speaks for | curated |

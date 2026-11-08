@@ -13,7 +13,7 @@ export interface WeatherPoint {
   stations: string[];
 }
 
-const Points = z.object({ points: z.array(z.object({ id: z.string(), name: z.string(), lat: z.number(), lon: z.number(), stations: z.array(z.string()) })) });
+export const Points = z.object({ points: z.array(z.object({ id: z.string(), name: z.string(), lat: z.number(), lon: z.number(), stations: z.array(z.string()) })) });
 const Hourly = z.object({
   time: z.array(z.string()),
   temperature_2m: z.array(z.number().nullable()),
@@ -22,7 +22,7 @@ const Hourly = z.object({
   snowfall: z.array(z.number().nullable()),
 });
 /** Open-Meteo answers with an array for several coordinates, one object for a single one. */
-const Forecast = z.union([z.array(z.object({ hourly: Hourly })), z.object({ hourly: Hourly }).transform((one) => [one])]);
+export const Forecast = z.union([z.array(z.object({ hourly: Hourly })), z.object({ hourly: Hourly }).transform((one) => [one])]);
 
 const KMH_PER_MPH = 1.609344;
 
@@ -65,7 +65,13 @@ interface Window {
  * Hourly forecast → weather signals: hours above a threshold merge into windows (gaps of one hour are bridged), each
  * window is a signal covering the hours plus an hour for the railway to recover. `asOf` is when the forecast was made.
  */
-export function buildWeather(points: WeatherPoint[], forecast: z.infer<typeof Forecast>, asOf: Date): { signals: Signal[]; quality: ReturnType<typeof report> } {
+export function buildWeather(
+  points: WeatherPoint[],
+  forecast: z.infer<typeof Forecast>,
+  asOf: Date,
+  /** Override the lead-time confidence, e.g. 0.95 for observed weather from the archive. */
+  options: { confidence?: number } = {},
+): { signals: Signal[]; quality: ReturnType<typeof report> } {
   const fixed: Record<string, number> = {};
   const dropped: Record<string, number> = {};
   const signals: Signal[] = [];
@@ -114,7 +120,7 @@ export function buildWeather(points: WeatherPoint[], forecast: z.infer<typeof Fo
         place: { name: point.name, lat: point.lat, lon: point.lon },
         scope: { stations: point.stations, operators: [], nationwide: false },
         severity: w.severity,
-        confidence: leadConfidence(leadDays),
+        confidence: options.confidence ?? leadConfidence(leadDays),
         metrics: { [METRIC[w.cause]]: round(w.peak, 1) },
         url: "https://open-meteo.com/",
       });

@@ -10,6 +10,7 @@ import { buildFootball, normaliseTeam, parseStadiums } from "./football";
 import { buildWeather, hazardFor } from "./weather";
 
 const ALL = z.array(SignalSchema);
+const homeOnly = (signals: ReturnType<typeof buildFootball>["signals"]) => signals.filter((s) => !s.id.endsWith(":away-fans"));
 const invariant = (q: { rowsIn: number; rowsOut: number; dropped: Record<string, number> }) => expect(q.rowsIn - q.rowsOut).toBe(Object.values(q.dropped).reduce((a, b) => a + b, 0));
 
 describe("bank holidays", () => {
@@ -117,14 +118,16 @@ describe("weather", () => {
     expect(far.confidence).toBeLessThanOrEqual(0.3);
   });
 
-  it("reads the real forecast snapshot: calm on the demo weekend, a gale at Bristol on 17 Nov", () => {
+  it("reads the real forecast snapshot: a gale across the network on Mon 16 Nov, calm on the demo weekend", () => {
     const points = (JSON.parse(readRaw("weather-points.json")) as { points: (typeof point)[] }).points;
     const real = JSON.parse(readRaw("open-meteo-forecast.json")) as ReturnType<typeof forecast>;
     const { signals, quality } = buildWeather(points, real, new Date(`${real[0]!.hourly.time[0]}:00Z`));
     ALL.parse(signals);
     expect(quality.rowsIn).toBe(points.length * 384);
     invariant(quality);
-    expect(signals.some((s) => s.id.startsWith("open-meteo:bristol:2026-11-17"))).toBe(true);
+    const gales = signals.filter((s) => s.id.includes("2026-11-16") && s.id.endsWith(":gusts"));
+    expect(gales.length).toBeGreaterThan(10);
+    expect(signals.some((s) => s.id.startsWith("open-meteo:manchester:2026-11-16"))).toBe(true);
     expect(signals.filter((s) => s.start >= "2026-11-20T00:00:00Z" && s.start <= "2026-11-22T23:59:59Z")).toEqual([]);
   });
 });
@@ -141,7 +144,7 @@ describe("football", () => {
 
   it("turns a fixture into a signal at the home ground, kick-off ± 3 hours", () => {
     const { signals, football } = buildFootball(season([{ date: "2026-11-21", time: "15:00", team1: "Manchester City FC", team2: "Fulham FC" }]), { events: [] }, clubs);
-    expect(signals[0]).toMatchObject({
+    expect(homeOnly(signals)[0]).toMatchObject({
       id: "openfootball:2026-11-21:manchester-city-v-fulham",
       kind: "football",
       title: "Man City v Fulham",
@@ -152,13 +155,13 @@ describe("football", () => {
       scope: { stations: ["ABY", "MAN", "MCV"], operators: [], nationwide: false },
       metrics: { capacity: 53400 },
     });
-    expect(signals[0]!.detail).toContain("provisional");
+    expect(homeOnly(signals)[0]!.detail).toContain("provisional");
     invariant(football);
   });
 
   it("converts a summer kick-off from London time", () => {
     const { signals } = buildFootball(season([{ date: "2027-05-15", time: "15:00", team1: "Arsenal FC", team2: "Chelsea FC" }]), { events: [] }, clubs);
-    expect(signals[0]!.start).toBe("2027-05-15T11:00:00Z");
+    expect(homeOnly(signals)[0]!.start).toBe("2027-05-15T11:00:00Z");
   });
 
   it("rates derbies at the top, and big crowds above small ones", () => {
@@ -170,8 +173,9 @@ describe("football", () => {
       { events: [] },
       clubs,
     );
-    expect(signals[0]).toMatchObject({ title: "Liverpool v Everton (derby)", severity: 1 });
-    expect(signals[1]!.severity).toBe(0.2);
+    const home = homeOnly(signals);
+    expect(home[0]).toMatchObject({ title: "Liverpool v Everton (derby)", severity: 1 });
+    expect(home[1]!.severity).toBe(0.2);
   });
 
   it("moves a kick-off to the TV time when TheSportsDB disagrees, and trusts it more", () => {
@@ -180,7 +184,8 @@ describe("football", () => {
       { date: "2026-11-21", time: "15:00", team1: "Manchester City FC", team2: "Fulham FC" },
     ]);
     const tv = { events: [{ strTimestamp: "2026-11-08T14:00:00", strHomeTeam: "Brighton and Hove Albion", strAwayTeam: "Brentford" }, { strTimestamp: "2026-11-21T15:00:00", strHomeTeam: "Manchester City", strAwayTeam: "Fulham" }] };
-    const { signals, football, crossCheck } = buildFootball(matches, tv, clubs);
+    const { signals: all, football, crossCheck } = buildFootball(matches, tv, clubs);
+    const signals = homeOnly(all);
     expect(signals[0]).toMatchObject({ start: "2026-11-08T11:00:00Z", confidence: 0.8 });
     expect(signals[1]).toMatchObject({ start: "2026-11-21T12:00:00Z", confidence: 0.85 });
     expect(football.fixed.kickoff_moved_for_tv).toBe(1);
@@ -196,7 +201,8 @@ describe("football", () => {
 
   it("reads the real fixture list: every match placed at a ground, and the stations exist", () => {
     const { signals, football } = buildFootball(JSON.parse(readRaw("openfootball-en1-2026-27.json")), JSON.parse(readRaw("thesportsdb-epl-next.json")), clubs);
-    expect(signals).toHaveLength(380);
+    expect(homeOnly(signals)).toHaveLength(380);
+    expect(signals).toHaveLength(760); // a home-crowd signal and an away-fan signal per match
     expect(football.dropped).toEqual({});
     ALL.parse(signals);
     const stations = new Set((JSON.parse(readFileSync(`${RAW_PATH}../rail/stations.json`, "utf8")) as { crsCode: string }[]).map((s) => s.crsCode));
