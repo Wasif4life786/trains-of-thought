@@ -71,6 +71,17 @@ describe("the rail provider (real model)", () => {
     expect(await rail.getFareCurve("nope", "2026-11-07")).toBeNull();
   });
 
+  it("applies a railcard: a third off where it's valid, nothing where it isn't", async () => {
+    const day = { dateFrom: "2026-11-20", dateTo: "2026-11-21" };
+    const plain = await rail.getJourneyOptions(query("EDB", "MAN", day));
+    const card = await rail.getJourneyOptions(query("EDB", "MAN", { ...day, railcard: "senior" }));
+    expect(card).toHaveLength(plain.length);
+    plain.forEach((p, i) => {
+      const early = p.departAt < "2026-11-20T09:30:00Z" && p.departAt.startsWith("2026-11-20");
+      expect(card[i]!.fares[0]!.pricePence, p.id).toBe(early ? p.fares[0]!.pricePence : Math.floor((p.fares[0]!.pricePence * 2 + 1) / 3));
+    });
+  });
+
   it("reports honest sources with every row accounted for", async () => {
     const sources = z.array(SourceStatusSchema).parse(await rail.listSources());
     expect(sources.map((s) => s.id)).toEqual(["rail:stations", "seed:rail-timetable", "seed:rail-fares", "seed:rail-performance"]);

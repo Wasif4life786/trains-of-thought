@@ -6,12 +6,45 @@
       "from": "EUS",
       "to": "MAN",
       "operator": "VT",
-      "first": { "weekday": "06:00", "saturday": "06:20", "sunday": "08:20" },
-      "last": { "weekday": "21:40", "saturday": "21:40", "sunday": "21:40" },
+      "first": {
+        "weekday": "06:00",
+        "saturday": "06:20",
+        "sunday": "08:20"
+      },
+      "last": {
+        "weekday": "21:40",
+        "saturday": "21:40",
+        "sunday": "21:40"
+      },
       "patterns": [
-        { "minute": 0, "durationMin": 128, "callingPoints": ["MKC", "SOT", "MAC", "SPT"] },
-        { "minute": 20, "durationMin": 131, "callingPoints": ["CRE", "WML", "SPT"] },
-        { "minute": 40, "durationMin": 125, "callingPoints": ["MKC", "SOT", "SPT"] }
+        {
+          "minute": 0,
+          "durationMin": 128,
+          "callingPoints": [
+            "MKC",
+            "SOT",
+            "MAC",
+            "SPT"
+          ]
+        },
+        {
+          "minute": 20,
+          "durationMin": 131,
+          "callingPoints": [
+            "CRE",
+            "WML",
+            "SPT"
+          ]
+        },
+        {
+          "minute": 40,
+          "durationMin": 125,
+          "callingPoints": [
+            "MKC",
+            "SOT",
+            "SPT"
+          ]
+        }
       ],
       "onTimeBase": 0.9,
       "crowdingBias": 0
@@ -21,11 +54,36 @@
       "from": "EUS",
       "to": "LIV",
       "operator": "VT",
-      "first": { "weekday": "06:10", "saturday": "07:10", "sunday": "08:40" },
-      "last": { "weekday": "21:10", "saturday": "20:40", "sunday": "21:10" },
+      "first": {
+        "weekday": "06:10",
+        "saturday": "07:10",
+        "sunday": "08:40"
+      },
+      "last": {
+        "weekday": "21:10",
+        "saturday": "20:40",
+        "sunday": "21:10"
+      },
       "patterns": [
-        { "minute": 10, "durationMin": 138, "callingPoints": ["MKC", "CRE", "RUN"] },
-        { "minute": 40, "durationMin": 146, "callingPoints": ["MKC", "CRE", "RUN", "LPY"] }
+        {
+          "minute": 10,
+          "durationMin": 138,
+          "callingPoints": [
+            "MKC",
+            "CRE",
+            "RUN"
+          ]
+        },
+        {
+          "minute": 40,
+          "durationMin": 146,
+          "callingPoints": [
+            "MKC",
+            "CRE",
+            "RUN",
+            "LPY"
+          ]
+        }
       ],
       "onTimeBase": 0.87,
       "crowdingBias": 0
@@ -35,12 +93,42 @@
       "from": "EUS",
       "to": "BHM",
       "operator": "VT",
-      "first": { "weekday": "06:05", "saturday": "06:45", "sunday": "08:05" },
-      "last": { "weekday": "22:25", "saturday": "22:25", "sunday": "22:25" },
+      "first": {
+        "weekday": "06:05",
+        "saturday": "06:45",
+        "sunday": "08:05"
+      },
+      "last": {
+        "weekday": "22:25",
+        "saturday": "22:25",
+        "sunday": "22:25"
+      },
       "patterns": [
-        { "minute": 5, "durationMin": 85, "callingPoints": ["MKC", "BHI"] },
-        { "minute": 25, "durationMin": 89, "callingPoints": ["COV", "BHI"] },
-        { "minute": 45, "durationMin": 95, "callingPoints": ["RUG", "COV", "BHI"] }
+        {
+          "minute": 5,
+          "durationMin": 85,
+          "callingPoints": [
+            "MKC",
+            "BHI"
+          ]
+        },
+        {
+          "minute": 25,
+          "durationMin": 89,
+          "callingPoints": [
+            "COV",
+            "BHI"
+          ]
+        },
+        {
+          "minute": 45,
+          "durationMin": 95,
+          "callingPoints": [
+            "RUG",
+            "COV",
+            "BHI"
+          ]
+        }
       ],
       "onTimeBase": 0.89,
       "crowdingBias": 0.05
@@ -50,11 +138,35 @@
       "from": "KGX",
       "to": "LDS",
       "operator": "GR",
-      "first": { "weekday": "06:03", "saturday": "07:03", "sunday": "08:03" },
-      "last": { "weekday": "20:33", "saturday": "20:33", "sunday": "20:33" },
+      "first": {
+        "weekday": "06:03",
+        "saturday": "07:03",
+        "sunday": "08:03"
+      },
+      "last": {
+        "weekday": "20:33",
+        "saturday": "20:33",
+        "sunday": "20:33"
+      },
       "patterns": [
-        { "minute": 3, "durationMin": 140, "callingPoints": ["PBO", "DON", "WKF"] },
-        { "minute": 33, "durationMin": 152, "callingPoints": ["PBO", "DON", "WKF"] }
+        {
+          "minute": 3,
+          "durationMin": 140,
+          "callingPoints": [
+            "PBO",
+            "DON",
+            "WKF"
+          ]
+        },
+        {
+          "minute": 33,
+          "durationMin": 152,
+          "callingPoints": [
+            "PBO",
+            "DON",
+            "WKF"
+          ]
+        }
       ],
       "onTimeBase": 0.86,
       "crowdingBias": 0
@@ -64,11 +176,54 @@
       "from": "KGX",
       "to": "EDB",
       "operator": "GR",
-      "first": { "weekday": "06:00", "saturday": "07:00", "sunday": "08:30" },
-      "last": { "weekday": "18:30", "saturday": "17:30", "sunday": "18:30" },
+      "first": {
+        "weekday": "06:00",
+        "saturday": "07:00",
+        "sunday": "08:30"
+      },
+      "last": {
+        "weekday": "18:30",
+        "saturday": "17:30",
+        "sunday": "18:30"
+      },
       "patterns": [
-        { "minute": 0, "durationMin": 262, "callingPoints": ["PBO", "YRK", "DAR", "NCL"], "hours": [6, 8, 10, 12, 14, 16, 18] },
-        { "minute": 30, "durationMin": 270, "callingPoints": ["DON", "YRK", "NCL", "BWK"], "hours": [7, 9, 11, 13, 15, 17] }
+        {
+          "minute": 0,
+          "durationMin": 262,
+          "callingPoints": [
+            "PBO",
+            "YRK",
+            "DAR",
+            "NCL"
+          ],
+          "hours": [
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18
+          ]
+        },
+        {
+          "minute": 30,
+          "durationMin": 270,
+          "callingPoints": [
+            "DON",
+            "YRK",
+            "NCL",
+            "BWK"
+          ],
+          "hours": [
+            7,
+            9,
+            11,
+            13,
+            15,
+            17
+          ]
+        }
       ],
       "onTimeBase": 0.84,
       "crowdingBias": 0
@@ -78,11 +233,36 @@
       "from": "PAD",
       "to": "BRI",
       "operator": "GW",
-      "first": { "weekday": "06:00", "saturday": "06:30", "sunday": "08:00" },
-      "last": { "weekday": "21:30", "saturday": "21:30", "sunday": "21:30" },
+      "first": {
+        "weekday": "06:00",
+        "saturday": "06:30",
+        "sunday": "08:00"
+      },
+      "last": {
+        "weekday": "21:30",
+        "saturday": "21:30",
+        "sunday": "21:30"
+      },
       "patterns": [
-        { "minute": 0, "durationMin": 103, "callingPoints": ["RDG", "SWI", "BTH"] },
-        { "minute": 30, "durationMin": 108, "callingPoints": ["RDG", "DID", "CPM", "BTH"] }
+        {
+          "minute": 0,
+          "durationMin": 103,
+          "callingPoints": [
+            "RDG",
+            "SWI",
+            "BTH"
+          ]
+        },
+        {
+          "minute": 30,
+          "durationMin": 108,
+          "callingPoints": [
+            "RDG",
+            "DID",
+            "CPM",
+            "BTH"
+          ]
+        }
       ],
       "onTimeBase": 0.82,
       "crowdingBias": 0
@@ -92,9 +272,28 @@
       "from": "EDB",
       "to": "MAN",
       "operator": "TP",
-      "first": { "weekday": "06:12", "saturday": "06:12", "sunday": "09:12" },
-      "last": { "weekday": "20:12", "saturday": "20:12", "sunday": "20:12" },
-      "patterns": [{ "minute": 12, "durationMin": 194, "callingPoints": ["CAR", "LAN", "PRE", "WGN"] }],
+      "first": {
+        "weekday": "06:12",
+        "saturday": "06:12",
+        "sunday": "09:12"
+      },
+      "last": {
+        "weekday": "20:12",
+        "saturday": "20:12",
+        "sunday": "20:12"
+      },
+      "patterns": [
+        {
+          "minute": 12,
+          "durationMin": 194,
+          "callingPoints": [
+            "CAR",
+            "LAN",
+            "PRE",
+            "WGN"
+          ]
+        }
+      ],
       "onTimeBase": 0.8,
       "crowdingBias": 0.05
     },
@@ -103,15 +302,239 @@
       "from": "MAN",
       "to": "LDS",
       "operator": "TP",
-      "first": { "weekday": "06:05", "saturday": "06:35", "sunday": "08:35" },
-      "last": { "weekday": "22:50", "saturday": "22:50", "sunday": "22:50" },
+      "first": {
+        "weekday": "06:05",
+        "saturday": "06:35",
+        "sunday": "08:35"
+      },
+      "last": {
+        "weekday": "22:50",
+        "saturday": "22:50",
+        "sunday": "22:50"
+      },
       "patterns": [
-        { "minute": 5, "durationMin": 57, "callingPoints": ["HUD", "DEW"] },
-        { "minute": 20, "durationMin": 63, "callingPoints": ["HUD", "MIR"] },
-        { "minute": 35, "durationMin": 58, "callingPoints": ["HUD", "DEW"] },
-        { "minute": 50, "durationMin": 60, "callingPoints": ["HUD"] }
+        {
+          "minute": 5,
+          "durationMin": 57,
+          "callingPoints": [
+            "HUD",
+            "DEW"
+          ]
+        },
+        {
+          "minute": 20,
+          "durationMin": 63,
+          "callingPoints": [
+            "HUD",
+            "MIR"
+          ]
+        },
+        {
+          "minute": 35,
+          "durationMin": 58,
+          "callingPoints": [
+            "HUD",
+            "DEW"
+          ]
+        },
+        {
+          "minute": 50,
+          "durationMin": 60,
+          "callingPoints": [
+            "HUD"
+          ]
+        }
       ],
       "onTimeBase": 0.78,
+      "crowdingBias": 0.15
+    },
+    {
+      "id": "EUS-GLC",
+      "from": "EUS",
+      "to": "GLC",
+      "operator": "VT",
+      "first": {
+        "weekday": "06:30",
+        "saturday": "07:30",
+        "sunday": "09:30"
+      },
+      "last": {
+        "weekday": "18:30",
+        "saturday": "16:30",
+        "sunday": "18:30"
+      },
+      "patterns": [
+        {
+          "minute": 30,
+          "durationMin": 270,
+          "callingPoints": [
+            "CRE",
+            "WGN",
+            "PRE",
+            "LAN",
+            "CAR",
+            "MTH"
+          ],
+          "hours": [
+            6,
+            8,
+            10,
+            12,
+            14,
+            16,
+            18
+          ]
+        }
+      ],
+      "onTimeBase": 0.8,
+      "crowdingBias": 0
+    },
+    {
+      "id": "KGX-NCL",
+      "from": "KGX",
+      "to": "NCL",
+      "operator": "GR",
+      "first": {
+        "weekday": "06:15",
+        "saturday": "07:15",
+        "sunday": "08:45"
+      },
+      "last": {
+        "weekday": "21:15",
+        "saturday": "20:15",
+        "sunday": "21:15"
+      },
+      "patterns": [
+        {
+          "minute": 15,
+          "durationMin": 170,
+          "callingPoints": [
+            "PBO",
+            "DON",
+            "YRK",
+            "DAR"
+          ]
+        },
+        {
+          "minute": 45,
+          "durationMin": 178,
+          "callingPoints": [
+            "PBO",
+            "YRK",
+            "DAR"
+          ],
+          "hours": [
+            7,
+            9,
+            11,
+            13,
+            15,
+            17,
+            19
+          ]
+        }
+      ],
+      "onTimeBase": 0.82,
+      "crowdingBias": 0
+    },
+    {
+      "id": "BHM-MAN",
+      "from": "BHM",
+      "to": "MAN",
+      "operator": "XC",
+      "first": {
+        "weekday": "06:10",
+        "saturday": "07:10",
+        "sunday": "09:10"
+      },
+      "last": {
+        "weekday": "20:10",
+        "saturday": "20:10",
+        "sunday": "20:10"
+      },
+      "patterns": [
+        {
+          "minute": 10,
+          "durationMin": 100,
+          "callingPoints": [
+            "WVH",
+            "STA",
+            "SOT",
+            "MAC",
+            "SPT"
+          ]
+        }
+      ],
+      "onTimeBase": 0.8,
+      "crowdingBias": 0.1
+    },
+    {
+      "id": "BRI-BHM",
+      "from": "BRI",
+      "to": "BHM",
+      "operator": "XC",
+      "first": {
+        "weekday": "06:35",
+        "saturday": "07:35",
+        "sunday": "09:35"
+      },
+      "last": {
+        "weekday": "20:35",
+        "saturday": "20:35",
+        "sunday": "20:35"
+      },
+      "patterns": [
+        {
+          "minute": 35,
+          "durationMin": 100,
+          "callingPoints": [
+            "BPW",
+            "GCR",
+            "CNM",
+            "WOS",
+            "BMV"
+          ]
+        }
+      ],
+      "onTimeBase": 0.78,
+      "crowdingBias": 0.1
+    },
+    {
+      "id": "MAN-LIV",
+      "from": "MAN",
+      "to": "LIV",
+      "operator": "EM",
+      "first": {
+        "weekday": "05:50",
+        "saturday": "06:50",
+        "sunday": "08:50"
+      },
+      "last": {
+        "weekday": "22:50",
+        "saturday": "22:50",
+        "sunday": "22:50"
+      },
+      "patterns": [
+        {
+          "minute": 20,
+          "durationMin": 52,
+          "callingPoints": [
+            "MCO",
+            "WAC",
+            "LPY"
+          ]
+        },
+        {
+          "minute": 50,
+          "durationMin": 54,
+          "callingPoints": [
+            "MCO",
+            "WAC",
+            "LPY"
+          ]
+        }
+      ],
+      "onTimeBase": 0.76,
       "crowdingBias": 0.15
     }
   ]

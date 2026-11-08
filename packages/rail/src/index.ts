@@ -1,5 +1,6 @@
 import {
   addDays,
+  discountFares,
   daysBetween,
   datesBetween,
   utcToLondon,
@@ -10,6 +11,7 @@ import {
   type RouteRef,
   type SourceStatus,
 } from "@tot/shared";
+import { combineFares, findConnections, mergeLegs } from "./connections";
 import { ADVANCE_ON_SALE_DAYS, faresFor, loadFares } from "./fares";
 import { crowding, isPeak } from "./peak";
 import { loadPerformance } from "./performance";
@@ -74,12 +76,26 @@ export function createRailProvider(): RailProvider {
 
     async getJourneyOptions(q) {
       const out: JourneyOption[] = [];
-      for (const { route, reverse } of findRoutes(q.origin, q.destination)) {
+      const direct = findRoutes(q.origin, q.destination);
+      if (direct.length === 0) {
+        for (const date of datesBetween(q.dateFrom, q.dateTo)) {
+          for (const c of findConnections(q.origin, q.destination, date)) {
+            if (c.first.service.time < q.earliest || c.first.service.time > q.latest) continue;
+            const a = journeyFor(c.first.service, c.first.route.id, q.bookingDate);
+            const b = journeyFor(c.second.service, c.second.route.id, q.bookingDate);
+            if (!a || !b) continue;
+            const merged = mergeLegs(a, b, c.hub);
+            out.push(q.railcard ? { ...merged, fares: discountFares(merged.fares, q.railcard, merged.departAt) } : merged);
+          }
+        }
+        return out.sort((x, y) => x.departAt.localeCompare(y.departAt));
+      }
+      for (const { route, reverse } of direct) {
         for (const date of datesBetween(q.dateFrom, q.dateTo)) {
           for (const service of servicesOn(route, reverse, date)) {
             if (service.time < q.earliest || service.time > q.latest) continue;
             const journey = journeyFor(service, route.id, q.bookingDate);
-            if (journey) out.push(journey);
+            if (journey) out.push(q.railcard ? { ...journey, fares: discountFares(journey.fares, q.railcard, journey.departAt) } : journey);
           }
         }
       }
@@ -90,6 +106,20 @@ export function createRailProvider(): RailProvider {
       const parsed = parseJourneyId(journeyId);
       if (!parsed) return null;
       const date = utcToLondon(parsed.departAt).date;
+      if (findRoutes(parsed.origin, parsed.destination).length === 0) {
+        const c = findConnections(parsed.origin, parsed.destination, date).find((x) => x.first.service.departAt === parsed.departAt);
+        const tableA = c && data().fares.tables.get(c.first.route.id);
+        const tableB = c && data().fares.tables.get(c.second.route.id);
+        if (!c || !tableA || !tableB) return null;
+        const idA = `${c.first.service.origin}-${c.first.service.destination}-${c.first.service.departAt}`;
+        const idB = `${c.second.service.origin}-${c.second.service.destination}-${c.second.service.departAt}`;
+        const points: FarePoint[] = [];
+        for (let d = ADVANCE_ON_SALE_DAYS; d >= 0; d -= d > 28 ? 7 : 1) {
+          const cheapest = combineFares(faresFor(tableA, idA, c.first.service.weekday, c.first.service.time, d), faresFor(tableB, idB, c.second.service.weekday, c.second.service.time, d))[0]!;
+          points.push({ date: addDays(date, -d), daysBefore: d, pricePence: cheapest.pricePence, ticketType: cheapest.ticketType });
+        }
+        return { journeyId, bookingDate, points, advanceOnSale: addDays(date, -ADVANCE_ON_SALE_DAYS) };
+      }
       for (const { route, reverse } of findRoutes(parsed.origin, parsed.destination)) {
         const service = servicesOn(route, reverse, date).find((s) => s.departAt === parsed.departAt);
         const table = data().fares.tables.get(route.id);

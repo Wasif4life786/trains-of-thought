@@ -13,7 +13,7 @@ import { loadRoutes, servicesOn } from "./routes";
 import { loadStations } from "./stations";
 
 const OUT = fileURLToPath(new URL("../../../data/raw/rail/performance.csv", import.meta.url));
-const OBS_PER_CELL = 24;
+const OBS_PER_CELL = 20;
 const FIRST_DAY = "2026-04-01";
 const LAST_DAY = "2026-10-31";
 
