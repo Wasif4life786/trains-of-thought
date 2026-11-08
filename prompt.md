@@ -1,5 +1,11 @@
 # prompt.md: setting up the hivemind and briefing the agents
 
+## To do for humans (accounts and keys the agents can't get)
+
+- [ ] **Ticketmaster API key** (optional, A1): free key from the Ticketmaster developer portal. Put it in `.env` as `TICKETMASTER_API_KEY=...`, never in chat or git. The signals adapter turns itself on when it's set (`npm run ingest -w @tot/signals`).
+- [ ] **Realtime Trains sign-up** (A2.9): register for a free API account at https://api.rtt.io and add the credentials to `.env`. This replaces the synthetic punctuality history with real timetables and delays.
+- [ ] **A real walk-up fares source** (A2): there's no free open feed. Options: the National Rail Data Portal fares feed (sign-up, slow approval), a licensed fares API, or a hand-checked table from Trainline or operator sites. Until then fares stay modelled and labelled "(sample)".
+
 ## For humans: setup (about 5 minutes)
 
 **Lead, once:**
