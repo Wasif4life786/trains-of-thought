@@ -8,7 +8,7 @@
     ".": "./src/app.ts"
   },
   "scripts": {
-    "dev": "tsx watch src/server.ts",
+    "dev": "tsx watch --include \"../engine/src/**\" --include \"../rail/src/**\" --include \"../signals/src/**\" --include \"../shared/src/**\" --exclude \"../**/*.test.ts\" src/server.ts",
     "start": "tsx src/server.ts",
     "typecheck": "tsc --noEmit -p tsconfig.json",
     "test": "vitest run"

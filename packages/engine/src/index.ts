@@ -335,6 +335,8 @@ async function listSources(deps: EngineDeps, warnings: string[]): Promise<Source
   const sources = [...(signals.status === "fulfilled" ? signals.value : []), ...(rail.status === "fulfilled" ? rail.value : [])];
   if (signals.status === "rejected") warnings.push("Couldn't read the world-data source list.");
   for (const s of sources) if (s.mode === "down") warnings.push(`${s.name} is down: using what we have.`);
-  if (sources.some((s) => s.id.startsWith("seed:rail"))) warnings.push("Timetables, fares and punctuality history are modelled sample data, not live feeds.");
+  const realPunctuality = sources.find((s) => s.id === "rail:rtt");
+  if (realPunctuality) warnings.push(`Punctuality is real: ${realPunctuality.name}. Timetables and fares are modelled sample data.`);
+  else if (sources.some((s) => s.id.startsWith("seed:rail"))) warnings.push("Timetables, fares and punctuality history are modelled sample data, not live feeds.");
   return sources;
 }
