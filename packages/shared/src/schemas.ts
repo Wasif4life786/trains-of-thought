@@ -4,7 +4,7 @@
  */
 import { z } from "zod";
 
-export const CONTRACT_VERSION = "1.4.0";
+export const CONTRACT_VERSION = "1.5.0";
 
 // ── Primitives ──────────────────────────────────────────────────────────────
 
@@ -173,6 +173,11 @@ export const SignalQuerySchema = z.object({
   kinds: z.array(SignalKind).optional(),
 });
 
+/** Railcards a search can ask prices for (rules in railcards.ts). */
+export const RAILCARD_IDS = ["16-25", "26-30", "senior", "two-together", "family-friends", "disabled", "veterans"] as const;
+export const RailcardIdSchema = z.enum(RAILCARD_IDS);
+export type RailcardId = z.infer<typeof RailcardIdSchema>;
+
 export const JourneyQuerySchema = z.object({
   origin: Crs,
   destination: Crs,
@@ -183,6 +188,8 @@ export const JourneyQuerySchema = z.object({
   latest: LocalTime,
   /** Price fares as if bought on this London date (usually today). */
   bookingDate: IsoDate,
+  /** Optional (v1.5.0): show fares with this railcard's discount where the card is valid on the train. */
+  railcard: RailcardIdSchema.optional(),
 });
 
 export const RecommendationQuerySchema = z.object({
@@ -196,6 +203,8 @@ export const RecommendationQuerySchema = z.object({
   priority: Prob,
   /** Defaults to today (London). Set it to replay a scenario. */
   bookingDate: IsoDate.optional(),
+  /** Optional (v1.5.0): price the options with this railcard's discount. */
+  railcard: RailcardIdSchema.optional(),
 });
 
 // ── Recommendations (A3 → A4) ───────────────────────────────────────────────

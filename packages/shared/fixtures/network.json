@@ -1,5 +1,5 @@
 {
- "contractVersion": "1.4.0",
+ "contractVersion": "1.5.0",
  "generatedAt": "2026-11-07T12:00:00Z",
  "query": {
   "dateFrom": "2026-11-20",
@@ -55,15 +55,15 @@
     }
    ],
    "affectedServices": 49,
-   "expectedCostPence": 9279434,
+   "expectedCostPence": 6157808,
    "action": {
     "kind": "contingency_timetable",
     "title": "Run a reduced, slower weather timetable",
     "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it (45 services)",
     "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-    "costPence": 1800000,
-    "savingPence": 5929467,
-    "netPence": 4129467
+    "costPence": 900000,
+    "savingPence": 3958127,
+    "netPence": 3058127
    }
   },
   {
@@ -106,15 +106,69 @@
     }
    ],
    "affectedServices": 34,
-   "expectedCostPence": 4057986,
+   "expectedCostPence": 1972312,
    "action": {
     "kind": "engineering_contingency",
     "title": "Retime around the works and add diversion running time",
     "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before (34 services)",
     "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-    "costPence": 1020000,
-    "savingPence": 2634859,
-    "netPence": 1614859
+    "costPence": 510000,
+    "savingPence": 1280432,
+    "netPence": 770432
+   }
+  },
+  {
+   "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+   "signal": {
+    "id": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "kind": "football",
+    "title": "Man City v Fulham",
+    "detail": "Etihad Stadium · kick-off 15:00 (provisional until TV picks) · 53,400 seats",
+    "source": "openfootball",
+    "start": "2026-11-21T12:00:00Z",
+    "end": "2026-11-21T18:00:00Z",
+    "place": {
+     "name": "Etihad Stadium",
+     "lat": 53.4831,
+     "lon": -2.2004
+    },
+    "scope": {
+     "stations": [
+      "MAN",
+      "MCV"
+     ],
+     "operators": [],
+     "nationwide": false
+    },
+    "severity": 0.8,
+    "confidence": 0.6,
+    "metrics": {
+     "capacity": 53400
+    }
+   },
+   "riskLevel": "high",
+   "routes": [
+    {
+     "origin": "EUS",
+     "destination": "MAN",
+     "operator": "VT"
+    },
+    {
+     "origin": "MAN",
+     "destination": "EUS",
+     "operator": "VT"
+    }
+   ],
+   "affectedServices": 42,
+   "expectedCostPence": 1864340,
+   "action": {
+    "kind": "crowd_management",
+    "title": "Queue barriers and extra platform staff",
+    "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times (19 services)",
+    "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+    "costPence": 475000,
+    "savingPence": 504219,
+    "netPence": 29219
    }
   },
   {
@@ -162,69 +216,15 @@
     }
    ],
    "affectedServices": 42,
-   "expectedCostPence": 2575764,
+   "expectedCostPence": 1479929,
    "action": {
     "kind": "contingency_timetable",
     "title": "Run a reduced, slower weather timetable",
-    "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it (23 services)",
+    "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it (25 services)",
     "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-    "costPence": 920000,
-    "savingPence": 1182002,
-    "netPence": 262002
-   }
-  },
-  {
-   "id": "openfootball:2026-11-21:manchester-city-v-fulham",
-   "signal": {
-    "id": "openfootball:2026-11-21:manchester-city-v-fulham",
-    "kind": "football",
-    "title": "Man City v Fulham",
-    "detail": "Etihad Stadium · kick-off 15:00 (provisional until TV picks) · 53,400 seats",
-    "source": "openfootball",
-    "start": "2026-11-21T12:00:00Z",
-    "end": "2026-11-21T18:00:00Z",
-    "place": {
-     "name": "Etihad Stadium",
-     "lat": 53.4831,
-     "lon": -2.2004
-    },
-    "scope": {
-     "stations": [
-      "MAN",
-      "MCV"
-     ],
-     "operators": [],
-     "nationwide": false
-    },
-    "severity": 0.8,
-    "confidence": 0.6,
-    "metrics": {
-     "capacity": 53400
-    }
-   },
-   "riskLevel": "high",
-   "routes": [
-    {
-     "origin": "EUS",
-     "destination": "MAN",
-     "operator": "VT"
-    },
-    {
-     "origin": "MAN",
-     "destination": "EUS",
-     "operator": "VT"
-    }
-   ],
-   "affectedServices": 42,
-   "expectedCostPence": 2575708,
-   "action": {
-    "kind": "crowd_management",
-    "title": "Queue barriers and extra platform staff",
-    "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times (10 services)",
-    "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-    "costPence": 350000,
-    "savingPence": 357617,
-    "netPence": 7617
+    "costPence": 500000,
+    "savingPence": 758755,
+    "netPence": 258755
    }
   },
   {
@@ -270,7 +270,7 @@
     }
    ],
    "affectedServices": 42,
-   "expectedCostPence": 1270989,
+   "expectedCostPence": 830304,
    "action": null
   },
   {
@@ -313,7 +313,7 @@
     }
    ],
    "affectedServices": 72,
-   "expectedCostPence": 452930,
+   "expectedCostPence": 307044,
    "action": null
   }
  ],
@@ -324,9 +324,9 @@
    "operator": "VT",
    "services": 136,
    "highRiskServices": 37,
-   "expectedCostPence": 21288086,
-   "baselineCostPence": 10022661,
-   "mitigationSavingPence": 5498798
+   "expectedCostPence": 13243749,
+   "baselineCostPence": 6019169,
+   "mitigationSavingPence": 3441062
   },
   {
    "origin": "MAN",
@@ -334,18 +334,18 @@
    "operator": "VT",
    "services": 136,
    "highRiskServices": 33,
-   "expectedCostPence": 20402118,
-   "baselineCostPence": 10022661,
-   "mitigationSavingPence": 5219430
+   "expectedCostPence": 12749454,
+   "baselineCostPence": 6019169,
+   "mitigationSavingPence": 3358229
   }
  ],
  "totals": {
   "services": 272,
   "highRiskServices": 70,
-  "expectedCostPence": 41690204,
-  "baselineCostPence": 20045322,
-  "mitigationCostPence": 4140000,
-  "mitigationSavingPence": 10718228
+  "expectedCostPence": 25993203,
+  "baselineCostPence": 12038338,
+  "mitigationCostPence": 2225000,
+  "mitigationSavingPence": 6799291
  },
  "sources": [
   {
@@ -524,6 +524,6 @@
   }
  ],
  "warnings": [
-  "Passenger loads, the 30% claim rate and mitigation costs are modelled assumptions (sample), not operator data."
+  "Passenger loads, the 25% claim rate and mitigation costs are modelled assumptions (sample), not operator data."
  ]
 }

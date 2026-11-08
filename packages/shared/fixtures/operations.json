@@ -1,5 +1,5 @@
 {
- "contractVersion": "1.4.0",
+ "contractVersion": "1.5.0",
  "generatedAt": "2026-11-07T12:00:00Z",
  "query": {
   "origin": "EUS",
@@ -60,12 +60,12 @@
     "expectedDelayMin": 11.7
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 11271,
-    "expectedClaims": 25.4,
-    "expectedCostPence": 144980,
-    "baselineCostPence": 144980
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 9101,
+    "expectedClaims": 16.6,
+    "expectedCostPence": 76204,
+    "baselineCostPence": 76204
    },
    "riskLevel": "low",
    "reasons": [
@@ -125,12 +125,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 11271,
-    "expectedClaims": 20.7,
-    "expectedCostPence": 116934,
-    "baselineCostPence": 116934
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 9101,
+    "expectedClaims": 13.5,
+    "expectedCostPence": 61462,
+    "baselineCostPence": 61462
    },
    "riskLevel": "low",
    "reasons": [
@@ -185,12 +185,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
+    "passengers": 414,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 20.7,
-    "expectedCostPence": 222020,
-    "baselineCostPence": 222020
+    "expectedClaims": 13.5,
+    "expectedCostPence": 144522,
+    "baselineCostPence": 144522
    },
    "riskLevel": "low",
    "reasons": [
@@ -246,12 +246,12 @@
     "expectedDelayMin": 8.8
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
+    "passengers": 414,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 19.1,
-    "expectedCostPence": 205007,
-    "baselineCostPence": 205007
+    "expectedClaims": 12.4,
+    "expectedCostPence": 133448,
+    "baselineCostPence": 133448
    },
    "riskLevel": "low",
    "reasons": [
@@ -311,12 +311,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 12811,
-    "expectedClaims": 22.3,
-    "expectedCostPence": 142077,
-    "baselineCostPence": 142077
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 10971,
+    "expectedClaims": 14.5,
+    "expectedCostPence": 79201,
+    "baselineCostPence": 79201
    },
    "riskLevel": "low",
    "reasons": [
@@ -371,12 +371,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
+    "passengers": 414,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 22.3,
-    "expectedCostPence": 237331,
-    "baselineCostPence": 237331
+    "expectedClaims": 14.5,
+    "expectedCostPence": 154489,
+    "baselineCostPence": 154489
    },
    "riskLevel": "low",
    "reasons": [
@@ -437,12 +437,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 10116,
-    "expectedClaims": 20.7,
-    "expectedCostPence": 104951,
-    "baselineCostPence": 104951
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 7698,
+    "expectedClaims": 13.5,
+    "expectedCostPence": 51987,
+    "baselineCostPence": 51987
    },
    "riskLevel": "low",
    "reasons": [
@@ -502,12 +502,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 13196,
-    "expectedClaims": 20.7,
-    "expectedCostPence": 136905,
-    "baselineCostPence": 136905
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 11438,
+    "expectedClaims": 13.5,
+    "expectedCostPence": 77245,
+    "baselineCostPence": 77245
    },
    "riskLevel": "low",
    "reasons": [
@@ -567,12 +567,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 11656,
-    "expectedClaims": 20.7,
-    "expectedCostPence": 120928,
-    "baselineCostPence": 120928
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 9568,
+    "expectedClaims": 13.5,
+    "expectedCostPence": 64616,
+    "baselineCostPence": 64616
    },
    "riskLevel": "low",
    "reasons": [
@@ -633,12 +633,12 @@
     "expectedDelayMin": 11.7
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
-    "avgFarePence": 12811,
-    "expectedClaims": 25.4,
-    "expectedCostPence": 164789,
-    "baselineCostPence": 164789
+    "passengers": 414,
+    "claimRate": 0.25,
+    "avgFarePence": 10971,
+    "expectedClaims": 16.6,
+    "expectedCostPence": 91862,
+    "baselineCostPence": 91862
    },
    "riskLevel": "low",
    "reasons": [
@@ -648,16 +648,7 @@
      "effect": "bad"
     }
    ],
-   "mitigations": [
-    {
-     "kind": "standby_crew",
-     "title": "Roster a standby crew at the origin",
-     "detail": "Only 84% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 25767,
-     "netPence": 767
-    }
-   ]
+   "mitigations": []
   },
   {
    "journey": {
@@ -702,12 +693,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 530,
-    "claimRate": 0.3,
+    "passengers": 414,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 23.9,
-    "expectedCostPence": 254344,
-    "baselineCostPence": 254344
+    "expectedClaims": 15.5,
+    "expectedCostPence": 165564,
+    "baselineCostPence": 165564
    },
    "riskLevel": "low",
    "reasons": [
@@ -722,9 +713,9 @@
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 85% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 34026,
-     "netPence": 9026
+     "costPence": 20000,
+     "savingPence": 22149,
+     "netPence": 2149
     }
    ]
   },
@@ -781,12 +772,12 @@
     "expectedDelayMin": 7.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6951,
-    "expectedClaims": 10.9,
-    "expectedCostPence": 34251,
-    "baselineCostPence": 34251
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6116,
+    "expectedClaims": 5.4,
+    "expectedCostPence": 14793,
+    "baselineCostPence": 14793
    },
    "riskLevel": "low",
    "reasons": [
@@ -857,12 +848,12 @@
     "expectedDelayMin": 6.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 9.9,
-    "expectedCostPence": 29985,
-    "baselineCostPence": 29985
+    "expectedClaims": 4.8,
+    "expectedCostPence": 14719,
+    "baselineCostPence": 14719
    },
    "riskLevel": "low",
    "reasons": [
@@ -932,12 +923,12 @@
     "expectedDelayMin": 8.6
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6097,
-    "expectedClaims": 13.1,
-    "expectedCostPence": 36218,
-    "baselineCostPence": 36218
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5964,
+    "expectedClaims": 6.5,
+    "expectedCostPence": 17391,
+    "baselineCostPence": 17391
    },
    "riskLevel": "low",
    "reasons": [],
@@ -1001,12 +992,12 @@
     "expectedDelayMin": 7.9
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5712,
-    "expectedClaims": 12,
-    "expectedCostPence": 30804,
-    "baselineCostPence": 30804
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5496,
+    "expectedClaims": 5.9,
+    "expectedCostPence": 14549,
+    "baselineCostPence": 14549
    },
    "riskLevel": "low",
    "reasons": [],
@@ -1071,12 +1062,12 @@
     "expectedDelayMin": 7.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 10.9,
-    "expectedCostPence": 33113,
-    "baselineCostPence": 33113
+    "expectedClaims": 5.4,
+    "expectedCostPence": 16254,
+    "baselineCostPence": 16254
    },
    "riskLevel": "low",
    "reasons": [
@@ -1146,12 +1137,12 @@
     "expectedDelayMin": 7.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 10.9,
-    "expectedCostPence": 33113,
-    "baselineCostPence": 33113
+    "expectedClaims": 5.4,
+    "expectedCostPence": 16254,
+    "baselineCostPence": 16254
    },
    "riskLevel": "low",
    "reasons": [
@@ -1221,12 +1212,12 @@
     "expectedDelayMin": 8.6
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6097,
-    "expectedClaims": 13.1,
-    "expectedCostPence": 36218,
-    "baselineCostPence": 36218
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5964,
+    "expectedClaims": 6.5,
+    "expectedCostPence": 17391,
+    "baselineCostPence": 17391
    },
    "riskLevel": "low",
    "reasons": [],
@@ -1291,12 +1282,12 @@
     "expectedDelayMin": 5.8
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5712,
-    "expectedClaims": 8.8,
-    "expectedCostPence": 23455,
-    "baselineCostPence": 23455
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5496,
+    "expectedClaims": 4.3,
+    "expectedCostPence": 11078,
+    "baselineCostPence": 11078
    },
    "riskLevel": "low",
    "reasons": [
@@ -1361,12 +1352,12 @@
     "expectedDelayMin": 7.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 10.9,
-    "expectedCostPence": 33113,
-    "baselineCostPence": 33113
+    "expectedClaims": 5.4,
+    "expectedCostPence": 16254,
+    "baselineCostPence": 16254
    },
    "riskLevel": "low",
    "reasons": [
@@ -1436,12 +1427,12 @@
     "expectedDelayMin": 6.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 9.9,
-    "expectedCostPence": 29985,
-    "baselineCostPence": 29985
+    "expectedClaims": 4.8,
+    "expectedCostPence": 14719,
+    "baselineCostPence": 14719
    },
    "riskLevel": "low",
    "reasons": [
@@ -1512,12 +1503,12 @@
     "expectedDelayMin": 5.8
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5712,
-    "expectedClaims": 8.8,
-    "expectedCostPence": 23455,
-    "baselineCostPence": 23455
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5496,
+    "expectedClaims": 4.3,
+    "expectedCostPence": 11078,
+    "baselineCostPence": 11078
    },
    "riskLevel": "low",
    "reasons": [
@@ -1587,12 +1578,12 @@
     "expectedDelayMin": 13.9
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 25.4,
-    "expectedCostPence": 109603,
-    "baselineCostPence": 27594
+    "expectedClaims": 12.5,
+    "expectedCostPence": 53801,
+    "baselineCostPence": 13545
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -1602,7 +1593,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.152,
-     "compensationPence": 82009
+     "compensationPence": 40256
     },
     {
      "kind": "history",
@@ -1616,17 +1607,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 53716,
-     "netPence": 13716
+     "costPence": 20000,
+     "savingPence": 26368,
+     "netPence": 6368
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 16515,
-     "netPence": 6515
+     "costPence": 5000,
+     "savingPence": 8008,
+     "netPence": 3008
     }
    ]
   },
@@ -1688,12 +1679,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 26.3,
-    "expectedCostPence": 111259,
-    "baselineCostPence": 29985
+    "expectedClaims": 12.9,
+    "expectedCostPence": 54613,
+    "baselineCostPence": 14719
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -1703,7 +1694,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.15,
-     "compensationPence": 81274
+     "compensationPence": 39894
     },
     {
      "kind": "history",
@@ -1717,17 +1708,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 52245,
-     "netPence": 12245
+     "costPence": 20000,
+     "savingPence": 25645,
+     "netPence": 5645
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 16765,
-     "netPence": 6765
+     "costPence": 5000,
+     "savingPence": 8128,
+     "netPence": 3128
     }
    ]
   },
@@ -1790,12 +1781,12 @@
     "expectedDelayMin": 16.1
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 29,
-    "expectedCostPence": 117403,
-    "baselineCostPence": 39919
+    "expectedClaims": 14.2,
+    "expectedCostPence": 57629,
+    "baselineCostPence": 19595
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -1805,7 +1796,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.145,
-     "compensationPence": 77484
+     "compensationPence": 38034
     }
    ],
    "mitigations": [
@@ -1814,17 +1805,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 49926,
-     "netPence": 9926
+     "costPence": 20000,
+     "savingPence": 24507,
+     "netPence": 4507
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17691,
-     "netPence": 7691
+     "costPence": 5000,
+     "savingPence": 8577,
+     "netPence": 3577
     }
    ]
   },
@@ -1886,12 +1877,12 @@
     "expectedDelayMin": 13.9
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 25.4,
-    "expectedCostPence": 109603,
-    "baselineCostPence": 27594
+    "expectedClaims": 12.5,
+    "expectedCostPence": 53801,
+    "baselineCostPence": 13545
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -1901,7 +1892,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.152,
-     "compensationPence": 82009
+     "compensationPence": 40256
     },
     {
      "kind": "history",
@@ -1915,17 +1906,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 53716,
-     "netPence": 13716
+     "costPence": 20000,
+     "savingPence": 26368,
+     "netPence": 6368
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 16515,
-     "netPence": 6515
+     "costPence": 5000,
+     "savingPence": 8008,
+     "netPence": 3008
     }
    ]
   },
@@ -1982,12 +1973,12 @@
     "expectedDelayMin": 15.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 28.1,
-    "expectedCostPence": 115490,
-    "baselineCostPence": 36240
+    "expectedClaims": 13.8,
+    "expectedCostPence": 56690,
+    "baselineCostPence": 17789
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -1997,7 +1988,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.147,
-     "compensationPence": 79250
+     "compensationPence": 38901
     }
    ],
    "mitigations": [
@@ -2006,17 +1997,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 50957,
-     "netPence": 10957
+     "costPence": 20000,
+     "savingPence": 25013,
+     "netPence": 5013
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17403,
-     "netPence": 7403
+     "costPence": 5000,
+     "savingPence": 8437,
+     "netPence": 3437
     }
    ]
   },
@@ -2074,12 +2065,12 @@
     "expectedDelayMin": 19
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 209324,
-    "baselineCostPence": 93815
+    "expectedClaims": 36.9,
+    "expectedCostPence": 145414,
+    "baselineCostPence": 65172
    },
    "riskLevel": "high",
    "reasons": [
@@ -2089,7 +2080,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.137,
-     "compensationPence": 115509
+     "compensationPence": 80242
     },
     {
      "kind": "crowding",
@@ -2103,17 +2094,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 76774,
-     "netPence": 36774
+     "costPence": 20000,
+     "savingPence": 53333,
+     "netPence": 33333
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 31199,
-     "netPence": 21199
+     "costPence": 5000,
+     "savingPence": 21767,
+     "netPence": 16767
     }
    ]
   },
@@ -2170,12 +2161,12 @@
     "expectedDelayMin": 17.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 50.2,
-    "expectedCostPence": 199436,
-    "baselineCostPence": 80263
+    "expectedClaims": 34.9,
+    "expectedCostPence": 138545,
+    "baselineCostPence": 55758
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -2185,7 +2176,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.14,
-     "compensationPence": 119173
+     "compensationPence": 82787
     },
     {
      "kind": "crowding",
@@ -2199,17 +2190,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 77355,
-     "netPence": 37355
+     "costPence": 20000,
+     "savingPence": 53737,
+     "netPence": 33737
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 29725,
-     "netPence": 19725
+     "costPence": 5000,
+     "savingPence": 20738,
+     "netPence": 15738
     }
    ]
   },
@@ -2261,12 +2252,12 @@
     "expectedDelayMin": 17.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 10850,
-    "expectedClaims": 50.2,
-    "expectedCostPence": 322006,
-    "baselineCostPence": 129591
+    "expectedClaims": 34.9,
+    "expectedCostPence": 223693,
+    "baselineCostPence": 90025
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -2276,7 +2267,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.14,
-     "compensationPence": 192415
+     "compensationPence": 133668
     },
     {
      "kind": "crowding",
@@ -2290,17 +2281,26 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 124896,
-     "netPence": 84896
+     "costPence": 20000,
+     "savingPence": 86763,
+     "netPence": 66763
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 47994,
-     "netPence": 37994
+     "costPence": 5000,
+     "savingPence": 33484,
+     "netPence": 28484
+    },
+    {
+     "kind": "standby_stock",
+     "title": "Position a rescue loco and standby crew",
+     "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
+     "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
+     "costPence": 45000,
+     "savingPence": 52449,
+     "netPence": 7449
     }
    ]
   },
@@ -2348,12 +2348,12 @@
     "expectedDelayMin": 20.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 58.9,
-    "expectedCostPence": 752722,
-    "baselineCostPence": 403958
+    "expectedClaims": 40.9,
+    "expectedCostPence": 522905,
+    "baselineCostPence": 280624
    },
    "riskLevel": "high",
    "reasons": [
@@ -2361,7 +2361,7 @@
      "kind": "history",
      "text": "Often late: only 79% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 403958
+     "compensationPence": 280624
     },
     {
      "kind": "weather",
@@ -2369,7 +2369,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.13,
-     "compensationPence": 348764
+     "compensationPence": 242281
     },
     {
      "kind": "crowding",
@@ -2383,34 +2383,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 225409,
-     "netPence": 185409
+     "costPence": 20000,
+     "savingPence": 156589,
+     "netPence": 136589
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 112191,
-     "netPence": 102191
+     "costPence": 5000,
+     "savingPence": 78273,
+     "netPence": 73273
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 138172,
-     "netPence": 48172
+     "costPence": 45000,
+     "savingPence": 95986,
+     "netPence": 50986
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 79% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 45378,
-     "netPence": 20378
+     "costPence": 20000,
+     "savingPence": 31524,
+     "netPence": 11524
     }
    ]
   },
@@ -2457,12 +2457,12 @@
     "expectedDelayMin": 19.3
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 689748,
-    "baselineCostPence": 320055
+    "expectedClaims": 36.9,
+    "expectedCostPence": 479158,
+    "baselineCostPence": 222337
    },
    "riskLevel": "high",
    "reasons": [
@@ -2472,7 +2472,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.137,
-     "compensationPence": 369693
+     "compensationPence": 256821
     },
     {
      "kind": "crowding",
@@ -2486,34 +2486,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 246339,
-     "netPence": 206339
+     "costPence": 20000,
+     "savingPence": 171128,
+     "netPence": 151128
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 102805,
-     "netPence": 92805
+     "costPence": 5000,
+     "savingPence": 71724,
+     "netPence": 66724
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 148914,
-     "netPence": 58914
+     "costPence": 45000,
+     "savingPence": 103449,
+     "netPence": 58449
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 83% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 32413,
-     "netPence": 7413
+     "costPence": 20000,
+     "savingPence": 22517,
+     "netPence": 2517
     }
    ]
   },
@@ -2560,12 +2560,12 @@
     "expectedDelayMin": 19.3
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 689748,
-    "baselineCostPence": 320055
+    "expectedClaims": 36.9,
+    "expectedCostPence": 479158,
+    "baselineCostPence": 222337
    },
    "riskLevel": "high",
    "reasons": [
@@ -2575,7 +2575,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.137,
-     "compensationPence": 369693
+     "compensationPence": 256821
     },
     {
      "kind": "crowding",
@@ -2589,34 +2589,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 246339,
-     "netPence": 206339
+     "costPence": 20000,
+     "savingPence": 171128,
+     "netPence": 151128
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 102805,
-     "netPence": 92805
+     "costPence": 5000,
+     "savingPence": 71724,
+     "netPence": 66724
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 148914,
-     "netPence": 58914
+     "costPence": 45000,
+     "savingPence": 103449,
+     "netPence": 58449
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 83% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 32413,
-     "netPence": 7413
+     "costPence": 20000,
+     "savingPence": 22517,
+     "netPence": 2517
     }
    ]
   },
@@ -2664,12 +2664,12 @@
     "expectedDelayMin": 20.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 58.9,
-    "expectedCostPence": 752722,
-    "baselineCostPence": 403958
+    "expectedClaims": 40.9,
+    "expectedCostPence": 522905,
+    "baselineCostPence": 280624
    },
    "riskLevel": "high",
    "reasons": [
@@ -2677,7 +2677,7 @@
      "kind": "history",
      "text": "Often late: only 79% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 403958
+     "compensationPence": 280624
     },
     {
      "kind": "weather",
@@ -2685,7 +2685,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.13,
-     "compensationPence": 348764
+     "compensationPence": 242281
     },
     {
      "kind": "crowding",
@@ -2699,34 +2699,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 225409,
-     "netPence": 185409
+     "costPence": 20000,
+     "savingPence": 156589,
+     "netPence": 136589
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 112191,
-     "netPence": 102191
+     "costPence": 5000,
+     "savingPence": 78273,
+     "netPence": 73273
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 138172,
-     "netPence": 48172
+     "costPence": 45000,
+     "savingPence": 95986,
+     "netPence": 50986
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 79% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 45378,
-     "netPence": 20378
+     "costPence": 20000,
+     "savingPence": 31524,
+     "netPence": 11524
     }
    ]
   },
@@ -2773,12 +2773,12 @@
     "expectedDelayMin": 20.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 58.9,
-    "expectedCostPence": 752722,
-    "baselineCostPence": 403958
+    "expectedClaims": 40.9,
+    "expectedCostPence": 522905,
+    "baselineCostPence": 280624
    },
    "riskLevel": "high",
    "reasons": [
@@ -2786,7 +2786,7 @@
      "kind": "history",
      "text": "Often late: only 79% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 403958
+     "compensationPence": 280624
     },
     {
      "kind": "weather",
@@ -2794,7 +2794,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.13,
-     "compensationPence": 348764
+     "compensationPence": 242281
     },
     {
      "kind": "crowding",
@@ -2808,34 +2808,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 225409,
-     "netPence": 185409
+     "costPence": 20000,
+     "savingPence": 156589,
+     "netPence": 136589
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 112191,
-     "netPence": 102191
+     "costPence": 5000,
+     "savingPence": 78273,
+     "netPence": 73273
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 138172,
-     "netPence": 48172
+     "costPence": 45000,
+     "savingPence": 95986,
+     "netPence": 50986
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 79% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 45378,
-     "netPence": 20378
+     "costPence": 20000,
+     "savingPence": 31524,
+     "netPence": 11524
     }
    ]
   },
@@ -2882,12 +2882,12 @@
     "expectedDelayMin": 19.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 54.5,
-    "expectedCostPence": 706418,
-    "baselineCostPence": 337651
+    "expectedClaims": 37.9,
+    "expectedCostPence": 490738,
+    "baselineCostPence": 234561
    },
    "riskLevel": "high",
    "reasons": [
@@ -2897,13 +2897,13 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.135,
-     "compensationPence": 368767
+     "compensationPence": 256177
     },
     {
      "kind": "history",
      "text": "Often late: only 82% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 337651
+     "compensationPence": 234561
     },
     {
      "kind": "crowding",
@@ -2917,34 +2917,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 241709,
-     "netPence": 201709
+     "costPence": 20000,
+     "savingPence": 167911,
+     "netPence": 147911
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 105290,
-     "netPence": 95290
+     "costPence": 5000,
+     "savingPence": 73458,
+     "netPence": 68458
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 148915,
-     "netPence": 58915
+     "costPence": 45000,
+     "savingPence": 103449,
+     "netPence": 58449
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 82% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 37970,
-     "netPence": 12970
+     "costPence": 20000,
+     "savingPence": 26377,
+     "netPence": 6377
     }
    ]
   },
@@ -2992,12 +2992,12 @@
     "expectedDelayMin": 19.3
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 689748,
-    "baselineCostPence": 320055
+    "expectedClaims": 36.9,
+    "expectedCostPence": 479158,
+    "baselineCostPence": 222337
    },
    "riskLevel": "high",
    "reasons": [
@@ -3007,7 +3007,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.137,
-     "compensationPence": 369693
+     "compensationPence": 256821
     },
     {
      "kind": "crowding",
@@ -3021,34 +3021,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 246339,
-     "netPence": 206339
+     "costPence": 20000,
+     "savingPence": 171128,
+     "netPence": 151128
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 102805,
-     "netPence": 92805
+     "costPence": 5000,
+     "savingPence": 71724,
+     "netPence": 66724
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 148914,
-     "netPence": 58914
+     "costPence": 45000,
+     "savingPence": 103449,
+     "netPence": 58449
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 83% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 32413,
-     "netPence": 7413
+     "costPence": 20000,
+     "savingPence": 22517,
+     "netPence": 2517
     }
    ]
   },
@@ -3095,12 +3095,12 @@
     "expectedDelayMin": 20.5
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 57.5,
-    "expectedCostPence": 735126,
-    "baselineCostPence": 378398
+    "expectedClaims": 39.9,
+    "expectedCostPence": 510681,
+    "baselineCostPence": 262868
    },
    "riskLevel": "high",
    "reasons": [
@@ -3108,7 +3108,7 @@
      "kind": "history",
      "text": "Often late: only 80% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 378398
+     "compensationPence": 262868
     },
     {
      "kind": "weather",
@@ -3116,7 +3116,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.132,
-     "compensationPence": 356728
+     "compensationPence": 247813
     },
     {
      "kind": "crowding",
@@ -3130,34 +3130,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 228187,
-     "netPence": 188187
+     "costPence": 20000,
+     "savingPence": 158518,
+     "netPence": 138518
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 109568,
-     "netPence": 99568
+     "costPence": 5000,
+     "savingPence": 76443,
+     "netPence": 71443
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 142432,
-     "netPence": 52432
+     "costPence": 45000,
+     "savingPence": 98945,
+     "netPence": 53945
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 80% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 42600,
-     "netPence": 17600
+     "costPence": 20000,
+     "savingPence": 29593,
+     "netPence": 9593
     }
    ]
   },
@@ -3204,12 +3204,12 @@
     "expectedDelayMin": 20.1
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 21400,
-    "expectedClaims": 56.1,
-    "expectedCostPence": 718457,
-    "baselineCostPence": 360803
+    "expectedClaims": 39,
+    "expectedCostPence": 499101,
+    "baselineCostPence": 250644
    },
    "riskLevel": "high",
    "reasons": [
@@ -3217,7 +3217,7 @@
      "kind": "history",
      "text": "Often late: only 81% arrive within 15 minutes",
      "effect": "bad",
-     "compensationPence": 360803
+     "compensationPence": 250644
     },
     {
      "kind": "weather",
@@ -3225,7 +3225,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.134,
-     "compensationPence": 357654
+     "compensationPence": 248457
     },
     {
      "kind": "crowding",
@@ -3239,34 +3239,34 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 230966,
-     "netPence": 190966
+     "costPence": 20000,
+     "savingPence": 160448,
+     "netPence": 140448
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 107084,
-     "netPence": 97084
+     "costPence": 5000,
+     "savingPence": 74709,
+     "netPence": 69709
     },
     {
      "kind": "standby_stock",
      "title": "Position a rescue loco and standby crew",
      "detail": "Strong winds, gusts to 54 mph at Manchester Piccadilly & Stockport, 16:00–23:00: cuts recovery time when a train fails",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 90000,
-     "savingPence": 143358,
-     "netPence": 53358
+     "costPence": 45000,
+     "savingPence": 99588,
+     "netPence": 54588
     },
     {
      "kind": "standby_crew",
      "title": "Roster a standby crew at the origin",
      "detail": "Only 81% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds",
-     "costPence": 25000,
-     "savingPence": 37044,
-     "netPence": 12044
+     "costPence": 20000,
+     "savingPence": 25733,
+     "netPence": 5733
     }
    ]
   },
@@ -3324,12 +3324,12 @@
     "expectedDelayMin": 17.8
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
+    "passengers": 481,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 50.2,
-    "expectedCostPence": 199436,
-    "baselineCostPence": 80263
+    "expectedClaims": 34.9,
+    "expectedCostPence": 138545,
+    "baselineCostPence": 55758
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3339,7 +3339,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.14,
-     "compensationPence": 119173
+     "compensationPence": 82787
     },
     {
      "kind": "crowding",
@@ -3353,17 +3353,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 77355,
-     "netPence": 37355
+     "costPence": 20000,
+     "savingPence": 53737,
+     "netPence": 33737
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 29725,
-     "netPence": 19725
+     "costPence": 5000,
+     "savingPence": 20738,
+     "netPence": 15738
     }
    ]
   },
@@ -3425,12 +3425,12 @@
     "expectedDelayMin": 18.4
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
-    "avgFarePence": 6097,
-    "expectedClaims": 51.8,
-    "expectedCostPence": 185960,
-    "baselineCostPence": 79576
+    "passengers": 481,
+    "claimRate": 0.25,
+    "avgFarePence": 5964,
+    "expectedClaims": 36,
+    "expectedCostPence": 126366,
+    "baselineCostPence": 54075
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3440,7 +3440,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.139,
-     "compensationPence": 106384
+     "compensationPence": 72291
     },
     {
      "kind": "crowding",
@@ -3454,17 +3454,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 70184,
-     "netPence": 30184
+     "costPence": 20000,
+     "savingPence": 47692,
+     "netPence": 27692
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 27717,
-     "netPence": 17717
+     "costPence": 5000,
+     "savingPence": 18916,
+     "netPence": 13916
     }
    ]
   },
@@ -3526,12 +3526,12 @@
     "expectedDelayMin": 19
    },
    "compensation": {
-    "passengers": 577,
-    "claimRate": 0.3,
-    "avgFarePence": 6097,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 189918,
-    "baselineCostPence": 85117
+    "passengers": 481,
+    "claimRate": 0.25,
+    "avgFarePence": 5964,
+    "expectedClaims": 36.9,
+    "expectedCostPence": 129055,
+    "baselineCostPence": 57840
    },
    "riskLevel": "high",
    "reasons": [
@@ -3541,7 +3541,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.137,
-     "compensationPence": 104801
+     "compensationPence": 71215
     },
     {
      "kind": "crowding",
@@ -3555,17 +3555,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 69656,
-     "netPence": 29656
+     "costPence": 20000,
+     "savingPence": 47333,
+     "netPence": 27333
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 28307,
-     "netPence": 18307
+     "costPence": 5000,
+     "savingPence": 19318,
+     "netPence": 14318
     }
    ]
   },
@@ -3628,12 +3628,12 @@
     "expectedDelayMin": 15.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 28.1,
-    "expectedCostPence": 115490,
-    "baselineCostPence": 36240
+    "expectedClaims": 13.8,
+    "expectedCostPence": 56690,
+    "baselineCostPence": 17789
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3643,7 +3643,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.147,
-     "compensationPence": 79250
+     "compensationPence": 38901
     }
    ],
    "mitigations": [
@@ -3652,17 +3652,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 50957,
-     "netPence": 10957
+     "costPence": 20000,
+     "savingPence": 25013,
+     "netPence": 5013
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17403,
-     "netPence": 7403
+     "costPence": 5000,
+     "savingPence": 8437,
+     "netPence": 3437
     }
    ]
   },
@@ -3724,12 +3724,12 @@
     "expectedDelayMin": 15
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 27.2,
-    "expectedCostPence": 113834,
-    "baselineCostPence": 33113
+    "expectedClaims": 13.3,
+    "expectedCostPence": 55878,
+    "baselineCostPence": 16254
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3739,7 +3739,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.149,
-     "compensationPence": 80721
+     "compensationPence": 39624
     },
     {
      "kind": "history",
@@ -3753,17 +3753,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 51692,
-     "netPence": 11692
+     "costPence": 20000,
+     "savingPence": 25375,
+     "netPence": 5375
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17153,
-     "netPence": 7153
+     "costPence": 5000,
+     "savingPence": 8317,
+     "netPence": 3317
     }
    ]
   },
@@ -3825,12 +3825,12 @@
     "expectedDelayMin": 15
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6482,
-    "expectedClaims": 27.2,
-    "expectedCostPence": 109803,
-    "baselineCostPence": 31940
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6431,
+    "expectedClaims": 13.3,
+    "expectedCostPence": 53475,
+    "baselineCostPence": 15555
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3840,7 +3840,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.149,
-     "compensationPence": 77863
+     "compensationPence": 37920
     },
     {
      "kind": "history",
@@ -3854,17 +3854,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 49862,
-     "netPence": 9862
+     "costPence": 20000,
+     "savingPence": 24283,
+     "netPence": 4283
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 16546,
-     "netPence": 6546
+     "costPence": 5000,
+     "savingPence": 7959,
+     "netPence": 2959
     }
    ]
   },
@@ -3927,12 +3927,12 @@
     "expectedDelayMin": 15.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 28.1,
-    "expectedCostPence": 115490,
-    "baselineCostPence": 36240
+    "expectedClaims": 13.8,
+    "expectedCostPence": 56690,
+    "baselineCostPence": 17789
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -3942,7 +3942,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Manchester Piccadilly, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.147,
-     "compensationPence": 79250
+     "compensationPence": 38901
     }
    ],
    "mitigations": [
@@ -3951,17 +3951,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Strong winds, gusts to 54 mph: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:MAN:2026-11-20T16:gusts",
-     "costPence": 40000,
-     "savingPence": 50957,
-     "netPence": 10957
+     "costPence": 20000,
+     "savingPence": 25013,
+     "netPence": 5013
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17403,
-     "netPence": 7403
+     "costPence": 5000,
+     "savingPence": 8437,
+     "netPence": 3437
     }
    ]
   },
@@ -4023,12 +4023,12 @@
     "expectedDelayMin": 13.1
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 22.7,
-    "expectedCostPence": 86829,
-    "baselineCostPence": 39919
+    "expectedClaims": 11.1,
+    "expectedCostPence": 42622,
+    "baselineCostPence": 19595
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -4038,7 +4038,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Stockport & Wilmslow, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.087,
-     "compensationPence": 46910
+     "compensationPence": 23027
     }
    ],
    "mitigations": [
@@ -4046,9 +4046,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13084,
-     "netPence": 3084
+     "costPence": 5000,
+     "savingPence": 6344,
+     "netPence": 1344
     }
    ]
   },
@@ -4110,12 +4110,12 @@
     "expectedDelayMin": 13.7
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 23.7,
-    "expectedCostPence": 90140,
-    "baselineCostPence": 43231
+    "expectedClaims": 11.6,
+    "expectedCostPence": 44247,
+    "baselineCostPence": 21221
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -4125,7 +4125,7 @@
      "text": "Strong winds, gusts to 54 mph: disruption risk at Stockport & Stoke-on-Trent, 16:00–23:00",
      "effect": "bad",
      "reliabilityDelta": -0.086,
-     "compensationPence": 46909
+     "compensationPence": 23026
     }
    ],
    "mitigations": [
@@ -4133,9 +4133,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13582,
-     "netPence": 3582
+     "costPence": 5000,
+     "savingPence": 6586,
+     "netPence": 1586
     }
    ]
   },
@@ -4192,12 +4192,12 @@
     "expectedDelayMin": 7.6
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
+    "passengers": 255,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 14,
-    "expectedCostPence": 42247,
-    "baselineCostPence": 33113
+    "expectedClaims": 7.4,
+    "expectedCostPence": 22277,
+    "baselineCostPence": 16254
    },
    "riskLevel": "low",
    "reasons": [
@@ -4207,7 +4207,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 5687
+     "compensationPence": 2999
     },
     {
      "kind": "history",
@@ -4275,12 +4275,12 @@
     "expectedDelayMin": 9
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
-    "avgFarePence": 5544,
-    "expectedClaims": 16.4,
-    "expectedCostPence": 40216,
-    "baselineCostPence": 32933
+    "passengers": 255,
+    "claimRate": 0.25,
+    "avgFarePence": 5292,
+    "expectedClaims": 8.7,
+    "expectedCostPence": 20242,
+    "baselineCostPence": 15431
    },
    "riskLevel": "low",
    "reasons": [
@@ -4290,7 +4290,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 3854
+     "compensationPence": 1940
     }
    ],
    "mitigations": []
@@ -4354,12 +4354,12 @@
     "expectedDelayMin": 7
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
-    "avgFarePence": 6104,
-    "expectedClaims": 12.8,
-    "expectedCostPence": 35238,
-    "baselineCostPence": 27237
+    "passengers": 255,
+    "claimRate": 0.25,
+    "avgFarePence": 5972,
+    "expectedClaims": 6.8,
+    "expectedCostPence": 18179,
+    "baselineCostPence": 13081
    },
    "riskLevel": "low",
    "reasons": [
@@ -4369,7 +4369,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 5166
+     "compensationPence": 2665
     },
     {
      "kind": "history",
@@ -4437,12 +4437,12 @@
     "expectedDelayMin": 8.3
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 15.2,
-    "expectedCostPence": 31848,
-    "baselineCostPence": 25368
+    "passengers": 255,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 8,
+    "expectedCostPence": 15251,
+    "baselineCostPence": 11309
    },
    "riskLevel": "low",
    "reasons": [
@@ -4452,7 +4452,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 3839
+     "compensationPence": 1838
     }
    ],
    "mitigations": []
@@ -4510,12 +4510,12 @@
     "expectedDelayMin": 6.3
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
+    "passengers": 255,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 11.7,
-    "expectedCostPence": 35341,
-    "baselineCostPence": 27594
+    "expectedClaims": 6.2,
+    "expectedCostPence": 18635,
+    "baselineCostPence": 13545
    },
    "riskLevel": "low",
    "reasons": [
@@ -4525,7 +4525,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.017,
-     "compensationPence": 4874
+     "compensationPence": 2570
     },
     {
      "kind": "history",
@@ -4594,12 +4594,12 @@
     "expectedDelayMin": 9
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
+    "passengers": 255,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 16.4,
-    "expectedCostPence": 48747,
-    "baselineCostPence": 39919
+    "expectedClaims": 8.7,
+    "expectedCostPence": 25704,
+    "baselineCostPence": 19595
    },
    "riskLevel": "low",
    "reasons": [
@@ -4609,7 +4609,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4672
+     "compensationPence": 2463
     }
    ],
    "mitigations": []
@@ -4672,12 +4672,12 @@
     "expectedDelayMin": 9
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 16.4,
-    "expectedCostPence": 42247,
-    "baselineCostPence": 34597
+    "passengers": 255,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 8.7,
+    "expectedCostPence": 21542,
+    "baselineCostPence": 16423
    },
    "riskLevel": "low",
    "reasons": [
@@ -4687,7 +4687,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4048
+     "compensationPence": 2064
     }
    ],
    "mitigations": []
@@ -4750,12 +4750,12 @@
     "expectedDelayMin": 8.3
    },
    "compensation": {
-    "passengers": 403,
-    "claimRate": 0.3,
-    "avgFarePence": 5544,
-    "expectedClaims": 15.2,
-    "expectedCostPence": 37535,
-    "baselineCostPence": 29898
+    "passengers": 255,
+    "claimRate": 0.25,
+    "avgFarePence": 5292,
+    "expectedClaims": 8,
+    "expectedCostPence": 18892,
+    "baselineCostPence": 14009
    },
    "riskLevel": "low",
    "reasons": [
@@ -4765,7 +4765,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4524
+     "compensationPence": 2277
     }
    ],
    "mitigations": []
@@ -4829,12 +4829,12 @@
     "expectedDelayMin": 6.3
    },
    "compensation": {
-    "passengers": 521,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 15.2,
-    "expectedCostPence": 31983,
-    "baselineCostPence": 25560
+    "passengers": 401,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 9.7,
+    "expectedCostPence": 18630,
+    "baselineCostPence": 14058
    },
    "riskLevel": "low",
    "reasons": [
@@ -4844,7 +4844,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.017,
-     "compensationPence": 4412
+     "compensationPence": 2570
     },
     {
      "kind": "history",
@@ -4912,12 +4912,12 @@
     "expectedDelayMin": 11.8
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 47.2,
-    "expectedCostPence": 131551,
-    "baselineCostPence": 41627
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 35.8,
+    "expectedCostPence": 98521,
+    "baselineCostPence": 24925
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -4927,7 +4927,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.13,
-     "compensationPence": 67016
+     "compensationPence": 50190
     },
     {
      "kind": "event",
@@ -4935,7 +4935,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7756
+     "compensationPence": 5809
     },
     {
      "kind": "history",
@@ -4953,9 +4953,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 19692,
-     "netPence": 9692
+     "costPence": 5000,
+     "savingPence": 14720,
+     "netPence": 9720
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 25095,
+     "netPence": 95
     }
    ]
   },
@@ -5017,12 +5026,12 @@
     "expectedDelayMin": 12.3
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 49,
-    "expectedCostPence": 143700,
-    "baselineCostPence": 47956
+    "expectedClaims": 37.1,
+    "expectedCostPence": 108847,
+    "baselineCostPence": 29042
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5032,7 +5041,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 70543
+     "compensationPence": 53434
     },
     {
      "kind": "event",
@@ -5040,7 +5049,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 8164
+     "compensationPence": 6184
     },
     {
      "kind": "crowding",
@@ -5053,18 +5062,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 21510,
-     "netPence": 11510
+     "costPence": 5000,
+     "savingPence": 16262,
+     "netPence": 11262
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 35271,
-     "netPence": 271
+     "costPence": 25000,
+     "savingPence": 26717,
+     "netPence": 1717
     }
    ]
   },
@@ -5122,12 +5131,12 @@
     "expectedDelayMin": 12.9
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 50.5,
-    "expectedCostPence": 148599,
-    "baselineCostPence": 52825
+    "expectedClaims": 38.3,
+    "expectedCostPence": 112558,
+    "baselineCostPence": 31990
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5137,7 +5146,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.127,
-     "compensationPence": 70217
+     "compensationPence": 53187
     },
     {
      "kind": "event",
@@ -5145,7 +5154,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7838
+     "compensationPence": 5937
     },
     {
      "kind": "crowding",
@@ -5158,9 +5167,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22244,
-     "netPence": 12244
+     "costPence": 5000,
+     "savingPence": 16817,
+     "netPence": 11817
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 26470,
+     "netPence": 1470
     }
    ]
   },
@@ -5217,12 +5235,12 @@
     "expectedDelayMin": 11.2
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 45.7,
-    "expectedCostPence": 133903,
-    "baselineCostPence": 39679
+    "expectedClaims": 34.6,
+    "expectedCostPence": 101426,
+    "baselineCostPence": 24029
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5232,7 +5250,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 71524
+     "compensationPence": 54176
     },
     {
      "kind": "event",
@@ -5240,7 +5258,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7512
+     "compensationPence": 5690
     },
     {
      "kind": "history",
@@ -5258,18 +5276,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20044,
-     "netPence": 10044
+     "costPence": 5000,
+     "savingPence": 15154,
+     "netPence": 10154
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 36252,
-     "netPence": 1252
+     "costPence": 25000,
+     "savingPence": 27459,
+     "netPence": 2459
     }
    ]
   },
@@ -5326,12 +5344,12 @@
     "expectedDelayMin": 11.2
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 45.7,
-    "expectedCostPence": 133903,
-    "baselineCostPence": 39679
+    "expectedClaims": 34.6,
+    "expectedCostPence": 101426,
+    "baselineCostPence": 24029
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5341,7 +5359,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 71524
+     "compensationPence": 54176
     },
     {
      "kind": "event",
@@ -5349,7 +5367,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7512
+     "compensationPence": 5690
     },
     {
      "kind": "history",
@@ -5367,18 +5385,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20044,
-     "netPence": 10044
+     "costPence": 5000,
+     "savingPence": 15154,
+     "netPence": 10154
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 36252,
-     "netPence": 1252
+     "costPence": 25000,
+     "savingPence": 27459,
+     "netPence": 2459
     }
    ]
   },
@@ -5436,12 +5454,12 @@
     "expectedDelayMin": 12.9
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 50.5,
-    "expectedCostPence": 148599,
-    "baselineCostPence": 52825
+    "expectedClaims": 38.3,
+    "expectedCostPence": 112558,
+    "baselineCostPence": 31990
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5451,7 +5469,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.127,
-     "compensationPence": 70217
+     "compensationPence": 53187
     },
     {
      "kind": "event",
@@ -5459,7 +5477,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7838
+     "compensationPence": 5937
     },
     {
      "kind": "crowding",
@@ -5472,9 +5490,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22244,
-     "netPence": 12244
+     "costPence": 5000,
+     "savingPence": 16817,
+     "netPence": 11817
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 26470,
+     "netPence": 1470
     }
    ]
   },
@@ -5531,12 +5558,12 @@
     "expectedDelayMin": 11.2
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 45.7,
-    "expectedCostPence": 133903,
-    "baselineCostPence": 39679
+    "expectedClaims": 34.6,
+    "expectedCostPence": 101426,
+    "baselineCostPence": 24029
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5546,7 +5573,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 71524
+     "compensationPence": 54176
     },
     {
      "kind": "event",
@@ -5554,7 +5581,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7512
+     "compensationPence": 5690
     },
     {
      "kind": "history",
@@ -5572,18 +5599,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20044,
-     "netPence": 10044
+     "costPence": 5000,
+     "savingPence": 15154,
+     "netPence": 10154
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 36252,
-     "netPence": 1252
+     "costPence": 25000,
+     "savingPence": 27459,
+     "netPence": 2459
     }
    ]
   },
@@ -5640,12 +5667,12 @@
     "expectedDelayMin": 12.9
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 50.5,
-    "expectedCostPence": 148599,
-    "baselineCostPence": 52825
+    "expectedClaims": 38.3,
+    "expectedCostPence": 112558,
+    "baselineCostPence": 31990
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5655,7 +5682,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.127,
-     "compensationPence": 70217
+     "compensationPence": 53187
     },
     {
      "kind": "event",
@@ -5663,7 +5690,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7838
+     "compensationPence": 5937
     },
     {
      "kind": "crowding",
@@ -5676,9 +5703,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22244,
-     "netPence": 12244
+     "costPence": 5000,
+     "savingPence": 16817,
+     "netPence": 11817
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 26470,
+     "netPence": 1470
     }
    ]
   },
@@ -5736,12 +5772,12 @@
     "expectedDelayMin": 11.2
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 45.7,
-    "expectedCostPence": 133903,
-    "baselineCostPence": 39679
+    "expectedClaims": 34.6,
+    "expectedCostPence": 101426,
+    "baselineCostPence": 24029
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5751,7 +5787,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 71524
+     "compensationPence": 54176
     },
     {
      "kind": "event",
@@ -5759,7 +5795,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7512
+     "compensationPence": 5690
     },
     {
      "kind": "history",
@@ -5777,18 +5813,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20044,
-     "netPence": 10044
+     "costPence": 5000,
+     "savingPence": 15154,
+     "netPence": 10154
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 36252,
-     "netPence": 1252
+     "costPence": 25000,
+     "savingPence": 27459,
+     "netPence": 2459
     }
    ]
   },
@@ -5845,12 +5881,12 @@
     "expectedDelayMin": 11.8
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 47.2,
-    "expectedCostPence": 138475,
-    "baselineCostPence": 43818
+    "expectedClaims": 35.8,
+    "expectedCostPence": 104889,
+    "baselineCostPence": 26536
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5860,7 +5896,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.13,
-     "compensationPence": 70544
+     "compensationPence": 53434
     },
     {
      "kind": "event",
@@ -5868,7 +5904,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 8165
+     "compensationPence": 6184
     },
     {
      "kind": "history",
@@ -5886,18 +5922,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20729,
-     "netPence": 10729
+     "costPence": 5000,
+     "savingPence": 15671,
+     "netPence": 10671
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 35272,
-     "netPence": 272
+     "costPence": 25000,
+     "savingPence": 26717,
+     "netPence": 1717
     }
    ]
   },
@@ -5954,12 +5990,12 @@
     "expectedDelayMin": 12.3
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 49,
-    "expectedCostPence": 143700,
-    "baselineCostPence": 47956
+    "expectedClaims": 37.1,
+    "expectedCostPence": 108847,
+    "baselineCostPence": 29042
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -5969,7 +6005,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 70543
+     "compensationPence": 53434
     },
     {
      "kind": "event",
@@ -5977,7 +6013,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 8164
+     "compensationPence": 6184
     },
     {
      "kind": "crowding",
@@ -5990,18 +6026,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 21510,
-     "netPence": 11510
+     "costPence": 5000,
+     "savingPence": 16262,
+     "netPence": 11262
     },
     {
      "kind": "crowd_management",
      "title": "Queue barriers and extra platform staff",
      "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
      "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
-     "costPence": 35000,
-     "savingPence": 35271,
-     "netPence": 271
+     "costPence": 25000,
+     "savingPence": 26717,
+     "netPence": 1717
     }
    ]
   },
@@ -6059,12 +6095,12 @@
     "expectedDelayMin": 12.3
    },
    "compensation": {
-    "passengers": 554,
-    "claimRate": 0.3,
+    "passengers": 447,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 41.9,
-    "expectedCostPence": 122855,
-    "baselineCostPence": 36240
+    "expectedClaims": 28.2,
+    "expectedCostPence": 82606,
+    "baselineCostPence": 17789
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -6074,7 +6110,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 60311
+     "compensationPence": 40552
     },
     {
      "kind": "event",
@@ -6082,7 +6118,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 6980
+     "compensationPence": 4694
     },
     {
      "kind": "crowding",
@@ -6095,9 +6131,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 18406,
-     "netPence": 8406
+     "costPence": 5000,
+     "savingPence": 12382,
+     "netPence": 7382
     }
    ]
   },
@@ -6159,12 +6195,12 @@
     "expectedDelayMin": 11.2
    },
    "compensation": {
-    "passengers": 554,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 39.1,
-    "expectedCostPence": 89675,
-    "baselineCostPence": 23489
+    "passengers": 447,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 26.3,
+    "expectedCostPence": 56722,
+    "baselineCostPence": 10846
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -6174,7 +6210,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 47900
+     "compensationPence": 30298
     },
     {
      "kind": "event",
@@ -6182,7 +6218,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 5031
+     "compensationPence": 3182
     },
     {
      "kind": "history",
@@ -6200,9 +6236,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13435,
-     "netPence": 3435
+     "costPence": 5000,
+     "savingPence": 8502,
+     "netPence": 3502
     }
    ]
   },
@@ -6264,12 +6300,12 @@
     "expectedDelayMin": 12.3
    },
    "compensation": {
-    "passengers": 554,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 41.9,
-    "expectedCostPence": 106474,
-    "baselineCostPence": 31408
+    "passengers": 447,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 28.2,
+    "expectedCostPence": 69231,
+    "baselineCostPence": 14909
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -6279,7 +6315,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 52269
+     "compensationPence": 33986
     },
     {
      "kind": "event",
@@ -6287,7 +6323,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 6049
+     "compensationPence": 3933
     },
     {
      "kind": "crowding",
@@ -6300,9 +6336,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 15952,
-     "netPence": 5952
+     "costPence": 5000,
+     "savingPence": 10377,
+     "netPence": 5377
     }
    ]
   },
@@ -6365,12 +6401,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 63,
-    "expectedCostPence": 158676,
-    "baselineCostPence": 31408
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 47.7,
+    "expectedCostPence": 116228,
+    "baselineCostPence": 14909
    },
    "riskLevel": "high",
    "reasons": [
@@ -6380,7 +6416,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 57628
+     "compensationPence": 42212
     },
     {
      "kind": "concert",
@@ -6388,7 +6424,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 34136
+     "compensationPence": 25004
     },
     {
      "kind": "event",
@@ -6396,7 +6432,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 8378
+     "compensationPence": 6137
     },
     {
      "kind": "crowding",
@@ -6409,9 +6445,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 23753,
-     "netPence": 13753
+     "costPence": 5000,
+     "savingPence": 17365,
+     "netPence": 12365
     }
    ]
   },
@@ -6473,12 +6509,12 @@
     "expectedDelayMin": 12.8
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 58.5,
-    "expectedCostPence": 168521,
-    "baselineCostPence": 27594
+    "expectedClaims": 44.3,
+    "expectedCostPence": 127648,
+    "baselineCostPence": 13545
    },
    "riskLevel": "high",
    "reasons": [
@@ -6488,7 +6524,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.132,
-     "compensationPence": 65971
+     "compensationPence": 49971
     },
     {
      "kind": "concert",
@@ -6496,7 +6532,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.088,
-     "compensationPence": 40170
+     "compensationPence": 30428
     },
     {
      "kind": "event",
@@ -6504,7 +6540,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.017,
-     "compensationPence": 7838
+     "compensationPence": 5937
     },
     {
      "kind": "history",
@@ -6522,9 +6558,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 25226,
-     "netPence": 15226
+     "costPence": 5000,
+     "savingPence": 19071,
+     "netPence": 14071
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 25480,
+     "netPence": 480
     }
    ]
   },
@@ -6586,12 +6631,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 63,
-    "expectedCostPence": 143419,
-    "baselineCostPence": 28388
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 47.7,
+    "expectedCostPence": 102195,
+    "baselineCostPence": 13109
    },
    "riskLevel": "high",
    "reasons": [
@@ -6601,7 +6646,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 52088
+     "compensationPence": 37116
     },
     {
      "kind": "concert",
@@ -6609,7 +6654,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 30854
+     "compensationPence": 21985
     },
     {
      "kind": "event",
@@ -6617,7 +6662,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 7573
+     "compensationPence": 5396
     },
     {
      "kind": "crowding",
@@ -6630,9 +6675,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 21469,
-     "netPence": 11469
+     "costPence": 5000,
+     "savingPence": 15269,
+     "netPence": 10269
     }
    ]
   },
@@ -6695,12 +6740,12 @@
     "expectedDelayMin": 15
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 64.3,
-    "expectedCostPence": 138939,
-    "baselineCostPence": 29607
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 48.7,
+    "expectedCostPence": 97385,
+    "baselineCostPence": 13448
    },
    "riskLevel": "high",
    "reasons": [
@@ -6710,7 +6755,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.127,
-     "compensationPence": 48832
+     "compensationPence": 34227
     },
     {
      "kind": "concert",
@@ -6718,7 +6763,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.084,
-     "compensationPence": 28728
+     "compensationPence": 20135
     },
     {
      "kind": "event",
@@ -6726,7 +6771,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4360
+     "compensationPence": 3056
     },
     {
      "kind": "crowding",
@@ -6739,9 +6784,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 20798,
-     "netPence": 10798
+     "costPence": 5000,
+     "savingPence": 14550,
+     "netPence": 9550
     }
    ]
   },
@@ -6803,12 +6848,12 @@
     "expectedDelayMin": 13.4
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 59.9,
-    "expectedCostPence": 163198,
-    "baselineCostPence": 28486
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 45.4,
+    "expectedCostPence": 122222,
+    "baselineCostPence": 13825
    },
    "riskLevel": "high",
    "reasons": [
@@ -6818,7 +6863,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 62673
+     "compensationPence": 46937
     },
     {
      "kind": "concert",
@@ -6826,7 +6871,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.087,
-     "compensationPence": 35990
+     "compensationPence": 26954
     },
     {
      "kind": "event",
@@ -6834,7 +6879,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 6205
+     "compensationPence": 4648
     },
     {
      "kind": "history",
@@ -6852,9 +6897,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 24429,
-     "netPence": 14429
+     "costPence": 5000,
+     "savingPence": 18261,
+     "netPence": 13261
     }
    ]
   },
@@ -6916,12 +6961,12 @@
     "expectedDelayMin": 13.4
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
-    "avgFarePence": 6664,
-    "expectedClaims": 59.9,
-    "expectedCostPence": 170356,
-    "baselineCostPence": 29736
+    "passengers": 589,
+    "claimRate": 0.25,
+    "avgFarePence": 6652,
+    "expectedClaims": 45.4,
+    "expectedCostPence": 128805,
+    "baselineCostPence": 14570
    },
    "riskLevel": "high",
    "reasons": [
@@ -6931,7 +6976,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.131,
-     "compensationPence": 65422
+     "compensationPence": 49465
     },
     {
      "kind": "concert",
@@ -6939,7 +6984,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.087,
-     "compensationPence": 37569
+     "compensationPence": 28406
     },
     {
      "kind": "event",
@@ -6947,7 +6992,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 6478
+     "compensationPence": 4897
     },
     {
      "kind": "history",
@@ -6965,9 +7010,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 25501,
-     "netPence": 15501
+     "costPence": 5000,
+     "savingPence": 19244,
+     "netPence": 14244
     }
    ]
   },
@@ -7025,12 +7070,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 648,
-    "claimRate": 0.3,
+    "passengers": 589,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 63,
-    "expectedCostPence": 183087,
-    "baselineCostPence": 36240
+    "expectedClaims": 47.7,
+    "expectedCostPence": 138681,
+    "baselineCostPence": 17789
    },
    "riskLevel": "high",
    "reasons": [
@@ -7040,7 +7085,7 @@
      "text": "Man City v Fulham: match crowds at Manchester Piccadilly, 12:00–18:00",
      "effect": "bad",
      "reliabilityDelta": -0.128,
-     "compensationPence": 66494
+     "compensationPence": 50366
     },
     {
      "kind": "concert",
@@ -7048,7 +7093,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 39387
+     "compensationPence": 29834
     },
     {
      "kind": "event",
@@ -7056,7 +7101,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 9667
+     "compensationPence": 7322
     },
     {
      "kind": "crowding",
@@ -7069,9 +7114,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 27406,
-     "netPence": 17406
+     "costPence": 5000,
+     "savingPence": 20720,
+     "netPence": 15720
+    },
+    {
+     "kind": "crowd_management",
+     "title": "Queue barriers and extra platform staff",
+     "detail": "Man City v Fulham at Manchester Piccadilly, 12:00–18:00: faster boarding, shorter dwell times",
+     "signalId": "openfootball:2026-11-21:manchester-city-v-fulham",
+     "costPence": 25000,
+     "savingPence": 25628,
+     "netPence": 628
     }
    ]
   },
@@ -7133,12 +7187,12 @@
     "expectedDelayMin": 10.8
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 32.5,
-    "expectedCostPence": 64990,
-    "baselineCostPence": 25368
+    "passengers": 394,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 20.7,
+    "expectedCostPence": 37556,
+    "baselineCostPence": 11309
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -7148,7 +7202,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 24212
+     "compensationPence": 13992
     },
     {
      "kind": "event",
@@ -7156,10 +7210,19 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4551
+     "compensationPence": 2630
     }
    ],
-   "mitigations": []
+   "mitigations": [
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 5624,
+     "netPence": 624
+    }
+   ]
   },
   {
    "journey": {
@@ -7219,12 +7282,12 @@
     "expectedDelayMin": 11.4
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 33.9,
-    "expectedCostPence": 75783,
-    "baselineCostPence": 31270
+    "passengers": 394,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 21.6,
+    "expectedCostPence": 45363,
+    "baselineCostPence": 14440
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -7234,7 +7297,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.084,
-     "compensationPence": 26891
+     "compensationPence": 16097
     },
     {
      "kind": "event",
@@ -7242,7 +7305,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 4075
+     "compensationPence": 2439
     }
    ],
    "mitigations": [
@@ -7250,9 +7313,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 11309,
-     "netPence": 1309
+     "costPence": 5000,
+     "savingPence": 6793,
+     "netPence": 1793
     }
    ]
   },
@@ -7315,12 +7378,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 29.7,
-    "expectedCostPence": 80048,
-    "baselineCostPence": 28486
+    "passengers": 394,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 18.9,
+    "expectedCostPence": 50360,
+    "baselineCostPence": 13825
    },
    "riskLevel": "low",
    "reasons": [
@@ -7330,7 +7393,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.087,
-     "compensationPence": 32859
+     "compensationPence": 20672
     },
     {
      "kind": "event",
@@ -7338,7 +7401,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 5189
+     "compensationPence": 3264
     },
     {
      "kind": "history",
@@ -7351,9 +7414,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 11945,
-     "netPence": 1945
+     "costPence": 5000,
+     "savingPence": 7541,
+     "netPence": 2541
     }
    ]
   },
@@ -7415,12 +7478,12 @@
     "expectedDelayMin": 8.9
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 28.3,
-    "expectedCostPence": 70772,
-    "baselineCostPence": 23915
+    "passengers": 394,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 18,
+    "expectedCostPence": 43548,
+    "baselineCostPence": 11352
    },
    "riskLevel": "low",
    "reasons": [
@@ -7430,7 +7493,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.088,
-     "compensationPence": 31554
+     "compensationPence": 19416
     },
     {
      "kind": "event",
@@ -7438,7 +7501,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.017,
-     "compensationPence": 6085
+     "compensationPence": 3745
     },
     {
      "kind": "history",
@@ -7451,9 +7514,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 10561,
-     "netPence": 561
+     "costPence": 5000,
+     "savingPence": 6521,
+     "netPence": 1521
     }
    ]
   },
@@ -7510,12 +7573,12 @@
     "expectedDelayMin": 10.8
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
+    "passengers": 394,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 32.5,
-    "expectedCostPence": 92843,
-    "baselineCostPence": 36240
+    "expectedClaims": 20.7,
+    "expectedCostPence": 59076,
+    "baselineCostPence": 17789
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -7525,7 +7588,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 34589
+     "compensationPence": 22008
     },
     {
      "kind": "event",
@@ -7533,7 +7596,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 6502
+     "compensationPence": 4137
     }
    ],
    "mitigations": [
@@ -7541,9 +7604,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13855,
-     "netPence": 3855
+     "costPence": 5000,
+     "savingPence": 8846,
+     "netPence": 3846
     }
    ]
   },
@@ -7606,12 +7669,12 @@
     "expectedDelayMin": 10.1
    },
    "compensation": {
-    "passengers": 516,
-    "claimRate": 0.3,
-    "avgFarePence": 5544,
-    "expectedClaims": 31.1,
-    "expectedCostPence": 73163,
-    "baselineCostPence": 27318
+    "passengers": 394,
+    "claimRate": 0.25,
+    "avgFarePence": 5292,
+    "expectedClaims": 19.8,
+    "expectedCostPence": 44438,
+    "baselineCostPence": 12800
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -7621,7 +7684,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.086,
-     "compensationPence": 28536
+     "compensationPence": 17332
     },
     {
      "kind": "event",
@@ -7629,7 +7692,7 @@
      "text": "Manchester Christmas Markets (sample): extra crowds at Manchester Piccadilly, 09:00–20:00",
      "effect": "bad",
      "reliabilityDelta": -0.016,
-     "compensationPence": 5364
+     "compensationPence": 3258
     },
     {
      "kind": "history",
@@ -7642,9 +7705,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 10918,
-     "netPence": 918
+     "costPence": 5000,
+     "savingPence": 6655,
+     "netPence": 1655
     }
    ]
   },
@@ -7706,12 +7769,12 @@
     "expectedDelayMin": 8.5
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 24.1,
-    "expectedCostPence": 51280,
-    "baselineCostPence": 20466
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 14.5,
+    "expectedCostPence": 28541,
+    "baselineCostPence": 9296
    },
    "riskLevel": "low",
    "reasons": [
@@ -7721,7 +7784,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.088,
-     "compensationPence": 24479
+     "compensationPence": 13624
     },
     {
      "kind": "history",
@@ -7789,12 +7852,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 28,
-    "expectedCostPence": 59321,
-    "baselineCostPence": 26878
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 16.8,
+    "expectedCostPence": 33016,
+    "baselineCostPence": 12209
    },
    "riskLevel": "low",
    "reasons": [
@@ -7804,7 +7867,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 24122
+     "compensationPence": 13425
     }
    ],
    "mitigations": []
@@ -7868,12 +7931,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 28,
-    "expectedCostPence": 55988,
-    "baselineCostPence": 25368
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 16.8,
+    "expectedCostPence": 30582,
+    "baselineCostPence": 11309
    },
    "riskLevel": "low",
    "reasons": [
@@ -7883,7 +7946,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 22766
+     "compensationPence": 12435
     }
    ],
    "mitigations": []
@@ -7946,12 +8009,12 @@
     "expectedDelayMin": 8.5
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 6104,
-    "expectedClaims": 24.1,
-    "expectedCostPence": 62804,
-    "baselineCostPence": 25065
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 5972,
+    "expectedClaims": 14.5,
+    "expectedCostPence": 36957,
+    "baselineCostPence": 12037
    },
    "riskLevel": "low",
    "reasons": [
@@ -7961,7 +8024,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.088,
-     "compensationPence": 29980
+     "compensationPence": 17641
     },
     {
      "kind": "history",
@@ -7969,7 +8032,16 @@
      "effect": "good"
     }
    ],
-   "mitigations": []
+   "mitigations": [
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 5570,
+     "netPence": 570
+    }
+   ]
   },
   {
    "journey": {
@@ -8029,12 +8101,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 6104,
-    "expectedClaims": 29.3,
-    "expectedCostPence": 77028,
-    "baselineCostPence": 36260
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 5972,
+    "expectedClaims": 17.6,
+    "expectedCostPence": 45327,
+    "baselineCostPence": 17414
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -8044,7 +8116,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.084,
-     "compensationPence": 29542
+     "compensationPence": 17384
     }
    ],
    "mitigations": [
@@ -8052,9 +8124,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 11442,
-     "netPence": 1442
+     "costPence": 5000,
+     "savingPence": 6831,
+     "netPence": 1831
     }
    ]
   },
@@ -8117,12 +8189,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
+    "passengers": 345,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 29.3,
-    "expectedCostPence": 84801,
-    "baselineCostPence": 39919
+    "expectedClaims": 17.6,
+    "expectedCostPence": 51005,
+    "baselineCostPence": 19595
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -8132,7 +8204,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.084,
-     "compensationPence": 32523
+     "compensationPence": 19562
     }
    ],
    "mitigations": [
@@ -8140,9 +8212,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 12596,
-     "netPence": 2596
+     "costPence": 5000,
+     "savingPence": 7688,
+     "netPence": 2688
     }
    ]
   },
@@ -8204,12 +8276,12 @@
     "expectedDelayMin": 11.7
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 30.7,
-    "expectedCostPence": 65574,
-    "baselineCostPence": 32063
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 18.5,
+    "expectedCostPence": 36497,
+    "baselineCostPence": 14564
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -8219,10 +8291,19 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.084,
-     "compensationPence": 23585
+     "compensationPence": 13127
     }
    ],
-   "mitigations": []
+   "mitigations": [
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 5501,
+     "netPence": 501
+    }
+   ]
   },
   {
    "journey": {
@@ -8282,12 +8363,12 @@
     "expectedDelayMin": 9.7
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 26.7,
-    "expectedCostPence": 72322,
-    "baselineCostPence": 31457
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 16,
+    "expectedCostPence": 43008,
+    "baselineCostPence": 15267
    },
    "riskLevel": "low",
    "reasons": [
@@ -8297,7 +8378,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.086,
-     "compensationPence": 31126
+     "compensationPence": 18510
     },
     {
      "kind": "history",
@@ -8310,9 +8391,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 10743,
-     "netPence": 743
+     "costPence": 5000,
+     "savingPence": 6482,
+     "netPence": 1482
     }
    ]
   },
@@ -8375,12 +8456,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
+    "passengers": 345,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 28,
-    "expectedCostPence": 79983,
-    "baselineCostPence": 36240
+    "expectedClaims": 16.8,
+    "expectedCostPence": 48107,
+    "baselineCostPence": 17789
    },
    "riskLevel": "low",
    "reasons": [
@@ -8390,7 +8471,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 32523
+     "compensationPence": 19562
     }
    ],
    "mitigations": [
@@ -8398,9 +8479,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 11881,
-     "netPence": 1881
+     "costPence": 5000,
+     "savingPence": 7251,
+     "netPence": 2251
     }
    ]
   },
@@ -8462,12 +8543,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 28,
-    "expectedCostPence": 69318,
-    "baselineCostPence": 31408
+    "passengers": 345,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 16.8,
+    "expectedCostPence": 40318,
+    "baselineCostPence": 14909
    },
    "riskLevel": "low",
    "reasons": [
@@ -8477,7 +8558,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 28186
+     "compensationPence": 16394
     }
    ],
    "mitigations": [
@@ -8485,9 +8566,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 10296,
-     "netPence": 296
+     "costPence": 5000,
+     "savingPence": 6077,
+     "netPence": 1077
     }
    ]
   },
@@ -8549,12 +8630,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 478,
-    "claimRate": 0.3,
+    "passengers": 345,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 28,
-    "expectedCostPence": 79983,
-    "baselineCostPence": 36240
+    "expectedClaims": 16.8,
+    "expectedCostPence": 48107,
+    "baselineCostPence": 17789
    },
    "riskLevel": "low",
    "reasons": [
@@ -8564,7 +8645,7 @@
      "text": "Sold-out arena concert at Co-op Live (sample): concert crowds at Manchester Piccadilly, 16:30–23:30",
      "effect": "bad",
      "reliabilityDelta": -0.085,
-     "compensationPence": 32523
+     "compensationPence": 19562
     }
    ],
    "mitigations": [
@@ -8572,9 +8653,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 11881,
-     "netPence": 1881
+     "costPence": 5000,
+     "savingPence": 7251,
+     "netPence": 2251
     }
    ]
   },
@@ -8636,12 +8717,12 @@
     "expectedDelayMin": 24
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 46.5,
-    "expectedCostPence": 151682,
-    "baselineCostPence": 43086
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 22.8,
+    "expectedCostPence": 70043,
+    "baselineCostPence": 19896
    },
    "riskLevel": "high",
    "reasons": [
@@ -8651,7 +8732,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.275,
-     "compensationPence": 108596
+     "compensationPence": 50147
     }
    ],
    "mitigations": [
@@ -8660,17 +8741,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 70927,
-     "netPence": 40927
+     "costPence": 15000,
+     "savingPence": 32753,
+     "netPence": 17753
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22856,
-     "netPence": 12856
+     "costPence": 5000,
+     "savingPence": 10425,
+     "netPence": 5425
     }
    ]
   },
@@ -8732,12 +8813,12 @@
     "expectedDelayMin": 24
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6664,
-    "expectedClaims": 46.5,
-    "expectedCostPence": 192023,
-    "baselineCostPence": 54546
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6652,
+    "expectedClaims": 22.8,
+    "expectedCostPence": 94088,
+    "baselineCostPence": 26726
    },
    "riskLevel": "high",
    "reasons": [
@@ -8747,7 +8828,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.275,
-     "compensationPence": 137477
+     "compensationPence": 67362
     }
    ],
    "mitigations": [
@@ -8756,17 +8837,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 89791,
-     "netPence": 59791
+     "costPence": 15000,
+     "savingPence": 43996,
+     "netPence": 28996
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 28935,
-     "netPence": 18935
+     "costPence": 5000,
+     "savingPence": 14004,
+     "netPence": 9004
     }
    ]
   },
@@ -8824,12 +8905,12 @@
     "expectedDelayMin": 23.1
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 45.1,
-    "expectedCostPence": 188485,
-    "baselineCostPence": 48014
+    "expectedClaims": 22.1,
+    "expectedCostPence": 92521,
+    "baselineCostPence": 23568
    },
    "riskLevel": "high",
    "reasons": [
@@ -8839,7 +8920,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 140471
+     "compensationPence": 68953
     }
    ],
    "mitigations": [
@@ -8848,17 +8929,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 91097,
-     "netPence": 61097
+     "costPence": 15000,
+     "savingPence": 44716,
+     "netPence": 29716
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 28401,
-     "netPence": 18401
+     "costPence": 5000,
+     "savingPence": 13770,
+     "netPence": 8770
     }
    ]
   },
@@ -8920,12 +9001,12 @@
     "expectedDelayMin": 22.6
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5544,
-    "expectedClaims": 44.3,
-    "expectedCostPence": 154286,
-    "baselineCostPence": 36576
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5292,
+    "expectedClaims": 21.8,
+    "expectedCostPence": 72292,
+    "baselineCostPence": 17138
    },
    "riskLevel": "high",
    "reasons": [
@@ -8935,7 +9016,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.285,
-     "compensationPence": 117710
+     "compensationPence": 55154
     }
    ],
    "mitigations": [
@@ -8944,17 +9025,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 76369,
-     "netPence": 46369
+     "costPence": 15000,
+     "savingPence": 35783,
+     "netPence": 20783
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 23248,
-     "netPence": 13248
+     "costPence": 5000,
+     "savingPence": 10760,
+     "netPence": 5760
     }
    ]
   },
@@ -9016,12 +9097,12 @@
     "expectedDelayMin": 23.1
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5544,
-    "expectedClaims": 45.1,
-    "expectedCostPence": 155500,
-    "baselineCostPence": 39611
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5292,
+    "expectedClaims": 22.1,
+    "expectedCostPence": 72861,
+    "baselineCostPence": 18560
    },
    "riskLevel": "high",
    "reasons": [
@@ -9031,7 +9112,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 115889
+     "compensationPence": 54301
     }
    ],
    "mitigations": [
@@ -9040,17 +9121,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 75155,
-     "netPence": 45155
+     "costPence": 15000,
+     "savingPence": 35215,
+     "netPence": 20215
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 23431,
-     "netPence": 13431
+     "costPence": 5000,
+     "savingPence": 10845,
+     "netPence": 5845
     }
    ]
   },
@@ -9113,12 +9194,12 @@
     "expectedDelayMin": 23.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 45.9,
-    "expectedCostPence": 150097,
-    "baselineCostPence": 40204
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 22.5,
+    "expectedCostPence": 69311,
+    "baselineCostPence": 18565
    },
    "riskLevel": "high",
    "reasons": [
@@ -9128,7 +9209,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.279,
-     "compensationPence": 109893
+     "compensationPence": 50746
     }
    ],
    "mitigations": [
@@ -9137,17 +9218,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 71648,
-     "netPence": 41648
+     "costPence": 15000,
+     "savingPence": 33085,
+     "netPence": 18085
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22618,
-     "netPence": 12618
+     "costPence": 5000,
+     "savingPence": 10316,
+     "netPence": 5316
     }
    ]
   },
@@ -9209,12 +9290,12 @@
     "expectedDelayMin": 24
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 46.5,
-    "expectedCostPence": 167818,
-    "baselineCostPence": 47670
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 22.8,
+    "expectedCostPence": 79661,
+    "baselineCostPence": 22628
    },
    "riskLevel": "high",
    "reasons": [
@@ -9224,7 +9305,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.275,
-     "compensationPence": 120148
+     "compensationPence": 57033
     }
    ],
    "mitigations": [
@@ -9233,17 +9314,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 78472,
-     "netPence": 48472
+     "costPence": 15000,
+     "savingPence": 37250,
+     "netPence": 22250
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 25288,
-     "netPence": 15288
+     "costPence": 5000,
+     "savingPence": 11857,
+     "netPence": 6857
     }
    ]
   },
@@ -9300,12 +9381,12 @@
     "expectedDelayMin": 22.6
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 44.3,
-    "expectedCostPence": 187014,
-    "baselineCostPence": 44334
+    "expectedClaims": 21.8,
+    "expectedCostPence": 91799,
+    "baselineCostPence": 21762
    },
    "riskLevel": "high",
    "reasons": [
@@ -9315,7 +9396,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.285,
-     "compensationPence": 142680
+     "compensationPence": 70037
     }
    ],
    "mitigations": [
@@ -9324,17 +9405,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 92569,
-     "netPence": 62569
+     "costPence": 15000,
+     "savingPence": 45439,
+     "netPence": 30439
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 28180,
-     "netPence": 18180
+     "costPence": 5000,
+     "savingPence": 13663,
+     "netPence": 8663
     }
    ]
   },
@@ -9397,12 +9478,12 @@
     "expectedDelayMin": 23.1
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 45.1,
-    "expectedCostPence": 147647,
-    "baselineCostPence": 37611
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 22.1,
+    "expectedCostPence": 68179,
+    "baselineCostPence": 17368
    },
    "riskLevel": "high",
    "reasons": [
@@ -9412,7 +9493,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 110036
+     "compensationPence": 50811
     }
    ],
    "mitigations": [
@@ -9421,17 +9502,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 71359,
-     "netPence": 41359
+     "costPence": 15000,
+     "savingPence": 32951,
+     "netPence": 17951
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22248,
-     "netPence": 12248
+     "costPence": 5000,
+     "savingPence": 10147,
+     "netPence": 5147
     }
    ]
   },
@@ -9493,12 +9574,12 @@
     "expectedDelayMin": 27.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6664,
-    "expectedClaims": 53.8,
-    "expectedCostPence": 229858,
-    "baselineCostPence": 47613
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6652,
+    "expectedClaims": 26.4,
+    "expectedCostPence": 112627,
+    "baselineCostPence": 23330
    },
    "riskLevel": "severe",
    "reasons": [
@@ -9508,7 +9589,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 120292
+     "compensationPence": 58942
     },
     {
      "kind": "weather",
@@ -9516,7 +9597,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.117,
-     "compensationPence": 42943
+     "compensationPence": 21042
     }
    ],
    "mitigations": [
@@ -9525,17 +9606,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 78006,
-     "netPence": 48006
+     "costPence": 15000,
+     "savingPence": 38222,
+     "netPence": 23222
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 34636,
-     "netPence": 24636
+     "costPence": 5000,
+     "savingPence": 16763,
+     "netPence": 11763
     }
    ]
   },
@@ -9597,12 +9678,12 @@
     "expectedDelayMin": 27.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 53.8,
-    "expectedCostPence": 181569,
-    "baselineCostPence": 37611
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 26.4,
+    "expectedCostPence": 83844,
+    "baselineCostPence": 17368
    },
    "riskLevel": "severe",
    "reasons": [
@@ -9612,7 +9693,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 95021
+     "compensationPence": 43879
     },
     {
      "kind": "weather",
@@ -9620,7 +9701,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.117,
-     "compensationPence": 33922
+     "compensationPence": 15665
     }
    ],
    "mitigations": [
@@ -9629,17 +9710,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 61618,
-     "netPence": 31618
+     "costPence": 15000,
+     "savingPence": 28454,
+     "netPence": 13454
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 27360,
-     "netPence": 17360
+     "costPence": 5000,
+     "savingPence": 12479,
+     "netPence": 7479
     }
    ]
   },
@@ -9702,12 +9783,12 @@
     "expectedDelayMin": 26.4
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6664,
-    "expectedClaims": 52.6,
-    "expectedCostPence": 226392,
-    "baselineCostPence": 40864
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6652,
+    "expectedClaims": 25.8,
+    "expectedCostPence": 110928,
+    "baselineCostPence": 20023
    },
    "riskLevel": "severe",
    "reasons": [
@@ -9717,7 +9798,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.288,
-     "compensationPence": 122117
+     "compensationPence": 59835
     },
     {
      "kind": "weather",
@@ -9725,7 +9806,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 42579
+     "compensationPence": 20862
     }
    ],
    "mitigations": [
@@ -9734,17 +9815,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 79283,
-     "netPence": 49283
+     "costPence": 15000,
+     "savingPence": 38847,
+     "netPence": 23847
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 34114,
-     "netPence": 24114
+     "costPence": 5000,
+     "savingPence": 16510,
+     "netPence": 11510
     }
    ]
   },
@@ -9806,12 +9887,12 @@
     "expectedDelayMin": 27.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 54.4,
-    "expectedCostPence": 182289,
-    "baselineCostPence": 40204
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 26.7,
+    "expectedCostPence": 84176,
+    "baselineCostPence": 18565
    },
    "riskLevel": "severe",
    "reasons": [
@@ -9821,7 +9902,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.279,
-     "compensationPence": 93003
+     "compensationPence": 42946
     },
     {
      "kind": "weather",
@@ -9829,7 +9910,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.116,
-     "compensationPence": 32192
+     "compensationPence": 14865
     }
    ],
    "mitigations": [
@@ -9838,17 +9919,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 60753,
-     "netPence": 30753
+     "costPence": 15000,
+     "savingPence": 28054,
+     "netPence": 13054
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 27468,
-     "netPence": 17468
+     "costPence": 5000,
+     "savingPence": 12528,
+     "netPence": 7528
     }
    ]
   },
@@ -9910,12 +9991,12 @@
     "expectedDelayMin": 27.2
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6104,
-    "expectedClaims": 53.8,
-    "expectedCostPence": 210542,
-    "baselineCostPence": 43612
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 5972,
+    "expectedClaims": 26.4,
+    "expectedCostPence": 101113,
+    "baselineCostPence": 20945
    },
    "riskLevel": "severe",
    "reasons": [
@@ -9925,7 +10006,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.282,
-     "compensationPence": 110184
+     "compensationPence": 52916
     },
     {
      "kind": "weather",
@@ -9933,7 +10014,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.117,
-     "compensationPence": 39334
+     "compensationPence": 18890
     }
    ],
    "mitigations": [
@@ -9942,17 +10023,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 71450,
-     "netPence": 41450
+     "costPence": 15000,
+     "savingPence": 34314,
+     "netPence": 19314
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 31725,
-     "netPence": 21725
+     "costPence": 5000,
+     "savingPence": 15049,
+     "netPence": 10049
     }
    ]
   },
@@ -10015,12 +10096,12 @@
     "expectedDelayMin": 27.9
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 55.1,
-    "expectedCostPence": 222647,
-    "baselineCostPence": 52254
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 27,
+    "expectedCostPence": 108057,
+    "baselineCostPence": 25360
    },
    "riskLevel": "severe",
    "reasons": [
@@ -10030,7 +10111,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.275,
-     "compensationPence": 112267
+     "compensationPence": 54486
     },
     {
      "kind": "weather",
@@ -10038,7 +10119,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.115,
-     "compensationPence": 38693
+     "compensationPence": 18778
     }
    ],
    "mitigations": [
@@ -10047,17 +10128,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 72631,
-     "netPence": 42631
+     "costPence": 15000,
+     "savingPence": 35250,
+     "netPence": 20250
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 33550,
-     "netPence": 23550
+     "costPence": 5000,
+     "savingPence": 16082,
+     "netPence": 11082
     }
    ]
   },
@@ -10119,12 +10200,12 @@
     "expectedDelayMin": 27.9
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 55.1,
-    "expectedCostPence": 183586,
-    "baselineCostPence": 43086
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 27,
+    "expectedCostPence": 84775,
+    "baselineCostPence": 19896
    },
    "riskLevel": "severe",
    "reasons": [
@@ -10134,7 +10215,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.275,
-     "compensationPence": 92571
+     "compensationPence": 42747
     },
     {
      "kind": "weather",
@@ -10142,7 +10223,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.115,
-     "compensationPence": 31904
+     "compensationPence": 14732
     }
    ],
    "mitigations": [
@@ -10151,17 +10232,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 59889,
-     "netPence": 29889
+     "costPence": 15000,
+     "savingPence": 27655,
+     "netPence": 12655
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 27664,
-     "netPence": 17664
+     "costPence": 5000,
+     "savingPence": 12618,
+     "netPence": 7618
     }
    ]
   },
@@ -10223,12 +10304,12 @@
     "expectedDelayMin": 26.4
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 52.6,
-    "expectedCostPence": 169318,
-    "baselineCostPence": 30562
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 25.8,
+    "expectedCostPence": 76909,
+    "baselineCostPence": 13882
    },
    "riskLevel": "severe",
    "reasons": [
@@ -10238,7 +10319,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.288,
-     "compensationPence": 91331
+     "compensationPence": 41485
     },
     {
      "kind": "weather",
@@ -10246,7 +10327,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 31844
+     "compensationPence": 14464
     }
    ],
    "mitigations": [
@@ -10255,17 +10336,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 59295,
-     "netPence": 29295
+     "costPence": 15000,
+     "savingPence": 26933,
+     "netPence": 11933
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 25513,
-     "netPence": 15513
+     "costPence": 5000,
+     "savingPence": 11447,
+     "netPence": 6447
     }
    ]
   },
@@ -10323,12 +10404,12 @@
     "expectedDelayMin": 26.8
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 53.1,
-    "expectedCostPence": 230134,
-    "baselineCostPence": 44334
+    "expectedClaims": 26.1,
+    "expectedCostPence": 112965,
+    "baselineCostPence": 21762
    },
    "riskLevel": "severe",
    "reasons": [
@@ -10338,7 +10419,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.285,
-     "compensationPence": 121855
+     "compensationPence": 59814
     },
     {
      "kind": "weather",
@@ -10346,7 +10427,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.119,
-     "compensationPence": 43120
+     "compensationPence": 21166
     }
    ],
    "mitigations": [
@@ -10355,17 +10436,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston & Milton Keynes Central, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 78845,
-     "netPence": 48845
+     "costPence": 15000,
+     "savingPence": 38702,
+     "netPence": 23702
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 34678,
-     "netPence": 24678
+     "costPence": 5000,
+     "savingPence": 16813,
+     "netPence": 11813
     }
    ]
   },
@@ -10427,12 +10508,12 @@
     "expectedDelayMin": 27.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 54.4,
-    "expectedCostPence": 221074,
-    "baselineCostPence": 48759
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 26.7,
+    "expectedCostPence": 107294,
+    "baselineCostPence": 23664
    },
    "riskLevel": "severe",
    "reasons": [
@@ -10442,7 +10523,7 @@
      "text": "Engineering works Milton Keynes to Rugby (sample): diversions at London Euston, 00:00–14:00",
      "effect": "bad",
      "reliabilityDelta": -0.279,
-     "compensationPence": 112791
+     "compensationPence": 54741
     },
     {
      "kind": "weather",
@@ -10450,7 +10531,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.116,
-     "compensationPence": 39042
+     "compensationPence": 18948
     }
    ],
    "mitigations": [
@@ -10459,17 +10540,17 @@
      "title": "Retime around the works and add diversion running time",
      "detail": "Engineering works Milton Keynes to Rugby (sample) at London Euston, 00:00–14:00: publish the retimed path by 22:00 the day before",
      "signalId": "seed:disruptions:2026-11-22:wcml-mkc-rug",
-     "costPence": 30000,
-     "savingPence": 73680,
-     "netPence": 43680
+     "costPence": 15000,
+     "savingPence": 35759,
+     "netPence": 20759
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 33313,
-     "netPence": 23313
+     "costPence": 5000,
+     "savingPence": 15969,
+     "netPence": 10969
     }
    ]
   },
@@ -10531,12 +10612,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 25.2,
-    "expectedCostPence": 105152,
-    "baselineCostPence": 41207
+    "expectedClaims": 12.4,
+    "expectedCostPence": 51615,
+    "baselineCostPence": 20227
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -10546,7 +10627,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 63945
+     "compensationPence": 31388
     }
    ],
    "mitigations": [
@@ -10554,18 +10635,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 15845,
-     "netPence": 5845
+     "costPence": 5000,
+     "savingPence": 7682,
+     "netPence": 2682
     },
     {
      "kind": "contingency_timetable",
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 41833,
-     "netPence": 1833
+     "costPence": 20000,
+     "savingPence": 20534,
+     "netPence": 534
     }
    ]
   },
@@ -10628,12 +10709,12 @@
     "expectedDelayMin": 16.8
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 40.3,
-    "expectedCostPence": 153322,
-    "baselineCostPence": 72583
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 25.3,
+    "expectedCostPence": 95181,
+    "baselineCostPence": 45059
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -10643,26 +10724,26 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.115,
-     "compensationPence": 80739
+     "compensationPence": 50122
     }
    ],
    "mitigations": [
-    {
-     "kind": "passenger_comms",
-     "title": "Warn ticket holders and offer free transfers",
-     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22983,
-     "netPence": 12983
-    },
     {
      "kind": "contingency_timetable",
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 52774,
-     "netPence": 12774
+     "costPence": 20000,
+     "savingPence": 32761,
+     "netPence": 12761
+    },
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 14451,
+     "netPence": 9451
     }
    ]
   },
@@ -10719,12 +10800,12 @@
     "expectedDelayMin": 16.2
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 38.9,
-    "expectedCostPence": 158325,
-    "baselineCostPence": 71292
+    "expectedClaims": 24.4,
+    "expectedCostPence": 99409,
+    "baselineCostPence": 44763
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -10734,7 +10815,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.116,
-     "compensationPence": 87033
+     "compensationPence": 54646
     }
    ],
    "mitigations": [
@@ -10743,17 +10824,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 57340,
-     "netPence": 17340
+     "costPence": 20000,
+     "savingPence": 36003,
+     "netPence": 16003
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 23733,
-     "netPence": 13733
+     "costPence": 5000,
+     "savingPence": 15094,
+     "netPence": 10094
     }
    ]
   },
@@ -10815,12 +10896,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 35,
-    "expectedCostPence": 114414,
-    "baselineCostPence": 44837
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 22,
+    "expectedCostPence": 67580,
+    "baselineCostPence": 26483
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -10830,26 +10911,26 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 69577
+     "compensationPence": 41097
     }
    ],
    "mitigations": [
-    {
-     "kind": "passenger_comms",
-     "title": "Warn ticket holders and offer free transfers",
-     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17151,
-     "netPence": 7151
-    },
     {
      "kind": "contingency_timetable",
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 45518,
-     "netPence": 5518
+     "costPence": 20000,
+     "savingPence": 26886,
+     "netPence": 6886
+    },
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 10261,
+     "netPence": 5261
     }
    ]
   },
@@ -10912,12 +10993,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 6664,
-    "expectedClaims": 35,
-    "expectedCostPence": 144843,
-    "baselineCostPence": 56761
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 6652,
+    "expectedClaims": 22,
+    "expectedCostPence": 90780,
+    "baselineCostPence": 35575
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -10927,7 +11008,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 88082
+     "compensationPence": 55205
     }
    ],
    "mitigations": [
@@ -10936,17 +11017,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 57623,
-     "netPence": 17623
+     "costPence": 20000,
+     "savingPence": 36115,
+     "netPence": 16115
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 21712,
-     "netPence": 11712
+     "costPence": 5000,
+     "savingPence": 13784,
+     "netPence": 8784
     }
    ]
   },
@@ -11003,12 +11084,12 @@
     "expectedDelayMin": 16.2
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 38.9,
-    "expectedCostPence": 158325,
-    "baselineCostPence": 71292
+    "expectedClaims": 24.4,
+    "expectedCostPence": 99409,
+    "baselineCostPence": 44763
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -11018,7 +11099,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.116,
-     "compensationPence": 87033
+     "compensationPence": 54646
     }
    ],
    "mitigations": [
@@ -11027,17 +11108,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 57340,
-     "netPence": 17340
+     "costPence": 20000,
+     "savingPence": 36003,
+     "netPence": 16003
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 23733,
-     "netPence": 13733
+     "costPence": 5000,
+     "savingPence": 15094,
+     "netPence": 10094
     }
    ]
   },
@@ -11099,12 +11180,12 @@
     "expectedDelayMin": 16.8
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 6384,
-    "expectedClaims": 40.3,
-    "expectedCostPence": 153322,
-    "baselineCostPence": 72583
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 6312,
+    "expectedClaims": 25.3,
+    "expectedCostPence": 95181,
+    "baselineCostPence": 45059
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -11114,26 +11195,26 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.115,
-     "compensationPence": 80739
+     "compensationPence": 50122
     }
    ],
    "mitigations": [
-    {
-     "kind": "passenger_comms",
-     "title": "Warn ticket holders and offer free transfers",
-     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 22983,
-     "netPence": 12983
-    },
     {
      "kind": "contingency_timetable",
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 52774,
-     "netPence": 12774
+     "costPence": 20000,
+     "savingPence": 32761,
+     "netPence": 12761
+    },
+    {
+     "kind": "passenger_comms",
+     "title": "Warn ticket holders and offer free transfers",
+     "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
+     "costPence": 5000,
+     "savingPence": 14451,
+     "netPence": 9451
     }
    ]
   },
@@ -11196,12 +11277,12 @@
     "expectedDelayMin": 14.4
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 6104,
-    "expectedClaims": 35,
-    "expectedCostPence": 132671,
-    "baselineCostPence": 51991
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 5972,
+    "expectedClaims": 22,
+    "expectedCostPence": 81500,
+    "baselineCostPence": 31938
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -11211,7 +11292,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Manchester Piccadilly, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.12,
-     "compensationPence": 80680
+     "compensationPence": 49562
     }
    ],
    "mitigations": [
@@ -11220,17 +11301,17 @@
      "title": "Run a reduced, slower weather timetable",
      "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
      "signalId": "open-meteo:SOT:2026-11-22T14:rain",
-     "costPence": 40000,
-     "savingPence": 52781,
-     "netPence": 12781
+     "costPence": 20000,
+     "savingPence": 32423,
+     "netPence": 12423
     },
     {
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 19888,
-     "netPence": 9888
+     "costPence": 5000,
+     "savingPence": 12375,
+     "netPence": 7375
     }
    ]
   },
@@ -11292,12 +11373,12 @@
     "expectedDelayMin": 13.8
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 31.9,
-    "expectedCostPence": 91423,
-    "baselineCostPence": 52875
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 20.1,
+    "expectedCostPence": 53118,
+    "baselineCostPence": 30721
    },
    "riskLevel": "elevated",
    "reasons": [
@@ -11307,7 +11388,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Stockport, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.07,
-     "compensationPence": 38548
+     "compensationPence": 22397
     }
    ],
    "mitigations": [
@@ -11315,9 +11396,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13705,
-     "netPence": 3705
+     "costPence": 5000,
+     "savingPence": 8065,
+     "netPence": 3065
     }
    ]
   },
@@ -11379,12 +11460,12 @@
     "expectedDelayMin": 13.2
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 5264,
-    "expectedClaims": 30.4,
-    "expectedCostPence": 93356,
-    "baselineCostPence": 52243
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 4952,
+    "expectedClaims": 19.1,
+    "expectedCostPence": 55142,
+    "baselineCostPence": 30858
    },
    "riskLevel": "low",
    "reasons": [
@@ -11394,7 +11475,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Stoke-on-Trent & Stockport, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.07,
-     "compensationPence": 41113
+     "compensationPence": 24284
     }
    ],
    "mitigations": [
@@ -11402,9 +11483,9 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 13994,
-     "netPence": 3994
+     "costPence": 5000,
+     "savingPence": 8372,
+     "netPence": 3372
     }
    ]
   },
@@ -11462,12 +11543,12 @@
     "expectedDelayMin": 12.5
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 29.1,
-    "expectedCostPence": 115090,
-    "baselineCostPence": 61582
+    "expectedClaims": 18.2,
+    "expectedCostPence": 72262,
+    "baselineCostPence": 38666
    },
    "riskLevel": "low",
    "reasons": [
@@ -11477,7 +11558,7 @@
      "text": "Heavy rain, 9 mm an hour: disruption risk at Stoke-on-Trent & Macclesfield, 14:00–19:00",
      "effect": "bad",
      "reliabilityDelta": -0.071,
-     "compensationPence": 53508
+     "compensationPence": 33596
     }
    ],
    "mitigations": [
@@ -11485,9 +11566,18 @@
      "kind": "passenger_comms",
      "title": "Warn ticket holders and offer free transfers",
      "detail": "Email and app alerts a few days ahead so flexible travellers move to quieter trains",
-     "costPence": 10000,
-     "savingPence": 17252,
-     "netPence": 7252
+     "costPence": 5000,
+     "savingPence": 10972,
+     "netPence": 5972
+    },
+    {
+     "kind": "contingency_timetable",
+     "title": "Run a reduced, slower weather timetable",
+     "detail": "Heavy rain, 9 mm an hour: publish by 22:00 the day before so delays are measured against it",
+     "signalId": "open-meteo:SOT:2026-11-22T14:rain",
+     "costPence": 20000,
+     "savingPence": 22269,
+     "netPence": 2269
     }
    ]
   },
@@ -11549,12 +11639,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 22.8,
-    "expectedCostPence": 76403,
-    "baselineCostPence": 76403
+    "expectedClaims": 14.3,
+    "expectedCostPence": 47972,
+    "baselineCostPence": 47972
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11613,12 +11703,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 22.8,
-    "expectedCostPence": 76403,
-    "baselineCostPence": 76403
+    "expectedClaims": 14.3,
+    "expectedCostPence": 47972,
+    "baselineCostPence": 47972
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11683,12 +11773,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 19.8,
-    "expectedCostPence": 46685,
-    "baselineCostPence": 46685
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 12.4,
+    "expectedCostPence": 26620,
+    "baselineCostPence": 26620
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11752,12 +11842,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
-    "avgFarePence": 5824,
-    "expectedClaims": 19.8,
-    "expectedCostPence": 57800,
-    "baselineCostPence": 57800
+    "passengers": 382,
+    "claimRate": 0.25,
+    "avgFarePence": 5632,
+    "expectedClaims": 12.4,
+    "expectedCostPence": 35095,
+    "baselineCostPence": 35095
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11816,12 +11906,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 507,
-    "claimRate": 0.3,
+    "passengers": 382,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 22.8,
-    "expectedCostPence": 76403,
-    "baselineCostPence": 76403
+    "expectedClaims": 14.3,
+    "expectedCostPence": 47972,
+    "baselineCostPence": 47972
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11886,12 +11976,12 @@
     "expectedDelayMin": 12.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 18.6,
-    "expectedCostPence": 44504,
-    "baselineCostPence": 44504
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 9.1,
+    "expectedCostPence": 19839,
+    "baselineCostPence": 19839
    },
    "riskLevel": "low",
    "reasons": [],
@@ -11955,12 +12045,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 15.3,
-    "expectedCostPence": 35927,
-    "baselineCostPence": 35927
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 7.5,
+    "expectedCostPence": 16016,
+    "baselineCostPence": 16016
    },
    "riskLevel": "low",
    "reasons": [],
@@ -12024,12 +12114,12 @@
     "expectedDelayMin": 11
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4984,
-    "expectedClaims": 16.4,
-    "expectedCostPence": 40795,
-    "baselineCostPence": 40795
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4612,
+    "expectedClaims": 8.1,
+    "expectedCostPence": 18530,
+    "baselineCostPence": 18530
    },
    "riskLevel": "low",
    "reasons": [],
@@ -12094,12 +12184,12 @@
     "expectedDelayMin": 12.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
+    "passengers": 215,
+    "claimRate": 0.25,
     "avgFarePence": 6720,
-    "expectedClaims": 18.6,
-    "expectedCostPence": 63577,
-    "baselineCostPence": 63577
+    "expectedClaims": 9.1,
+    "expectedCostPence": 31208,
+    "baselineCostPence": 31208
    },
    "riskLevel": "low",
    "reasons": [],
@@ -12163,12 +12253,12 @@
     "expectedDelayMin": 10.3
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 15.3,
-    "expectedCostPence": 35927,
-    "baselineCostPence": 35927
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 7.5,
+    "expectedCostPence": 16016,
+    "baselineCostPence": 16016
    },
    "riskLevel": "low",
    "reasons": [],
@@ -12232,12 +12322,12 @@
     "expectedDelayMin": 9.5
    },
    "compensation": {
-    "passengers": 365,
-    "claimRate": 0.3,
-    "avgFarePence": 4704,
-    "expectedClaims": 14.2,
-    "expectedCostPence": 33609,
-    "baselineCostPence": 33609
+    "passengers": 215,
+    "claimRate": 0.25,
+    "avgFarePence": 4272,
+    "expectedClaims": 7,
+    "expectedCostPence": 14983,
+    "baselineCostPence": 14983
    },
    "riskLevel": "low",
    "reasons": [],
@@ -12255,7 +12345,7 @@
   {
    "date": "2026-11-20",
    "hour": 6,
-   "expectedCostPence": 483934,
+   "expectedCostPence": 282188,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T06:00:00Z",
@@ -12266,7 +12356,7 @@
   {
    "date": "2026-11-20",
    "hour": 7,
-   "expectedCostPence": 584415,
+   "expectedCostPence": 367138,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T07:00:00Z",
@@ -12277,7 +12367,7 @@
   {
    "date": "2026-11-20",
    "hour": 8,
-   "expectedCostPence": 362784,
+   "expectedCostPence": 193848,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T08:00:00Z",
@@ -12288,7 +12378,7 @@
   {
    "date": "2026-11-20",
    "hour": 9,
-   "expectedCostPence": 453384,
+   "expectedCostPence": 272219,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T09:00:00Z",
@@ -12299,7 +12389,7 @@
   {
    "date": "2026-11-20",
    "hour": 10,
-   "expectedCostPence": 97007,
+   "expectedCostPence": 46659,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T10:00:00Z",
@@ -12310,7 +12400,7 @@
   {
    "date": "2026-11-20",
    "hour": 11,
-   "expectedCostPence": 102444,
+   "expectedCostPence": 49899,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T11:00:00Z",
@@ -12321,7 +12411,7 @@
   {
    "date": "2026-11-20",
    "hour": 12,
-   "expectedCostPence": 86553,
+   "expectedCostPence": 42051,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-20T12:00:00Z",
@@ -12332,7 +12422,7 @@
   {
    "date": "2026-11-20",
    "hour": 13,
-   "expectedCostPence": 244317,
+   "expectedCostPence": 119492,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-20T13:00:00Z",
@@ -12343,7 +12433,7 @@
   {
    "date": "2026-11-20",
    "hour": 14,
-   "expectedCostPence": 342496,
+   "expectedCostPence": 168120,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-20T14:00:00Z",
@@ -12354,7 +12444,7 @@
   {
    "date": "2026-11-20",
    "hour": 15,
-   "expectedCostPence": 730766,
+   "expectedCostPence": 507652,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-20T15:00:00Z",
@@ -12365,7 +12455,7 @@
   {
    "date": "2026-11-20",
    "hour": 16,
-   "expectedCostPence": 2132218,
+   "expectedCostPence": 1481221,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-20T16:00:00Z",
@@ -12376,7 +12466,7 @@
   {
    "date": "2026-11-20",
    "hour": 17,
-   "expectedCostPence": 2211862,
+   "expectedCostPence": 1536548,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-20T17:00:00Z",
@@ -12387,7 +12477,7 @@
   {
    "date": "2026-11-20",
    "hour": 18,
-   "expectedCostPence": 2143331,
+   "expectedCostPence": 1488940,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-20T18:00:00Z",
@@ -12398,7 +12488,7 @@
   {
    "date": "2026-11-20",
    "hour": 19,
-   "expectedCostPence": 575314,
+   "expectedCostPence": 393966,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-20T19:00:00Z",
@@ -12409,7 +12499,7 @@
   {
    "date": "2026-11-20",
    "hour": 20,
-   "expectedCostPence": 339127,
+   "expectedCostPence": 166043,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-20T20:00:00Z",
@@ -12420,7 +12510,7 @@
   {
    "date": "2026-11-20",
    "hour": 21,
-   "expectedCostPence": 292459,
+   "expectedCostPence": 143559,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-20T21:00:00Z",
@@ -12452,7 +12542,7 @@
   {
    "date": "2026-11-21",
    "hour": 6,
-   "expectedCostPence": 82463,
+   "expectedCostPence": 42519,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-21T06:20:00Z",
@@ -12462,7 +12552,7 @@
   {
    "date": "2026-11-21",
    "hour": 7,
-   "expectedCostPence": 102427,
+   "expectedCostPence": 52065,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-21T07:00:00Z",
@@ -12473,7 +12563,7 @@
   {
    "date": "2026-11-21",
    "hour": 8,
-   "expectedCostPence": 128529,
+   "expectedCostPence": 66138,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-21T08:00:00Z",
@@ -12484,7 +12574,7 @@
   {
    "date": "2026-11-21",
    "hour": 9,
-   "expectedCostPence": 307234,
+   "expectedCostPence": 225998,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T09:00:00Z",
@@ -12495,7 +12585,7 @@
   {
    "date": "2026-11-21",
    "hour": 10,
-   "expectedCostPence": 416405,
+   "expectedCostPence": 315410,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T10:00:00Z",
@@ -12506,7 +12596,7 @@
   {
    "date": "2026-11-21",
    "hour": 11,
-   "expectedCostPence": 431101,
+   "expectedCostPence": 326542,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T11:00:00Z",
@@ -12517,7 +12607,7 @@
   {
    "date": "2026-11-21",
    "hour": 12,
-   "expectedCostPence": 416078,
+   "expectedCostPence": 315162,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T12:00:00Z",
@@ -12528,7 +12618,7 @@
   {
    "date": "2026-11-21",
    "hour": 13,
-   "expectedCostPence": 319004,
+   "expectedCostPence": 208559,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T13:00:00Z",
@@ -12539,7 +12629,7 @@
   {
    "date": "2026-11-21",
    "hour": 14,
-   "expectedCostPence": 470616,
+   "expectedCostPence": 346071,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-21T14:00:00Z",
@@ -12550,7 +12640,7 @@
   {
    "date": "2026-11-21",
    "hour": 15,
-   "expectedCostPence": 472493,
+   "expectedCostPence": 348412,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-21T15:00:00Z",
@@ -12561,7 +12651,7 @@
   {
    "date": "2026-11-21",
    "hour": 16,
-   "expectedCostPence": 323860,
+   "expectedCostPence": 221600,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-21T16:00:00Z",
@@ -12572,7 +12662,7 @@
   {
    "date": "2026-11-21",
    "hour": 17,
-   "expectedCostPence": 243663,
+   "expectedCostPence": 152984,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T17:00:00Z",
@@ -12583,7 +12673,7 @@
   {
    "date": "2026-11-21",
    "hour": 18,
-   "expectedCostPence": 183764,
+   "expectedCostPence": 105995,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T18:00:00Z",
@@ -12594,7 +12684,7 @@
   {
    "date": "2026-11-21",
    "hour": 19,
-   "expectedCostPence": 195820,
+   "expectedCostPence": 112866,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T19:00:00Z",
@@ -12605,7 +12695,7 @@
   {
    "date": "2026-11-21",
    "hour": 20,
-   "expectedCostPence": 222697,
+   "expectedCostPence": 130510,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-21T20:00:00Z",
@@ -12616,7 +12706,7 @@
   {
    "date": "2026-11-21",
    "hour": 21,
-   "expectedCostPence": 229284,
+   "expectedCostPence": 136532,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-21T21:00:00Z",
@@ -12662,7 +12752,7 @@
   {
    "date": "2026-11-22",
    "hour": 8,
-   "expectedCostPence": 343705,
+   "expectedCostPence": 164131,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-22T08:20:00Z",
@@ -12672,7 +12762,7 @@
   {
    "date": "2026-11-22",
    "hour": 9,
-   "expectedCostPence": 498271,
+   "expectedCostPence": 237674,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-22T09:00:00Z",
@@ -12683,7 +12773,7 @@
   {
    "date": "2026-11-22",
    "hour": 10,
-   "expectedCostPence": 504929,
+   "expectedCostPence": 240771,
    "worstRisk": "high",
    "serviceIds": [
     "EUS-MAN-2026-11-22T10:00:00Z",
@@ -12694,7 +12784,7 @@
   {
    "date": "2026-11-22",
    "hour": 11,
-   "expectedCostPence": 559074,
+   "expectedCostPence": 264650,
    "worstRisk": "severe",
    "serviceIds": [
     "EUS-MAN-2026-11-22T11:00:00Z",
@@ -12705,7 +12795,7 @@
   {
    "date": "2026-11-22",
    "hour": 12,
-   "expectedCostPence": 619223,
+   "expectedCostPence": 296217,
    "worstRisk": "severe",
    "serviceIds": [
     "EUS-MAN-2026-11-22T12:00:00Z",
@@ -12716,7 +12806,7 @@
   {
    "date": "2026-11-22",
    "hour": 13,
-   "expectedCostPence": 575551,
+   "expectedCostPence": 269741,
    "worstRisk": "severe",
    "serviceIds": [
     "EUS-MAN-2026-11-22T13:00:00Z",
@@ -12727,7 +12817,7 @@
   {
    "date": "2026-11-22",
    "hour": 14,
-   "expectedCostPence": 556360,
+   "expectedCostPence": 271874,
    "worstRisk": "severe",
    "serviceIds": [
     "EUS-MAN-2026-11-22T14:00:00Z",
@@ -12738,7 +12828,7 @@
   {
    "date": "2026-11-22",
    "hour": 15,
-   "expectedCostPence": 426061,
+   "expectedCostPence": 262170,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-22T15:00:00Z",
@@ -12749,7 +12839,7 @@
   {
    "date": "2026-11-22",
    "hour": 16,
-   "expectedCostPence": 456490,
+   "expectedCostPence": 285370,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-22T16:00:00Z",
@@ -12760,7 +12850,7 @@
   {
    "date": "2026-11-22",
    "hour": 17,
-   "expectedCostPence": 317450,
+   "expectedCostPence": 189760,
    "worstRisk": "elevated",
    "serviceIds": [
     "EUS-MAN-2026-11-22T17:00:00Z",
@@ -12771,7 +12861,7 @@
   {
    "date": "2026-11-22",
    "hour": 18,
-   "expectedCostPence": 267896,
+   "expectedCostPence": 168206,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-22T18:00:00Z",
@@ -12782,7 +12872,7 @@
   {
    "date": "2026-11-22",
    "hour": 19,
-   "expectedCostPence": 180888,
+   "expectedCostPence": 109687,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-22T19:00:00Z",
@@ -12793,7 +12883,7 @@
   {
    "date": "2026-11-22",
    "hour": 20,
-   "expectedCostPence": 121226,
+   "expectedCostPence": 54385,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-22T20:00:00Z",
@@ -12804,7 +12894,7 @@
   {
    "date": "2026-11-22",
    "hour": 21,
-   "expectedCostPence": 133113,
+   "expectedCostPence": 62207,
    "worstRisk": "low",
    "serviceIds": [
     "EUS-MAN-2026-11-22T21:00:00Z",
@@ -12830,10 +12920,10 @@
  "totals": {
   "services": 136,
   "highRiskServices": 37,
-  "expectedCostPence": 21288086,
-  "baselineCostPence": 10022661,
-  "mitigationCostPence": 2150000,
-  "mitigationSavingPence": 5498798
+  "expectedCostPence": 13243749,
+  "baselineCostPence": 6019169,
+  "mitigationCostPence": 1130000,
+  "mitigationSavingPence": 3441062
  },
  "signals": [
   {
@@ -13177,6 +13267,6 @@
   }
  ],
  "warnings": [
-  "Passenger loads, the 30% claim rate and mitigation costs are modelled assumptions (sample), not operator data."
+  "Passenger loads, the 25% claim rate and mitigation costs are modelled assumptions (sample), not operator data."
  ]
 }

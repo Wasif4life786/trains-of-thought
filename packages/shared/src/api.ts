@@ -68,6 +68,7 @@ export function parseRecommendationQuery(params: Params): RecommendationQuery {
     latest: get("latest") ?? RECOMMENDATION_DEFAULTS.latest,
     priority: priority === undefined ? RECOMMENDATION_DEFAULTS.priority : Number(priority),
     bookingDate: get("bookingDate"),
+    railcard: get("railcard"),
   });
 }
 

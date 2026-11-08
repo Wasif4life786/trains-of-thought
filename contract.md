@@ -1,4 +1,4 @@
-# Trains of Thought · team contract v1.4.0
+# Trains of Thought · team contract v1.5.0
 
 > The plan and the interfaces for the four-agent hivemind (or one agent playing all four: see "Solo mode" in §3). This
 > is the human-readable half of the contract; the
@@ -326,6 +326,7 @@ Semantics every implementation keeps (each lane's `contract.test.ts` checks them
 | `GET /api/network` (v1.3.0) | `dateFrom` · `dateTo` (default `dateFrom`, at most 7 days) · `bookingDate` | `NetworkResponse` |
 | `GET /api/inputs` (v1.4.0) | same as `/api/network` | `InputsResponse` |
 
+- `railcard` (v1.5.0, optional, one of `RAILCARD_IDS`) on `/api/recommendations` returns fares with the card's ⅓ off applied (`discountFares` in `packages/shared/src/railcards.ts`; Senior and Two Together are not valid on weekday trains before 09:30). Routes without a direct train return one-change journeys (`changes: 1`) where corridors connect with 10–90 minutes to change.
 - Parse with `parseRecommendationQuery` / `parseSignalQuery` and call with `createApiClient()`. Both sides share them,
   so a URL means the same thing everywhere and the web app's address bar can mirror the API's query string.
 - Errors: `{ error: { code: "bad_request" | "not_found" | "internal", message, details? } }` with 400 / 404 / 500.
@@ -584,12 +585,14 @@ request per ❌ and don't fix other lanes' code.
 
 ### 7.3 Demo (3 minutes)
 
-1. **Problem** (20 s): cheap trains get wrecked by things nobody joins up.
-2. **Live search** (60 s): the hero query; best pick and heatmap.
-3. **Why** (40 s): the reason chips. The match, the wind, the works; Liverpool v Man Utd correctly ignored.
-4. **When to book** (20 s): the fare curve and the nudge.
-5. **What we cleaned** (30 s): sources, rows in → out, fixes.
-6. **How we built it** (10 s): four agents, one contract, zero merge conflicts.
+The operator demo script, numbers and fallbacks live in `packages/web/DEMO.md`; run `npm run demo` (or `npm run demo:offline`)
+and `npm run demo:check` before going on stage. In outline:
+
+1. **Problem** (20 s): Delay Repay is predictable from data nobody joins up; the Data inputs strip shows sources → rows → repairs → signals → £.
+2. **Map and Play** (50 s): the weekend hour by hour; the match, the works, the storm.
+3. **Network alerts** (45 s): ranked disruptions with £ added and a costed mitigation.
+4. **Drill into one train** (45 s): route risk board, heatmap, delay bands, pre-emptive action.
+5. **Close** (20 s): 13 corridors, railcards, one-change journeys, one contract, four lanes.
 
 ## 8. Changing the contract
 
@@ -628,3 +631,4 @@ request per ❌ and don't fix other lanes' code.
 | 1.2.0 | 2026-11-07 | LEAD | Solo mode; return trips, railcards, sorting and Trainline links documented (website-only); Edinburgh ⇄ Manchester second scenario; EDB–MAN and MAN–LDS added to A2.2; shapes unchanged |
 | 1.3.0 | 2026-11-08 | LEAD | Pivot to an operator product: delay and Delay Repay 15 forecasting with costed mitigations (§1.5, §5.6). Additive: `/api/operations`, `/api/network`, their schemas, `Reason.compensationPence?`, `RailProvider.listRoutes?()`, `Engine.operations/network`, `operations.json` and `network.json` fixtures. The consumer API is unchanged |
 | 1.4.0 | 2026-11-08 | LEAD | Data inputs explorer (§1.5, §5.7). Additive: `/api/inputs`, `InputsResponse`, `Corridor`, `SignalImpact`, `ExposurePoint`, `Engine.inputs`, `inputs.json` fixture |
+| 1.5.0 | 2026-11-08 | LEAD | Additive: optional `railcard` (`RailcardId`, `RAILCARDS`, `discountFares`) on the journey and recommendation queries; one-change journeys (`changes: 1`) built from connecting corridors; TfL status, leaf-fall, away-fan and optional Ticketmaster signal sources; demand-adjusted Advance prices (a `price` reason); 13 corridors; operator model recalibrated (25% claim rate). Fixtures regenerated |

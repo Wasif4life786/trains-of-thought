@@ -1,5 +1,5 @@
 {
- "contractVersion": "1.4.0",
+ "contractVersion": "1.5.0",
  "generatedAt": "2026-11-07T12:00:00Z",
  "query": {
   "dateFrom": "2026-11-20",
@@ -88,22 +88,22 @@
     0,
     0,
     0,
-    967868,
-    1168830,
-    725568,
-    906768,
-    194014,
-    204888,
-    173106,
-    325351,
-    542828,
-    1368008,
-    4264436,
-    4423724,
-    4286662,
-    1150628,
-    678254,
-    645515,
+    564376,
+    734276,
+    387696,
+    544438,
+    93318,
+    99798,
+    84102,
+    158834,
+    266457,
+    950335,
+    2962442,
+    3073096,
+    2977880,
+    787932,
+    332086,
+    316862,
     0,
     0,
     0,
@@ -112,22 +112,22 @@
     0,
     0,
     0,
-    148509,
-    182626,
-    240580,
-    449923,
-    579733,
-    692874,
-    832156,
-    638008,
-    783058,
-    788997,
-    781852,
-    736000,
-    523106,
-    422861,
-    467372,
-    777857,
+    74204,
+    90000,
+    121048,
+    315258,
+    420167,
+    511689,
+    630324,
+    417118,
+    549956,
+    555533,
+    553008,
+    520868,
+    339344,
+    251306,
+    279597,
+    462165,
     0,
     0,
     0,
@@ -138,20 +138,20 @@
     0,
     0,
     0,
-    687410,
-    996542,
-    1009858,
-    1041283,
-    990352,
-    814373,
-    878074,
-    852122,
-    912980,
-    687763,
-    741082,
-    497727,
-    242452,
-    266226,
+    328262,
+    475348,
+    481542,
+    492593,
+    475499,
+    381511,
+    429193,
+    524340,
+    570740,
+    410493,
+    465309,
+    299676,
+    108770,
+    124414,
     0,
     0
    ]
@@ -191,7 +191,7 @@
     },
     "url": "https://open-meteo.com/"
    },
-   "expectedCostPence": 9279434,
+   "expectedCostPence": 6157808,
    "affectedServices": 49,
    "routes": [
     {
@@ -231,7 +231,7 @@
     "severity": 0.2,
     "confidence": 0.9
    },
-   "expectedCostPence": 452930,
+   "expectedCostPence": 307044,
    "affectedServices": 72,
    "routes": [
     {
@@ -274,7 +274,7 @@
      "capacity": 53400
     }
    },
-   "expectedCostPence": 2575708,
+   "expectedCostPence": 1864340,
    "affectedServices": 42,
    "routes": [
     {
@@ -317,7 +317,7 @@
      "capacity": 23500
     }
    },
-   "expectedCostPence": 1270989,
+   "expectedCostPence": 830304,
    "affectedServices": 42,
    "routes": [
     {
@@ -357,7 +357,7 @@
     "severity": 0.6,
     "confidence": 0.9
    },
-   "expectedCostPence": 4057986,
+   "expectedCostPence": 1972312,
    "affectedServices": 34,
    "routes": [
     {
@@ -402,7 +402,7 @@
      "precipitationMmPerHour": 9
     }
    },
-   "expectedCostPence": 2575764,
+   "expectedCostPence": 1479929,
    "affectedServices": 42,
    "routes": [
     {
@@ -458,98 +458,98 @@
   {
    "at": "2026-11-20T06:00:00Z",
    "services": 6,
-   "expectedCostPence": 967868,
-   "baselineCostPence": 967868
+   "expectedCostPence": 564376,
+   "baselineCostPence": 564376
   },
   {
    "at": "2026-11-20T07:00:00Z",
    "services": 6,
-   "expectedCostPence": 1168830,
-   "baselineCostPence": 1168830
+   "expectedCostPence": 734276,
+   "baselineCostPence": 734276
   },
   {
    "at": "2026-11-20T08:00:00Z",
    "services": 6,
-   "expectedCostPence": 725568,
-   "baselineCostPence": 725568
+   "expectedCostPence": 387696,
+   "baselineCostPence": 387696
   },
   {
    "at": "2026-11-20T09:00:00Z",
    "services": 6,
-   "expectedCostPence": 906768,
-   "baselineCostPence": 906768
+   "expectedCostPence": 544438,
+   "baselineCostPence": 544438
   },
   {
    "at": "2026-11-20T10:00:00Z",
    "services": 6,
-   "expectedCostPence": 194014,
-   "baselineCostPence": 194014
+   "expectedCostPence": 93318,
+   "baselineCostPence": 93318
   },
   {
    "at": "2026-11-20T11:00:00Z",
    "services": 6,
-   "expectedCostPence": 204888,
-   "baselineCostPence": 204888
+   "expectedCostPence": 99798,
+   "baselineCostPence": 99798
   },
   {
    "at": "2026-11-20T12:00:00Z",
    "services": 6,
-   "expectedCostPence": 173106,
-   "baselineCostPence": 173106
+   "expectedCostPence": 84102,
+   "baselineCostPence": 84102
   },
   {
    "at": "2026-11-20T13:00:00Z",
    "services": 6,
-   "expectedCostPence": 325351,
-   "baselineCostPence": 162068
+   "expectedCostPence": 158834,
+   "baselineCostPence": 78684
   },
   {
    "at": "2026-11-20T14:00:00Z",
    "services": 6,
-   "expectedCostPence": 542828,
-   "baselineCostPence": 207506
+   "expectedCostPence": 266457,
+   "baselineCostPence": 101858
   },
   {
    "at": "2026-11-20T15:00:00Z",
    "services": 6,
-   "expectedCostPence": 1368008,
-   "baselineCostPence": 607338
+   "expectedCostPence": 950335,
+   "baselineCostPence": 421910
   },
   {
    "at": "2026-11-20T16:00:00Z",
    "services": 6,
-   "expectedCostPence": 4264436,
-   "baselineCostPence": 2088136
+   "expectedCostPence": 2962442,
+   "baselineCostPence": 1450596
   },
   {
    "at": "2026-11-20T17:00:00Z",
    "services": 6,
-   "expectedCostPence": 4423724,
-   "baselineCostPence": 2291134
+   "expectedCostPence": 3073096,
+   "baselineCostPence": 1591618
   },
   {
    "at": "2026-11-20T18:00:00Z",
    "services": 6,
-   "expectedCostPence": 4286662,
-   "baselineCostPence": 2118512
+   "expectedCostPence": 2977880,
+   "baselineCostPence": 1471698
   },
   {
    "at": "2026-11-20T19:00:00Z",
    "services": 6,
-   "expectedCostPence": 1150628,
-   "baselineCostPence": 489912
+   "expectedCostPence": 787932,
+   "baselineCostPence": 335346
   },
   {
    "at": "2026-11-20T20:00:00Z",
    "services": 6,
-   "expectedCostPence": 678254,
-   "baselineCostPence": 202586
+   "expectedCostPence": 332086,
+   "baselineCostPence": 99196
   },
   {
    "at": "2026-11-20T21:00:00Z",
    "services": 6,
-   "expectedCostPence": 645515,
-   "baselineCostPence": 238780
+   "expectedCostPence": 316862,
+   "baselineCostPence": 117210
   },
   {
    "at": "2026-11-20T22:00:00Z",
@@ -602,98 +602,98 @@
   {
    "at": "2026-11-21T06:00:00Z",
    "services": 4,
-   "expectedCostPence": 148509,
-   "baselineCostPence": 132092
+   "expectedCostPence": 74204,
+   "baselineCostPence": 63370
   },
   {
    "at": "2026-11-21T07:00:00Z",
    "services": 6,
-   "expectedCostPence": 182626,
-   "baselineCostPence": 160398
+   "expectedCostPence": 90000,
+   "baselineCostPence": 75870
   },
   {
    "at": "2026-11-21T08:00:00Z",
    "services": 6,
-   "expectedCostPence": 240580,
-   "baselineCostPence": 208828
+   "expectedCostPence": 121048,
+   "baselineCostPence": 100054
   },
   {
    "at": "2026-11-21T09:00:00Z",
    "services": 6,
-   "expectedCostPence": 449923,
-   "baselineCostPence": 230286
+   "expectedCostPence": 315258,
+   "baselineCostPence": 136050
   },
   {
    "at": "2026-11-21T10:00:00Z",
    "services": 6,
-   "expectedCostPence": 579733,
-   "baselineCostPence": 264366
+   "expectedCostPence": 420167,
+   "baselineCostPence": 160096
   },
   {
    "at": "2026-11-21T11:00:00Z",
    "services": 6,
-   "expectedCostPence": 692874,
-   "baselineCostPence": 290658
+   "expectedCostPence": 511689,
+   "baselineCostPence": 176018
   },
   {
    "at": "2026-11-21T12:00:00Z",
    "services": 6,
-   "expectedCostPence": 832156,
-   "baselineCostPence": 262906
+   "expectedCostPence": 630324,
+   "baselineCostPence": 159214
   },
   {
    "at": "2026-11-21T13:00:00Z",
    "services": 6,
-   "expectedCostPence": 638008,
-   "baselineCostPence": 182274
+   "expectedCostPence": 417118,
+   "baselineCostPence": 87088
   },
   {
    "at": "2026-11-21T14:00:00Z",
    "services": 6,
-   "expectedCostPence": 783058,
-   "baselineCostPence": 174780
+   "expectedCostPence": 549956,
+   "baselineCostPence": 83126
   },
   {
    "at": "2026-11-21T15:00:00Z",
    "services": 6,
-   "expectedCostPence": 788997,
-   "baselineCostPence": 175658
+   "expectedCostPence": 555533,
+   "baselineCostPence": 83686
   },
   {
    "at": "2026-11-21T16:00:00Z",
    "services": 6,
-   "expectedCostPence": 781852,
-   "baselineCostPence": 185756
+   "expectedCostPence": 553008,
+   "baselineCostPence": 87076
   },
   {
    "at": "2026-11-21T17:00:00Z",
    "services": 6,
-   "expectedCostPence": 736000,
-   "baselineCostPence": 177282
+   "expectedCostPence": 520868,
+   "baselineCostPence": 85932
   },
   {
    "at": "2026-11-21T18:00:00Z",
    "services": 6,
-   "expectedCostPence": 523106,
-   "baselineCostPence": 149324
+   "expectedCostPence": 339344,
+   "baselineCostPence": 68610
   },
   {
    "at": "2026-11-21T19:00:00Z",
    "services": 6,
-   "expectedCostPence": 422861,
-   "baselineCostPence": 173386
+   "expectedCostPence": 251306,
+   "baselineCostPence": 81520
   },
   {
    "at": "2026-11-21T20:00:00Z",
    "services": 6,
-   "expectedCostPence": 467372,
-   "baselineCostPence": 206878
+   "expectedCostPence": 279597,
+   "baselineCostPence": 98852
   },
   {
    "at": "2026-11-21T21:00:00Z",
    "services": 6,
-   "expectedCostPence": 777857,
-   "baselineCostPence": 207776
+   "expectedCostPence": 462165,
+   "baselineCostPence": 100974
   },
   {
    "at": "2026-11-21T22:00:00Z",
@@ -758,86 +758,86 @@
   {
    "at": "2026-11-22T08:00:00Z",
    "services": 4,
-   "expectedCostPence": 687410,
-   "baselineCostPence": 195264
+   "expectedCostPence": 328262,
+   "baselineCostPence": 93244
   },
   {
    "at": "2026-11-22T09:00:00Z",
    "services": 6,
-   "expectedCostPence": 996542,
-   "baselineCostPence": 248402
+   "expectedCostPence": 475348,
+   "baselineCostPence": 118532
   },
   {
    "at": "2026-11-22T10:00:00Z",
    "services": 6,
-   "expectedCostPence": 1009858,
-   "baselineCostPence": 264416
+   "expectedCostPence": 481542,
+   "baselineCostPence": 125910
   },
   {
    "at": "2026-11-22T11:00:00Z",
    "services": 6,
-   "expectedCostPence": 1041283,
-   "baselineCostPence": 245670
+   "expectedCostPence": 492593,
+   "baselineCostPence": 116132
   },
   {
    "at": "2026-11-22T12:00:00Z",
    "services": 6,
-   "expectedCostPence": 990352,
-   "baselineCostPence": 249360
+   "expectedCostPence": 475499,
+   "baselineCostPence": 119066
   },
   {
    "at": "2026-11-22T13:00:00Z",
    "services": 6,
-   "expectedCostPence": 814373,
-   "baselineCostPence": 251804
+   "expectedCostPence": 381511,
+   "baselineCostPence": 118276
   },
   {
    "at": "2026-11-22T14:00:00Z",
    "services": 6,
-   "expectedCostPence": 878074,
-   "baselineCostPence": 268600
+   "expectedCostPence": 429193,
+   "baselineCostPence": 131306
   },
   {
    "at": "2026-11-22T15:00:00Z",
    "services": 6,
-   "expectedCostPence": 852122,
-   "baselineCostPence": 377424
+   "expectedCostPence": 524340,
+   "baselineCostPence": 232610
   },
   {
    "at": "2026-11-22T16:00:00Z",
    "services": 6,
-   "expectedCostPence": 912980,
-   "baselineCostPence": 401272
+   "expectedCostPence": 570740,
+   "baselineCostPence": 250794
   },
   {
    "at": "2026-11-22T17:00:00Z",
    "services": 6,
-   "expectedCostPence": 687763,
-   "baselineCostPence": 314218
+   "expectedCostPence": 410493,
+   "baselineCostPence": 187034
   },
   {
    "at": "2026-11-22T18:00:00Z",
    "services": 6,
-   "expectedCostPence": 741082,
-   "baselineCostPence": 428776
+   "expectedCostPence": 465309,
+   "baselineCostPence": 269220
   },
   {
    "at": "2026-11-22T19:00:00Z",
    "services": 6,
-   "expectedCostPence": 497727,
-   "baselineCostPence": 361776
+   "expectedCostPence": 299676,
+   "baselineCostPence": 219374
   },
   {
    "at": "2026-11-22T20:00:00Z",
    "services": 6,
-   "expectedCostPence": 242452,
-   "baselineCostPence": 242452
+   "expectedCostPence": 108770,
+   "baselineCostPence": 108770
   },
   {
    "at": "2026-11-22T21:00:00Z",
    "services": 6,
-   "expectedCostPence": 266226,
-   "baselineCostPence": 266226
+   "expectedCostPence": 124414,
+   "baselineCostPence": 124414
   },
   {
    "at": "2026-11-22T22:00:00Z",
