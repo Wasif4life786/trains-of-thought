@@ -25,8 +25,12 @@ import { assess, risk, type Touch } from "./model";
 /** Seats per train by operator (typical formation, "(sample)"). */
 export const CAPACITY: Record<string, number> = { VT: 589, GR: 611, GW: 576, TP: 342, XC: 300, NT: 240, EM: 380, LD: 402, AW: 200 };
 const DEFAULT_CAPACITY = 400;
-/** Share of eligible passengers who claim Delay Repay ("(sample)": published claim rates run at roughly a third). */
-export const CLAIM_RATE = 0.3;
+/**
+ * Share of eligible passengers who claim Delay Repay. Calibrated to ORR / Transport Focus passenger surveys: about 35% of
+ * passengers eligible for any compensation claimed in 2016–18, and 22% of those eligible under Delay Repay 15 in 2020.
+ * We use 25% ("(sample)": an operator would replace it with its own claim data).
+ */
+export const CLAIM_RATE = 0.25;
 
 /** Of the punctuality a signal destroys, how much becomes cancellations rather than late running. */
 const CANCEL_SHARE: Record<SignalKind, number> = {
@@ -102,17 +106,21 @@ export function forecastDelay(j: JourneyOption, touching: Touch[], levers: Lever
   };
 }
 
-/** Average single fare paid: most passengers (70%) hold the cheapest ticket, the rest the cheapest walk-up. */
+/** Average single fare paid: most passengers (85%) hold the cheapest ticket (Advance, railcard, season), the rest the cheapest walk-up. */
 export function averageFare(j: JourneyOption): number {
   const cheapest = j.fares[0]!.pricePence;
   const walkUp = j.fares.find((f) => f.flexible)?.pricePence ?? cheapest;
-  return Math.round(0.7 * cheapest + 0.3 * walkUp);
+  return Math.round(0.85 * cheapest + 0.15 * walkUp);
 }
 
 export const capacityOf = (operator: string) => CAPACITY[operator] ?? DEFAULT_CAPACITY;
 
-/** Passengers on board: a lightly used train is ~30% full, a crush-loaded one ~110%. */
-export const passengersFor = (operator: string, crowding: number, scale = 1) => Math.round(capacityOf(operator) * Math.min(1.1, 0.3 + 0.8 * crowding) * scale);
+/**
+ * Passengers on board. The crowding score (0 = empty … 1 = crush-loaded) becomes a load factor: an ordinary off-peak intercity
+ * train is about 35–45% full, a commuter peak about 70%, a crush-loaded Friday getaway full. Calibrated so an Avanti West Coast
+ * service averages roughly £250–£350 of Delay Repay (the DfT table has Avanti paying about £33M in 2023/24 on roughly 130k services).
+ */
+export const passengersFor = (operator: string, crowding: number, scale = 1) => Math.round(capacityOf(operator) * Math.min(1.05, 0.15 + 0.85 * Math.pow(Math.max(0, crowding), 1.5)) * scale);
 
 /** Expected Delay Repay 15 payout, in pence, for a delay forecast. */
 export function payout(delay: DelayForecast, passengers: number, avgFarePence: number): number {
@@ -165,34 +173,34 @@ function candidates(j: JourneyOption, touching: Touch[], passengers: number, nam
     const s = t.signal;
     switch (s.kind) {
       case "strike":
-        out.push({ kind: "contingency_timetable", title: "Publish a strike timetable by 22:00 the day before", detail: `${s.title}: Delay Repay is then measured against the reduced timetable, not the normal one`, signalId: s.id, costPence: 40_000, levers: only(s.id, 0.3) });
+        out.push({ kind: "contingency_timetable", title: "Publish a strike timetable by 22:00 the day before", detail: `${s.title}: Delay Repay is then measured against the reduced timetable, not the normal one`, signalId: s.id, costPence: 20_000, levers: only(s.id, 0.3) });
         break;
       case "engineering_works":
-        out.push({ kind: "engineering_contingency", title: "Retime around the works and add diversion running time", detail: `${s.title} ${where(t)}, ${window(t)}: publish the retimed path by 22:00 the day before`, signalId: s.id, costPence: 30_000, levers: only(s.id, 0.35) });
+        out.push({ kind: "engineering_contingency", title: "Retime around the works and add diversion running time", detail: `${s.title} ${where(t)}, ${window(t)}: publish the retimed path by 22:00 the day before`, signalId: s.id, costPence: 15_000, levers: only(s.id, 0.35) });
         break;
       case "weather":
-        out.push({ kind: "standby_stock", title: "Position a rescue loco and standby crew", detail: `${s.title} ${where(t)}, ${window(t)}: cuts recovery time when a train fails`, signalId: s.id, costPence: 90_000, levers: only(s.id, 0.6) });
-        if (s.severity >= 0.6) out.push({ kind: "contingency_timetable", title: "Run a reduced, slower weather timetable", detail: `${s.title}: publish by 22:00 the day before so delays are measured against it`, signalId: s.id, costPence: 40_000, levers: only(s.id, 0.35) });
+        out.push({ kind: "standby_stock", title: "Position a rescue loco and standby crew", detail: `${s.title} ${where(t)}, ${window(t)}: cuts recovery time when a train fails`, signalId: s.id, costPence: 45_000, levers: only(s.id, 0.6) });
+        if (s.severity >= 0.6) out.push({ kind: "contingency_timetable", title: "Run a reduced, slower weather timetable", detail: `${s.title}: publish by 22:00 the day before so delays are measured against it`, signalId: s.id, costPence: 20_000, levers: only(s.id, 0.35) });
         break;
       case "football":
       case "concert":
       case "event":
       case "bank_holiday":
-        out.push({ kind: "crowd_management", title: "Queue barriers and extra platform staff", detail: `${s.title} ${where(t)}, ${window(t)}: faster boarding, shorter dwell times`, signalId: s.id, costPence: 35_000, levers: only(s.id, 0.5) });
+        out.push({ kind: "crowd_management", title: "Queue barriers and extra platform staff", detail: `${s.title} ${where(t)}, ${window(t)}: faster boarding, shorter dwell times`, signalId: s.id, costPence: 25_000, levers: only(s.id, 0.5) });
         if (passengers >= 0.9 * capacityOf(j.operator)) {
-          out.push({ kind: "extra_capacity", title: "Strengthen the train (extra coaches)", detail: `${s.title}: about ${passengers} people on board for ${capacityOf(j.operator)} seats`, signalId: s.id, costPence: 250_000, levers: { signalScale: { [s.id]: 0.4 } } });
+          out.push({ kind: "extra_capacity", title: "Strengthen the train (extra coaches)", detail: `${s.title}: about ${passengers} people on board for ${capacityOf(j.operator)} seats`, signalId: s.id, costPence: 120_000, levers: { signalScale: { [s.id]: 0.4 } } });
         }
         break;
       case "other":
-        out.push({ kind: "standby_crew", title: "Roster a standby crew", detail: `${s.title} ${where(t)}, ${window(t)}`, signalId: s.id, costPence: 25_000, levers: only(s.id, 0.7) });
+        out.push({ kind: "standby_crew", title: "Roster a standby crew", detail: `${s.title} ${where(t)}, ${window(t)}`, signalId: s.id, costPence: 20_000, levers: only(s.id, 0.7) });
         break;
     }
   }
   if (j.baseline.onTimeProb <= 0.85) {
-    out.push({ kind: "standby_crew", title: "Roster a standby crew at the origin", detail: `Only ${Math.round(j.baseline.onTimeProb * 100)}% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds`, costPence: 25_000, levers: { baseLateScale: 0.8 } });
+    out.push({ kind: "standby_crew", title: "Roster a standby crew at the origin", detail: `Only ${Math.round(j.baseline.onTimeProb * 100)}% of these trains arrive within 15 minutes: covers late crew changes and slow turnarounds`, costPence: 20_000, levers: { baseLateScale: 0.8 } });
   }
   if (touching.some((t) => CROWD_KINDS.has(t.signal.kind) || t.signal.severity >= 0.5)) {
-    out.push({ kind: "passenger_comms", title: "Warn ticket holders and offer free transfers", detail: "Email and app alerts a few days ahead so flexible travellers move to quieter trains", costPence: 10_000, levers: { passengerScale: 0.85 } });
+    out.push({ kind: "passenger_comms", title: "Warn ticket holders and offer free transfers", detail: "Email and app alerts a few days ahead so flexible travellers move to quieter trains", costPence: 5_000, levers: { passengerScale: 0.85 } });
   }
   return out;
 }

@@ -29,10 +29,10 @@ import {
   type SourceStatus,
 } from "@tot/shared";
 import { adviseBooking, buildHeatmap } from "./advice";
-import { assess, scoreAll, touches } from "./model";
+import { assess, demandAdjusted, scoreAll, touches } from "./model";
 import { assessService, buildExposure, totalsOf, worstRisk } from "./operations";
 
-export { KIND_WEIGHT, assess, proximity, risk, scoreAll, touches, verdictFor } from "./model";
+export { KIND_WEIGHT, assess, demandAdjusted, proximity, risk, scoreAll, touches, verdictFor } from "./model";
 export { adviseBooking, buildHeatmap } from "./advice";
 export { CAPACITY, CLAIM_RATE, assessService, bandShares, buildExposure, forecastDelay, payout, riskLevelFor, totalsOf } from "./operations";
 
@@ -61,6 +61,7 @@ export function createEngine(deps: EngineDeps): Engine {
         earliest: q.earliest,
         latest: q.latest,
         bookingDate,
+        ...(q.railcard ? { railcard: q.railcard } : {}),
       });
       const sources = await listSources(deps, warnings);
       const base = { contractVersion: CONTRACT_VERSION, generatedAt: toIsoUtc(now), query, sources };
@@ -90,9 +91,17 @@ export function createEngine(deps: EngineDeps): Engine {
       );
       const name = (crs: string) => names.get(crs) ?? crs;
 
+      // Price first: a big event at the destination makes Advance fares dearer, and everything downstream uses those prices.
+      const priced = journeys.map((j) => {
+        const touching = touches(j, signals);
+        return { touching, ...demandAdjusted(j, touching, name) };
+      });
       const options = scoreAll(
-        journeys,
-        journeys.map((j) => assess(j, touches(j, signals), name)),
+        priced.map((p) => p.journey),
+        priced.map((p) => {
+          const a = assess(p.journey, p.touching, name);
+          return p.reason ? { ...a, reasons: [...a.reasons, p.reason] } : a;
+        }),
         q.priority,
       );
       const best = options.find((o) => o.verdict === "best") ?? null;
@@ -309,7 +318,7 @@ async function operations(deps: EngineDeps, q: OperationsQuery, opts: { quiet?: 
   const cited = new Set(services.flatMap((s) => [...s.reasons, ...s.mitigations].flatMap((r) => (r.signalId ? [r.signalId] : []))));
 
   if (daysBetween(bookingDate, q.dateTo) > FORECAST_HORIZON_DAYS) warnings.push(`Weather forecasts only reach ${FORECAST_HORIZON_DAYS} days ahead, so weather risk isn't included for the later days.`);
-  warnings.push("Passenger loads, the 30% claim rate and mitigation costs are modelled assumptions (sample), not operator data.");
+  warnings.push("Passenger loads, the 25% claim rate and mitigation costs are modelled assumptions (sample), not operator data.");
 
   return {
     ...base,

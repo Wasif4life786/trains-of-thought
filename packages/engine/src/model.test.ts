@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { KIND_WEIGHT, assess, proximity, risk, scoreAll, touches, verdictFor } from "./model";
+import { KIND_WEIGHT, assess, demandAdjusted, proximity, risk, scoreAll, touches, verdictFor } from "./model";
 import { journey, signal } from "./testkit";
 
 // The journey leaves EUS at 09:00Z and arrives MAN at 11:08Z; MKC is passed at about 09:43Z and SOT at about 10:26Z.
@@ -116,5 +116,36 @@ describe("scoreAll", () => {
 
   it("maps scores to verdicts", () => {
     expect([100, 70, 69, 55, 54, 40, 39, 0].map(verdictFor)).toEqual(["great", "great", "good", "good", "risky", "risky", "avoid", "avoid"]);
+  });
+});
+
+describe("demand-adjusted Advance prices", () => {
+  const j = journey();
+  const adjust = (s: ReturnType<typeof signal>, over = j) => demandAdjusted(over, touches(over, [s]), name);
+
+  it("puts a quarter of a big event's severity on Advance fares at the destination, and leaves walk-up alone", () => {
+    const { journey: out, reason } = adjust(signal({ severity: 0.8 }));
+    expect(out.fares.find((f) => f.ticketType === "advance")!.pricePence).toBe(3600); // £30 + 20%
+    expect(out.fares.find((f) => f.ticketType === "anytime")!.pricePence).toBe(21400);
+    expect(reason).toMatchObject({ kind: "price", effect: "bad", priceDeltaPence: 600 });
+    expect(reason!.text).toContain("up about 20%");
+    expect(reason!.text).toContain("Station MAN");
+  });
+
+  it("doesn't move prices for a small event, one away from the destination, or weather", () => {
+    expect(adjust(signal({ severity: 0.2 })).reason).toBeUndefined();
+    expect(adjust(signal({ scope: { stations: ["SOT"], operators: [], nationwide: false }, start: "2026-11-21T10:00:00Z", end: "2026-11-21T10:40:00Z" })).reason).toBeUndefined();
+    expect(adjust(signal({ kind: "weather", severity: 0.8 })).reason).toBeUndefined();
+  });
+
+  it("does nothing when there's no Advance fare to raise", () => {
+    const soldOut = journey({ fares: [{ ticketType: "anytime", pricePence: 21400, flexible: true }] });
+    expect(adjust(signal({ severity: 0.8 }), soldOut).reason).toBeUndefined();
+  });
+
+  it("keeps fares cheapest first even when the uplift passes a walk-up price", () => {
+    const close = journey({ fares: [{ ticketType: "advance", pricePence: 9000, flexible: false }, { ticketType: "off_peak", pricePence: 10000, flexible: true }, { ticketType: "anytime", pricePence: 21400, flexible: true }] });
+    const out = adjust(signal({ severity: 1 }), close).journey.fares;
+    expect(out.map((f) => f.pricePence)).toEqual([10000, 11250, 21400]);
   });
 });

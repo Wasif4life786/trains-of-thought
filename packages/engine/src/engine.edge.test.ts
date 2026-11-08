@@ -21,6 +21,14 @@ describe("recommend: world signals", () => {
     expect(r.signals.map((s) => s.id)).toEqual([match.id]);
   });
 
+  it("makes Advance dearer on trains arriving into a big match, and says so", async () => {
+    const r = await recommend([early, late], [match]);
+    const [a, b] = r.options;
+    expect(a!.pricePence).toBe(3000); // arrives long before the match
+    expect(b!.pricePence).toBeGreaterThan(3000); // arrives into it
+    expect(b!.reasons.some((x) => x.kind === "price" && /Advance prices up/.test(x.text))).toBe(true);
+  });
+
   it("lets a nationwide strike hit every train that day", async () => {
     const strike = signal({ id: "s", kind: "strike", title: "RMT strike", severity: 1, confidence: 0.9, scope: { stations: [], operators: [], nationwide: true }, start: "2026-11-21T00:00:00Z", end: "2026-11-21T23:59:00Z" });
     const r = await recommend([early, late], [strike]);
@@ -64,6 +72,13 @@ describe("recommend: the slider and edge cases", () => {
     const r = await createEngine({ rail, signals: stubSignals([]), now: () => new Date("2026-11-07T23:30:00Z") }).recommend(query({ bookingDate: undefined }));
     expect(r.query.bookingDate).toBe("2026-11-07");
     expect(rail.lastQuery?.bookingDate).toBe("2026-11-07");
+  });
+
+  it("passes the railcard to the rail lane", async () => {
+    const rail = stubRail([early]);
+    const r = await createEngine({ rail, signals: stubSignals([]), now: NOW }).recommend(query({ railcard: "16-25" }));
+    expect(rail.lastQuery?.railcard).toBe("16-25");
+    expect(r.query.railcard).toBe("16-25");
   });
 
   it("warns when the dates are beyond the weather forecast", async () => {

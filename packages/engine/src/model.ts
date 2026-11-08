@@ -132,6 +132,26 @@ export function assess(j: JourneyOption, touching: Touch[], name: (crs: string) 
   return { reliability: round(clamp01(reliability), 3), crowding: round(clamp01(crowding)), reasons };
 }
 
+/**
+ * Demand-adjusted Advance prices (contract.md §5.5): when a big event is at the destination as the train arrives, Advance fares
+ * for it sell dearer. Uplift is a quarter of the event's severity (a severity-0.8 match: +20%); walk-up fares don't move.
+ */
+export function demandAdjusted(j: JourneyOption, touching: Touch[], name: (crs: string) => string): { journey: JourneyOption; reason?: Reason } {
+  const events = touching.filter((t) => t.proximity === 1 && t.signal.scope.stations.includes(j.destination) && CROWD_KINDS.has(t.signal.kind) && t.signal.severity >= 0.4);
+  const advance = j.fares.find((f) => f.ticketType === "advance");
+  if (events.length === 0 || !advance) return { journey: j };
+  const top = events.reduce((a, b) => (b.signal.severity > a.signal.severity ? b : a));
+  const uplift = 0.25 * top.signal.severity;
+  const fares = j.fares
+    .map((f) => (f.ticketType === "advance" ? { ...f, pricePence: Math.round(f.pricePence * (1 + uplift)) } : f))
+    .sort((a, b) => a.pricePence - b.pricePence || (a.ticketType === "advance" ? -1 : 1));
+  const rise = Math.round(advance.pricePence * uplift);
+  return {
+    journey: { ...j, fares },
+    reason: { kind: "price", text: `Advance prices up about ${Math.round(uplift * 100)}%: ${top.signal.title} in ${name(j.destination)}`, effect: "bad", priceDeltaPence: rise },
+  };
+}
+
 const impact = (r: Reason) => Math.abs(r.reliabilityDelta ?? 0) * 100 + Math.abs(r.priceDeltaPence ?? 0) / 200 + (r.reliabilityDelta === undefined && r.priceDeltaPence === undefined ? 2 : 0);
 
 export function verdictFor(score: number): Verdict {
