@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+/* Data inputs map: a live signal pulses outwards; live engineering works march along the line. */
+@keyframes tot-pulse {
+  from {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+  to {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+.tot-pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: tot-pulse 1.6s ease-out infinite;
+}
+
+@keyframes tot-march {
+  to {
+    stroke-dashoffset: -34;
+  }
+}
+.tot-march {
+  animation: tot-march 0.9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tot-pulse,
+  .tot-march {
+    animation: none;
+  }
+}

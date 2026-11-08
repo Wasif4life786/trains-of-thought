@@ -1,4 +1,5 @@
 import type { Reason } from "@tot/shared";
+import { pounds } from "./ui";
 
 /** One icon per reason kind (contract.md §6.4). */
 export const REASON_ICON: Record<Reason["kind"], string> = {
@@ -27,7 +28,10 @@ export function ReasonChip({ reason }: { reason: Reason }) {
   return (
     <span className={`inline-flex items-start gap-1.5 rounded-lg px-2 py-1 text-xs ring-1 ${TONE[reason.effect]}`}>
       <span aria-hidden>{REASON_ICON[reason.kind]}</span>
-      <span>{reason.text}</span>
+      <span>
+        {reason.text}
+        {reason.compensationPence ? <span className="font-semibold"> · +{pounds(reason.compensationPence)} exposure</span> : null}
+      </span>
     </span>
   );
 }
