@@ -9,7 +9,8 @@
   },
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "test": "vitest run"
+    "test": "vitest run",
+    "fixtures:ops": "tsx scripts/generate-ops-fixtures.ts"
   },
   "dependencies": {
     "@tot/shared": "*"

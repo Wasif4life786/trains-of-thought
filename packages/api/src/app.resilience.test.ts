@@ -24,13 +24,22 @@ afterEach(async () => {
 });
 
 describe("a failing lane", () => {
-  const broken: Engine = { name: "broken", recommend: async () => Promise.reject(new Error("engine exploded")) };
+  const explode = async () => Promise.reject(new Error("engine exploded"));
+  const broken: Engine = { name: "broken", recommend: explode, operations: explode, network: explode, inputs: explode };
 
   it("falls back to the fixtures with a warning instead of a 500", async () => {
     const api = await start({ engine: broken, fallback: fixtures });
     const r = await api.recommendations(FIXTURE_QUERY);
     expect(r.options.length).toBeGreaterThan(0);
     expect(r.warnings.at(-1)).toMatch(/live engine failed/);
+  });
+
+  it("falls back for the operator endpoints too", async () => {
+    const api = await start({ engine: broken, fallback: fixtures });
+    const ops = await api.operations({ ...FIXTURE_QUERY, earliest: "05:00", latest: "23:30" });
+    expect(ops.services.length).toBeGreaterThan(0);
+    expect(ops.warnings.at(-1)).toMatch(/live engine failed/);
+    expect((await api.network({ dateFrom: FIXTURE_QUERY.dateFrom, dateTo: FIXTURE_QUERY.dateTo })).alerts.length).toBeGreaterThan(0);
   });
 
   it("is a 500 only when there's no fallback to give", async () => {
@@ -49,7 +58,7 @@ describe("a failing lane", () => {
 describe("the cache", () => {
   const counting = () => {
     const calls = { n: 0 };
-    const engine: Engine = { name: "counting", recommend: async (q) => (calls.n++, fixtures.engine.recommend(q)) };
+    const engine: Engine = { ...fixtures.engine, name: "counting", recommend: async (q) => (calls.n++, fixtures.engine.recommend(q)) };
     return { calls, engine };
   };
 

@@ -3,13 +3,14 @@ import { ZodError } from "zod";
 import {
   API_ROUTES,
   CONTRACT_VERSION,
+  parseNetworkQuery,
+  parseOperationsQuery,
   parseRecommendationQuery,
   parseSignalQuery,
   toIsoUtc,
   type Engine,
   type Health,
   type RailProvider,
-  type RecommendationResponse,
   type SignalProvider,
 } from "@tot/shared";
 
@@ -50,7 +51,17 @@ export function createApp({ signals, rail, engine, fallback, cacheMs = 5 * 60_00
     }
   }
 
-  const cache = new Map<string, { at: number; body: RecommendationResponse }>();
+  const cache = new Map<string, { at: number; body: unknown }>();
+
+  /** Serves an identical request from memory for `cacheMs`; a degraded (fallback) answer is never cached. */
+  async function cached<T extends { warnings: string[] }>(key: string, what: string, real: () => Promise<T>, backup: (() => Promise<T>) | undefined): Promise<T> {
+    const hit = cache.get(key);
+    if (hit && Date.now() - hit.at < cacheMs) return hit.body as T;
+    const { value, degraded } = await guarded(what, real, backup);
+    const body: T = degraded ? { ...value, warnings: [...value.warnings, "The live engine failed, so this answer comes from demo fixtures."] } : value;
+    if (!degraded && cacheMs > 0) cache.set(key, { at: Date.now(), body });
+    return body;
+  }
 
   app.get(API_ROUTES.health, (_req, res) => {
     const health: Health = {
@@ -72,16 +83,22 @@ export function createApp({ signals, rail, engine, fallback, cacheMs = 5 * 60_00
 
   app.get(API_ROUTES.recommendations, async (req, res) => {
     const q = parseRecommendationQuery(searchParams(req));
-    const key = JSON.stringify(q);
-    const hit = cache.get(key);
-    if (hit && Date.now() - hit.at < cacheMs) {
-      res.json(hit.body);
-      return;
-    }
-    const { value, degraded } = await guarded("engine.recommend", () => engine.recommend(q), fallback && (() => fallback.engine.recommend(q)));
-    const body: RecommendationResponse = degraded ? { ...value, warnings: [...value.warnings, "The live engine failed, so this answer comes from demo fixtures."] } : value;
-    if (!degraded && cacheMs > 0) cache.set(key, { at: Date.now(), body });
-    res.json(body);
+    res.json(await cached(`rec:${JSON.stringify(q)}`, "engine.recommend", () => engine.recommend(q), fallback && (() => fallback.engine.recommend(q))));
+  });
+
+  app.get(API_ROUTES.operations, async (req, res) => {
+    const q = parseOperationsQuery(searchParams(req));
+    res.json(await cached(`ops:${JSON.stringify(q)}`, "engine.operations", () => engine.operations(q), fallback && (() => fallback.engine.operations(q))));
+  });
+
+  app.get(API_ROUTES.network, async (req, res) => {
+    const q = parseNetworkQuery(searchParams(req));
+    res.json(await cached(`net:${JSON.stringify(q)}`, "engine.network", () => engine.network(q), fallback && (() => fallback.engine.network(q))));
+  });
+
+  app.get(API_ROUTES.inputs, async (req, res) => {
+    const q = parseNetworkQuery(searchParams(req));
+    res.json(await cached(`inp:${JSON.stringify(q)}`, "engine.inputs", () => engine.inputs(q), fallback && (() => fallback.engine.inputs(q))));
   });
 
   app.get(API_ROUTES.signals, async (req, res) => {
